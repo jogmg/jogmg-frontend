@@ -4,22 +4,22 @@ import Image from "next/image";
 import jogmgLogo from "../../../public/logo.svg";
 import linkedinIcon from "../../../public/linkedin.svg";
 import githubIcon from "../../../public/github.svg";
-import NavText from "./NavText";
-import { BrowserRouter, Route, Routes } from "react-router";
+import NavTextLink from "@/app/components/NavTextLink";
+import { BrowserRouter } from "react-router";
+import Logo from "@/app/components/Logo";
 
 export default function Header() {
   return (
     <header>
-      <nav className="navBar">
-        <div className="navLinks">
+      <nav className="nav-bar">
+        <div className="nav-links">
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<NavText />} />
-            </Routes>
+            <NavTextLink text="PORTFOLIO" navTo="/portfolio" />
+            <NavTextLink text="ABOUT" navTo="/about" />
           </BrowserRouter>
         </div>
-        <Image src={jogmgLogo} alt="Jogmg Logo" />
-        <div className="navSocials">
+        <Logo />
+        <div className="nav-socials">
           <Image src={linkedinIcon} alt="Linkedin Icon" />
           <Image src={githubIcon} alt="Github Icon" />
         </div>

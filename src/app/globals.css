@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   @apply bg-background-(main) text-[16px] text-secondary;
 }
@@ -22,30 +10,51 @@ header {
   @apply px-[100px] py-[20px];
 }
 
-.navBar {
+.nav-bar {
   @apply flex items-center justify-between;
 }
 
-.navLinks {
-  @apply flex gap-[30px];
-}
-
-.navSocials {
+/* NavLinks */
+.nav-links {
   @apply flex gap-[30px];
 }
 
 .nav-text-container {
-  @apply px-[16px] py-[8px];
+  @apply flex flex-col items-center relative px-[16px] py-[8px];
 }
 
 .nav-text {
-  @apply hover:drop-shadow-[-2px_0_4px_#1FDA53];
+  @apply transition-all ease-in duration-500;
 }
 
-.nav-text-container.active {
-  @apply border-b-[2px] border-primary;
+.nav-text-container:hover .nav-text {
+  @apply drop-shadow-[-2px_0_4px_#1FDA53] transition-all ease-out duration-500;
 }
 
 .nav-text.active {
   @apply drop-shadow-[-2px_0_4px_#1FDA53];
 }
+
+.nav-text-line {
+  @apply absolute bottom-0 bg-primary w-[0px] h-[2px] transition-all ease-in duration-500;
+}
+
+.nav-text-line.active {
+  @apply absolute bottom-0 bg-primary w-[45%] h-[2px] transition-all ease-out duration-500;
+}
+
+/* Logo */
+.logo g :not(.main) {
+  @apply invisible opacity-0 transition-all ease-in duration-500;
+}
+
+.logo:hover g :not(.main) {
+  @apply visible opacity-100 transition-all ease-out duration-500;
+}
+
+/* NavSocials */
+.nav-socials {
+  @apply flex gap-[30px];
+}
+
+
