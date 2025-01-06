@@ -15,7 +15,37 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-background-(main) text-[16px] text-secondary;
+}
+
+header {
+  @apply px-[100px] py-[20px];
+}
+
+.navBar {
+  @apply flex items-center justify-between;
+}
+
+.navLinks {
+  @apply flex gap-[30px];
+}
+
+.navSocials {
+  @apply flex gap-[30px];
+}
+
+.nav-text-container {
+  @apply px-[16px] py-[8px];
+}
+
+.nav-text {
+  @apply hover:drop-shadow-[-2px_0_4px_#1FDA53];
+}
+
+.nav-text-container.active {
+  @apply border-b-[2px] border-primary;
+}
+
+.nav-text.active {
+  @apply drop-shadow-[-2px_0_4px_#1FDA53];
 }
