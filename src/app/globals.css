@@ -44,11 +44,11 @@ header {
 }
 
 /* Logo */
-.logo g :not(.main) {
+.logo g :not(#foreground) {
   @apply invisible opacity-0 transition-all ease-in duration-500;
 }
 
-.logo:hover g :not(.main) {
+.logo:hover g :not(#foreground) {
   @apply visible opacity-100 transition-all ease-out duration-500;
 }
 
@@ -57,4 +57,26 @@ header {
   @apply flex gap-[30px];
 }
 
+.linkedin-icon #foreground {
+  @apply fill-secondary transition-all ease-in duration-500;
+}
 
+.linkedin-icon {
+  @apply hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
+}
+
+.linkedin-icon:hover #foreground {
+  @apply fill-primary transition-all ease-out duration-500;
+}
+
+.github-icon #foreground {
+  @apply fill-secondary transition-all ease-in duration-500;
+}
+
+.github-icon {
+  @apply hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
+}
+
+.github-icon:hover #foreground {
+  @apply fill-primary transition-all ease-out duration-500;
+}

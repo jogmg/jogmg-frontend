@@ -1,28 +1,26 @@
 "use client";
 
-import Image from "next/image";
-import jogmgLogo from "../../../public/logo.svg";
-import linkedinIcon from "../../../public/linkedin.svg";
-import githubIcon from "../../../public/github.svg";
-import NavTextLink from "@/app/components/NavTextLink";
 import { BrowserRouter } from "react-router";
 import Logo from "@/app/components/Logo";
+import NavTextLink from "@/app/components/NavTextLink";
+import LinkedinIcon from "@/app/components/LinkedinIcon";
+import GithubIcon from "@/app/components/GithubIcon";
 
 export default function Header() {
   return (
     <header>
       <nav className="nav-bar">
-        <div className="nav-links">
-          <BrowserRouter>
+        <BrowserRouter>
+          <div className="nav-links">
             <NavTextLink text="PORTFOLIO" navTo="/portfolio" />
             <NavTextLink text="ABOUT" navTo="/about" />
-          </BrowserRouter>
-        </div>
-        <Logo />
-        <div className="nav-socials">
-          <Image src={linkedinIcon} alt="Linkedin Icon" />
-          <Image src={githubIcon} alt="Github Icon" />
-        </div>
+          </div>
+          <Logo />
+          <div className="nav-socials">
+            <LinkedinIcon />
+            <GithubIcon />
+          </div>
+        </BrowserRouter>
       </nav>
     </header>
   );
