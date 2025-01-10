@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Quantico } from "next/font/google";
 import "./globals.css";
 import Header from "@/app/components/Header";
+import VideoLoop from "@/app/components/VideoLoop";
 
 const quantico = Quantico({
   weight: ["400"],
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${quantico.className}`}>
+        <VideoLoop />
         <Header />
         {children}
       </body>

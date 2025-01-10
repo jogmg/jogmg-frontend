@@ -6,6 +6,10 @@ body {
   @apply bg-background-(main) text-[16px] text-secondary;
 }
 
+.video-loop {
+  @apply absolute object-cover w-screen h-screen z-[-20];
+}
+
 header {
   @apply px-[100px] py-[20px];
 }
@@ -54,7 +58,7 @@ header {
 
 /* NavSocials */
 .nav-socials {
-  @apply flex gap-[30px];
+  @apply flex gap-[30px] pl-[120px];
 }
 
 .linkedin-icon #foreground {
@@ -80,3 +84,9 @@ header {
 .github-icon:hover #foreground {
   @apply fill-primary transition-all ease-out duration-500;
 }
+
+/* Home Page */
+.title-card {
+  @apply px-[12px] py-[7px] bg-primary rounded-[7px] text-background-(main) text-[12px]
+}
+
