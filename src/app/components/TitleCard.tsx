@@ -1,7 +1,9 @@
-import React from 'react'
+import { consolas } from "../fonts";
 
-export default function TitleCard() {
-  return (
-    <div className='title-card'>SOFTWARE DEVELOPER</div>
-  )
+interface Props {
+  text: string;
+}
+
+export default function TitleCard({ text }: Props) {
+  return <div className={`title-card ${consolas.className}`}>{text}</div>;
 }

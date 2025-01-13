@@ -1,14 +1,20 @@
 import TitleCard from "./components/TitleCard";
+import { lexend } from "./fonts";
+import Button from "./components/Button";
 
 export default function Home() {
   return (
-    <main>
-      <div className="flex flex-col items-start px-[70px] py-[50px] bg-background-(alt) gap-[14px] w-[646px] h-[451px] rounded-[25px]">
-        <p>Hey there! 👋</p>
-        <h1>I'm Joshua Attah</h1>
-        <div className="flex gap-[10px] items-center">
-          <TitleCard />
-          <TitleCard />
+    <main className="intro">
+      <p>Hey there! 👋</p>
+      <div className="name-title-cta-container">
+        <div className="name-title-container">
+          <h1 className={`${lexend.className} tracking-[2.4px]`}>
+            I'm Joshua Attah
+          </h1>
+          <div className="title-card-container">
+            <TitleCard text="SOFTWARE DEVELOPER" />
+            <TitleCard text="UI/UX DESIGNER" />
+          </div>
         </div>
         <p>
           A Software Engineer and UI/UX Designer who excels in creating
@@ -16,6 +22,10 @@ export default function Home() {
           skills extend to Video Editing and Graphic Design, enabling me to
           create visually engaging narratives and brand identities.
         </p>
+        <div className="cta-container">
+          <Button text="View Portfolio" type="main" />
+          <Button text="Get in touch" type="alt" />
+        </div>
       </div>
     </main>
   );

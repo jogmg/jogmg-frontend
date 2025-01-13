@@ -86,7 +86,46 @@ header {
 }
 
 /* Home Page */
-.title-card {
-  @apply px-[12px] py-[7px] bg-primary rounded-[7px] text-background-(main) text-[12px]
+.intro {
+  @apply absolute right-[100px] bottom-[100px] flex flex-col items-start px-[70px] py-[50px] bg-background-(alt) gap-[14px] w-[646px] rounded-[25px] shadow-[-30px_-30px_30px_0_rgba(31,218,83,0.25)];
 }
 
+.name-title-cta-container {
+  @apply flex flex-col gap-[30px];
+}
+
+.name-title-container {
+  @apply flex flex-col gap-[7px];
+}
+
+.title-card-container {
+  @apply flex gap-[10px] items-center;
+}
+
+.title-card {
+  @apply px-[12px] py-[6px] bg-primary-(light) rounded-[7px] text-background-(main) text-[13px] tracking-[0.6px];
+}
+
+h1 {
+  @apply text-[48px] font-bold;
+}
+
+p {
+  @apply tracking-[0.8px];
+}
+
+button {
+  @apply font-normal;
+}
+
+.main-btn {
+  @apply px-[16px] py-[7px] rounded-[9px] bg-primary text-background-(main) hover:bg-primary-(light) transition-all ease-out duration-500;
+}
+
+.alt-btn {
+  @apply px-[16px] py-[7px] rounded-[9px] border-primary border-[1px] text-primary hover:bg-background-(main) transition-all ease-out duration-500;
+}
+
+.cta-container {
+  @apply flex gap-[24px];
+}

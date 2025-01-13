@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
-import { Quantico } from "next/font/google";
+import { quantico } from "./fonts";
 import "./globals.css";
 import Header from "@/app/components/Header";
 import VideoLoop from "@/app/components/VideoLoop";
-
-const quantico = Quantico({
-  weight: ["400"],
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
