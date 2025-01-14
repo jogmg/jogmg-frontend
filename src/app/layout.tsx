@@ -3,6 +3,7 @@ import { quantico } from "./fonts";
 import "./globals.css";
 import NavBar from "@/app/components/NavBar";
 import VideoLoop from "@/app/components/VideoLoop";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <VideoLoop />
         <NavBar />
         {children}
+        <Footer />
       </body>
     </html>
   );

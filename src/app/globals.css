@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 body {
-  @apply bg-background-(main) text-[16px] text-secondary;
+  @apply flex flex-col h-screen text-[16px] text-secondary bg-background-(main);
+}
+
+footer {
+  @apply flex justify-center py-[20px] text-primary;
 }
 
 .video-loop {
@@ -86,8 +90,12 @@ header {
 }
 
 /* Home Page */
+.home-container {
+  @apply relative flex items-center px-[100px] h-screen;
+}
+
 .intro-container {
-  @apply absolute z-[-10] right-[100px] bottom-[100px] px-[70px] py-[50px] w-[646px] rounded-[25px] bg-background-(alt) shadow-[-30px_-30px_30px_0_rgba(31,218,83,0.25)];
+  @apply ml-auto right-[100px] bottom-[0px] px-[70px] py-[50px] w-[646px] rounded-[25px] bg-background-(alt) shadow-[-30px_-30px_30px_0_rgba(31,218,83,0.25)];
 }
 
 .intro {
