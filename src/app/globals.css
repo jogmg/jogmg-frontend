@@ -155,7 +155,7 @@ button {
 }
 
 .get-in-touch {
-  @apply invisible fixed opacity-0 flex flex-col items-start gap-[24px];
+  @apply invisible fixed opacity-0 flex flex-col items-start gap-[30px];
 }
 
 .get-in-touch.active {
@@ -175,5 +175,5 @@ form {
 }
 
 textarea {
-  @apply h-[109px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-secondary resize-none;
+  @apply h-[80px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-secondary resize-none;
 }

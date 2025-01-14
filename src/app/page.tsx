@@ -32,27 +32,20 @@ export default function Home() {
                 <TitleCard text="UI/UX DESIGNER" />
               </div>
             </div>
-            <p>
-              I'm a Software Developer and UI/UX Designer from Nigeria. I
-              design, build, and burnout. I'm dedicated to creating unique and
-              fascinating user experiences. My goal is to deliver high-quality
-              software solutions that meet user needs. Let's collaborate to
+            <p className="text-balance">
+              I'm a Software Developer and UI/UX Designer from Nigeria,
+              dedicated to delivering high-quality software solutions that meet
+              user needs. I design, build, and burnout. Let's collaborate to
               bring your ideas to life.
             </p>
             <div className="cta-container">
               <Button text="View Portfolio" type="main" />
-              <Button
-                text="Get in touch"
-                type="alt"
-                action={handleGetInTouch}
-              />
+              <Button text="Contact Me" type="alt" action={handleGetInTouch} />
             </div>
           </div>
         </article>
         <article className={`get-in-touch ${toggled ? "active" : ""}`}>
-          <h2 className={`${lexend.className} tracking-[1.6px]`}>
-            Get in touch
-          </h2>
+          <h2 className={`${lexend.className} tracking-[1.6px]`}>Contact Me</h2>
           <form action="">
             <div className="input-container">
               <InputField name="name" placeholder="Name" />
