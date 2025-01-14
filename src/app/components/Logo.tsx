@@ -1,8 +1,11 @@
-import { NavLink } from "react-router";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Logo() {
+  const pathname = usePathname();
+
   return (
-    <NavLink to={"/"}>
+    <Link href={"/"} aria-current={pathname === "/" ? "page" : undefined} aria-label="Site homepage logo">
       <svg
         className="logo"
         width="177"
@@ -3279,6 +3282,6 @@ export default function Logo() {
           </clipPath>
         </defs>
       </svg>
-    </NavLink>
+    </Link>
   );
 }

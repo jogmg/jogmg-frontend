@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { quantico } from "./fonts";
 import "./globals.css";
-import Header from "@/app/components/Header";
+import NavBar from "@/app/components/NavBar";
 import VideoLoop from "@/app/components/VideoLoop";
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${quantico.className}`}>
         <VideoLoop />
-        <Header />
+        <NavBar />
         {children}
       </body>
     </html>

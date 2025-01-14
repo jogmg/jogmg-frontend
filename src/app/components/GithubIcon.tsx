@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function GithubIcon() {
   return (
-    <Link href={"https://github.com/JoGMG"} target="_blank">
+    <Link href={"https://github.com/JoGMG"} target="_blank" aria-label="View my Github">
       <svg
         className="github-icon"
         width="40"

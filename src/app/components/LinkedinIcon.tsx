@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function LinkedinIcon() {
   return (
-    <Link href={"https://www.linkedin.com/in/joattah"} target="_blank">
+    <Link href={"https://www.linkedin.com/in/joattah"} target="_blank" aria-label="Connect with me on Linkedin">
       <svg
         className="linkedin-icon"
         width="40"

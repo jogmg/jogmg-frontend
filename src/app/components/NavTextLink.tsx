@@ -1,28 +1,31 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router";
 
 interface Props {
   text: string;
-  navTo: string;
+  to: string;
 }
 
-export default function NavTextLink({ text, navTo }: Props) {
-  const [isLinkActive, setIsLinkActive] = useState(false);
+export default function NavTextLink({ text, to }: Props) {
+  const [isActive, setIsActive] = useState(false);
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsActive(pathname === to);
+  }, [pathname]);
 
   return (
-    <NavLink
-      to={navTo}
-      className={({ isActive }) => {
-        useEffect(() => {
-          setIsLinkActive(isActive);
-        }, [isActive]);
-        return `nav-text-container ${isActive ? "active" : ""}`;
-      }}
+    <Link
+      className="nav-text-container"
+      href={to}
+      aria-current={isActive ? "page" : undefined}
     >
-      <p className={`nav-text ${isLinkActive ? "active" : ""}`}>{text}</p>
-      <div className={`nav-text-line ${isLinkActive ? "active" : ""}`}></div>
-    </NavLink>
+      <p className={`nav-text ${isActive ? "active" : ""}`}>{text}</p>
+      <div className={`nav-text-line ${isActive ? "active" : ""}`}></div>
+    </Link>
   );
 }

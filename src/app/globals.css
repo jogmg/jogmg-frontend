@@ -86,8 +86,12 @@ header {
 }
 
 /* Home Page */
+.intro-container {
+  @apply absolute z-[-10] right-[100px] bottom-[100px] px-[70px] py-[50px] w-[646px] rounded-[25px] bg-background-(alt) shadow-[-30px_-30px_30px_0_rgba(31,218,83,0.25)];
+}
+
 .intro {
-  @apply absolute right-[100px] bottom-[100px] flex flex-col items-start px-[70px] py-[50px] bg-background-(alt) gap-[14px] w-[646px] rounded-[25px] shadow-[-30px_-30px_30px_0_rgba(31,218,83,0.25)];
+  @apply flex flex-col items-start gap-[14px];
 }
 
 .name-title-cta-container {
@@ -110,6 +114,10 @@ h1 {
   @apply text-[48px] font-bold;
 }
 
+h2 {
+  @apply text-[32px] font-semibold;
+}
+
 p {
   @apply tracking-[0.8px];
 }
@@ -128,4 +136,24 @@ button {
 
 .cta-container {
   @apply flex gap-[24px];
+}
+
+.get-in-touch {
+  @apply flex flex-col items-start gap-[24px];
+}
+
+form {
+  @apply flex flex-col gap-[14px];
+}
+
+.input-container {
+  @apply flex gap-[14px]
+}
+
+.input-field {
+  @apply h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] bg-transparent placeholder:text-secondary ;  
+}
+
+textarea {
+  @apply px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] bg-transparent placeholder:text-secondary resize-none;
 }
