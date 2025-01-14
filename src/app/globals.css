@@ -131,7 +131,7 @@ button {
 }
 
 .main-btn {
-  @apply px-[16px] py-[7px] rounded-[9px] bg-primary text-background-(main) hover:bg-primary-(light) transition-all ease-out duration-500;
+  @apply px-[16px] py-[7px] rounded-[10px] bg-primary text-background-(main) hover:bg-primary-(light) transition-all ease-out duration-500;
 }
 
 #send-btn {
@@ -139,7 +139,7 @@ button {
 }
 
 .alt-btn {
-  @apply px-[16px] py-[7px] rounded-[9px] border-primary border-[1px] text-primary hover:bg-background-(main) transition-all ease-out duration-500;
+  @apply px-[16px] py-[7px] rounded-[10px] border-primary border-[1px] text-primary hover:bg-background-(main) transition-all ease-out duration-500;
 }
 
 .cta-container {
@@ -163,9 +163,9 @@ form {
 }
 
 .input-field {
-  @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:bg-background-(main) placeholder:text-secondary focus:border-[1px] focus:bg-background-(main);
+  @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-secondary focus:border-[1px] focus:bg-background-(main);
 }
 
 textarea {
-  @apply h-[109px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:bg-background-(main) placeholder:text-secondary resize-none;
+  @apply h-[109px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-secondary resize-none;
 }
