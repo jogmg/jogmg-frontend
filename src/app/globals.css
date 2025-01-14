@@ -91,7 +91,11 @@ header {
 }
 
 .intro {
-  @apply flex flex-col items-start gap-[14px];
+  @apply invisible fixed opacity-0 flex flex-col items-start gap-[14px];
+}
+
+.intro.active {
+  @apply visible static opacity-100 transition-all ease-out duration-1000;
 }
 
 .name-title-cta-container {
@@ -130,6 +134,10 @@ button {
   @apply px-[16px] py-[7px] rounded-[9px] bg-primary text-background-(main) hover:bg-primary-(light) transition-all ease-out duration-500;
 }
 
+#send-btn {
+  @apply w-[170px];
+}
+
 .alt-btn {
   @apply px-[16px] py-[7px] rounded-[9px] border-primary border-[1px] text-primary hover:bg-background-(main) transition-all ease-out duration-500;
 }
@@ -139,21 +147,25 @@ button {
 }
 
 .get-in-touch {
-  @apply flex flex-col items-start gap-[24px];
+  @apply invisible fixed opacity-0 flex flex-col items-start gap-[24px];
+}
+
+.get-in-touch.active {
+  @apply visible static opacity-100 transition-all ease-out duration-1000;
 }
 
 form {
-  @apply flex flex-col gap-[14px];
+  @apply flex flex-col gap-[13px] w-full;
 }
 
 .input-container {
-  @apply flex gap-[14px]
+  @apply flex gap-[13px];
 }
 
 .input-field {
-  @apply h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] bg-transparent placeholder:text-secondary ;  
+  @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:bg-background-(main) placeholder:text-secondary focus:border-[1px] focus:bg-background-(main);
 }
 
 textarea {
-  @apply px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] bg-transparent placeholder:text-secondary resize-none;
+  @apply h-[109px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:bg-background-(main) placeholder:text-secondary resize-none;
 }

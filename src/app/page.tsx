@@ -1,13 +1,25 @@
+"use client";
+
 import TitleCard from "./components/TitleCard";
 import { lexend } from "./fonts";
 import Button from "./components/Button";
 import InputField from "./components/InputField";
-
+import { useState } from "react";
 
 export default function Home() {
+  const [toggled, setIsToggled] = useState(false);
+
+  const handleGoBack = () => {
+    setIsToggled(false);
+  };
+
+  const handleGetInTouch = () => {
+    setIsToggled(true);
+  };
+
   return (
     <main className="intro-container">
-      {/* <section className="intro">
+      <section className={`intro ${toggled ? "" : "active"}`}>
         <p>Hey there! 👋</p>
         <div className="name-title-cta-container">
           <div className="name-title-container">
@@ -20,33 +32,31 @@ export default function Home() {
             </div>
           </div>
           <p>
-            I specialize in Software Development enhanced by my UI/UX Design
-            background. I design, build, and burnout.
+            I'm a Software Developer and UI/UX Designer from Nigeria. I design,
+            build, and burnout. I'm dedicated to creating unique and fascinating
+            user experiences. My goal is to deliver high-quality software
+            solutions that meet user needs. Let's collaborate to bring your
+            ideas to life.
           </p>
           <div className="cta-container">
             <Button text="View Portfolio" type="main" />
-            <Button text="Get in touch" type="alt" />
+            <Button text="Get in touch" type="alt" action={handleGetInTouch} />
           </div>
         </div>
-      </section> */}
-      <section className="get-in-touch">
+      </section>
+      <section className={`get-in-touch ${toggled ? "active" : ""}`}>
         <h2 className={`${lexend.className} tracking-[1.6px]`}>Get in touch</h2>
         <form action="">
           <div className="input-container">
-            <InputField name="name" placeholder="Name"/>
-            <InputField name="email" placeholder="Email"/>
+            <InputField name="name" placeholder="Name" />
+            <InputField name="email" placeholder="Email" />
           </div>
-          <InputField name="subject" placeholder="Subject"/>
-          <textarea
-            name="message"
-            cols={20}
-            rows={5}
-            placeholder="Message"
-          />
+          <InputField name="subject" placeholder="Subject" />
+          <textarea name="message" placeholder="Message" />
         </form>
         <div className="cta-container">
-          <Button text="Send" type="main" />
-          <Button text="Go Back" type="alt" />
+          <Button id="send-btn" text="Send" type="main" />
+          <Button text="Go Back" type="alt" action={handleGoBack} />
         </div>
       </section>
     </main>
