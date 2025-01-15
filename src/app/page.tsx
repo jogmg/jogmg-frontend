@@ -49,7 +49,7 @@ export default function Home() {
           <form action="">
             <div className="input-container">
               <InputField name="name" placeholder="Name" />
-              <InputField name="email" placeholder="Email" />
+              <InputField type="email" name="email" placeholder="Email" />
             </div>
             <InputField name="subject" placeholder="Subject" />
             <textarea name="message" placeholder="Message" />
