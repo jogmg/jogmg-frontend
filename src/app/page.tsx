@@ -39,8 +39,8 @@ export default function Home() {
               bring your ideas to life.
             </p>
             <div className="cta-container">
-              <Button text="View Portfolio" type="main" />
-              <Button text="Contact Me" type="alt" action={handleGetInTouch} />
+              <Button id="view-btn" text="View Portfolio" type="main" iconType="link" />
+              <Button id="contact-btn" text="Contact Me" type="alt" iconType="forward" action={handleGetInTouch} />
             </div>
           </div>
         </article>
@@ -55,8 +55,8 @@ export default function Home() {
             <textarea name="message" placeholder="Message" />
           </form>
           <div className="cta-container">
-            <Button id="send-btn" text="Send" type="main" />
-            <Button text="Go Back" type="alt" action={handleGoBack} />
+            <Button id="send-btn" text="Send" type="main" iconType="send" />
+            <Button id="back-btn" text="Go Back" type="alt" iconType="back" action={handleGoBack} />
           </div>
         </article>
       </section>

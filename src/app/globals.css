@@ -18,6 +18,7 @@ footer {
   @apply absolute object-cover w-screen h-screen z-[-20];
 }
 
+/* NavBar */
 header {
   @apply px-[100px] py-[20px];
 }
@@ -102,6 +103,7 @@ header {
   @apply ml-auto right-[100px] bottom-[0px] px-[70px] py-[50px] w-[646px] rounded-[25px] bg-background-(alt) shadow-[-30px_-30px_30px_0_rgba(31,218,83,0.25)];
 }
 
+/* Intro */
 .intro {
   @apply invisible fixed opacity-0 flex flex-col items-start gap-[14px];
 }
@@ -143,21 +145,34 @@ button {
 }
 
 .main-btn {
-  @apply px-[16px] py-[7px] rounded-[10px] bg-primary text-background-(main) hover:bg-primary-(light) transition-all ease-out duration-500;
+  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] bg-primary text-background-(main) hover:bg-primary-(light) transition-all ease-out duration-500;
 }
 
-#send-btn {
-  @apply w-[170px];
+#view-btn img {
+  @apply transition-all ease-out duration-500;
+}
+
+#view-btn:hover img {
+  @apply translate-x-[2px] translate-y-[-2px] transition-all ease-in duration-300;
 }
 
 .alt-btn {
-  @apply px-[16px] py-[7px] rounded-[10px] border-primary border-[1px] text-primary hover:bg-background-(main) transition-all ease-out duration-500;
+  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] border-primary border-[1px] text-primary hover:bg-background-(main) transition-all ease-out duration-500;
+}
+
+#contact-btn img {
+  @apply transition-all ease-out duration-500;
+}
+
+#contact-btn:hover img {
+  @apply translate-x-[3px] transition-all ease-in duration-300;
 }
 
 .cta-container {
   @apply flex gap-[24px];
 }
 
+/* Contact Me */
 .get-in-touch {
   @apply invisible fixed opacity-0 flex flex-col items-start gap-[30px];
 }
@@ -180,4 +195,16 @@ form {
 
 textarea {
   @apply h-[80px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-secondary resize-none;
+}
+
+#send-btn {
+  @apply justify-center gap-[7px] w-[170px];
+}
+
+#back-btn img {
+  @apply transition-all ease-out duration-500;
+}
+
+#back-btn:hover img {
+  @apply translate-x-[-3px] transition-all ease-in duration-300;
 }
