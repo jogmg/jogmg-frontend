@@ -1,12 +1,26 @@
 import Link from "next/link";
 
-export default function GithubIcon() {
+interface Props {
+  className?: string;
+  width?: string;
+  height?: string;
+}
+
+export default function GithubIcon({
+  className,
+  width = "40",
+  height = "41",
+}: Props) {
   return (
-    <Link href={"https://github.com/JoGMG"} target="_blank" aria-label="View my Github">
+    <Link
+      href={"https://github.com/JoGMG"}
+      target="_blank"
+      aria-label="View my Github"
+    >
       <svg
-        className="github-icon"
-        width="40"
-        height="41"
+        className={`github-icon ${className}`}
+        width={width}
+        height={height}
         viewBox="0 0 40 41"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
