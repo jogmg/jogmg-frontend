@@ -207,7 +207,7 @@ textarea {
 
 /* Portfolio */
 .portfolio-container {
-  @apply relative w-[368px] h-[221px] rounded-[25px] overflow-hidden;
+  @apply relative w-[368px] h-[221px] rounded-[25px] overflow-hidden text-[14px];
 }
 
 .portfolio-container .image {
@@ -215,30 +215,42 @@ textarea {
 }
 
 .portfolio-details {
-  @apply absolute bottom-0 px-[30px] py-[10px] w-full bg-background-(alt);
+  @apply absolute bottom-0 flex flex-col gap-[12px] px-[30px] py-[10px] w-full h-full bg-[rgba(15,15,15,0.7)] translate-y-[180px] transition-all ease-in duration-500;
+}
+
+.portfolio-details.active {
+  @apply py-[30px] translate-y-0 transition-all ease-out duration-500;
 }
 
 .portfolio-details .heading {
-  @apply flex items-center gap-[9px];
+  @apply flex items-center gap-[7px] pb-[12px] border-b-[1px] border-primary cursor-pointer;
 }
 
-.portfolio-details .heading .loop-icon {
-  @apply relative flex items-center justify-center w-[15px] h-[15px] rounded-full overflow-hidden;
+.portfolio-details .heading .loop-title-container {
+  @apply flex items-center gap-[7px];
 }
 
-.portfolio-details .heading .loop-icon .circle {
+.portfolio-details .heading .loop-title-container .loop-icon-container {
+  @apply relative flex items-center justify-center w-[14px] h-[14px] rounded-full overflow-hidden;
+}
+
+.portfolio-details .heading .loop-title-container .loop-icon-container .circle {
   @apply absolute w-[5px] h-[5px] rounded-full bg-primary;
 }
 
-.portfolio-details .heading .loop-icon .vid-loop {
+.portfolio-details
+  .heading
+  .loop-title-container
+  .loop-icon-container
+  .vid-loop {
   @apply object-cover w-full h-full;
 }
 
-.portfolio-details .cta-container {
-  @apply absolute bottom-[25px] right-[30px];
+.portfolio-container .cta-container {
+  @apply absolute bottom-[24px] right-[30px] z-[10];
 }
 
-.portfolio-details .cta-container .ctas {
+.portfolio-container .cta-container .ctas {
   @apply relative flex justify-end items-center pr-[40px] w-[146px] h-[35px];
 }
 
@@ -255,9 +267,41 @@ textarea {
 }
 
 .portfolio-btn .container .pop-side {
-  @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center w-[122px] h-[35px] pl-[13px] text-[14px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-(light) text-background-(main) transition-all ease-in duration-500;
+  @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center w-[122px] h-[35px] pl-[13px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-(light) text-background-(main) transition-all ease-in duration-500;
 }
 
 .portfolio-btn:hover .pop-side {
-  @apply visible opacity-100 transition-all ease-out duration-500
+  @apply visible opacity-100 transition-all ease-out duration-500;
+}
+
+.chevron-up-icon {
+  @apply cursor-pointer;
+}
+
+.chevron-up-icon g path {
+  @apply fill-primary transition-all ease-in duration-500
+}
+
+.chevron-up-icon:hover g path {
+  @apply fill-primary-(light) transition-all ease-out duration-500
+}
+
+.portfolio-details .heading .chevron-up-icon {
+  @apply transition-all ease-in duration-500;
+}
+
+.portfolio-details.active .heading .chevron-up-icon {
+  @apply translate-x-[134px] -rotate-180 transition-all ease-out duration-500;
+}
+
+.portfolio-details .desc-container {
+  @apply flex flex-col gap-[10px];
+}
+
+.portfolio-details .desc-container .desc-title {
+  @apply text-primary;
+}
+
+.portfolio-details .desc-container .desc-text {
+  @apply flex gap-[7px];
 }
