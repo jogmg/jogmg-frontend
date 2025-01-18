@@ -204,3 +204,60 @@ textarea {
 #back-btn:hover img {
   @apply translate-x-[-3px] transition-all ease-in duration-300;
 }
+
+/* Portfolio */
+.portfolio-container {
+  @apply relative w-[368px] h-[221px] rounded-[25px] overflow-hidden;
+}
+
+.portfolio-container .image {
+  @apply absolute object-cover;
+}
+
+.portfolio-details {
+  @apply absolute bottom-0 px-[30px] py-[10px] w-full bg-background-(alt);
+}
+
+.portfolio-details .heading {
+  @apply flex items-center gap-[9px];
+}
+
+.portfolio-details .heading .loop-icon {
+  @apply relative flex items-center justify-center w-[15px] h-[15px] rounded-full overflow-hidden;
+}
+
+.portfolio-details .heading .loop-icon .circle {
+  @apply absolute w-[5px] h-[5px] rounded-full bg-primary;
+}
+
+.portfolio-details .heading .loop-icon .vid-loop {
+  @apply object-cover w-full h-full;
+}
+
+.portfolio-details .cta-container {
+  @apply absolute bottom-[25px] right-[30px];
+}
+
+.portfolio-details .cta-container .ctas {
+  @apply relative flex justify-end items-center pr-[40px] w-[146px] h-[35px];
+}
+
+.portfolio-btn {
+  @apply absolute right-0;
+}
+
+.portfolio-btn .container {
+  @apply relative flex items-center;
+}
+
+.portfolio-btn .container .right-arrow-icon {
+  @apply z-[2];
+}
+
+.portfolio-btn .container .pop-side {
+  @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center w-[122px] h-[35px] pl-[13px] text-[14px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-(light) text-background-(main) transition-all ease-in duration-500;
+}
+
+.portfolio-btn:hover .pop-side {
+  @apply visible opacity-100 transition-all ease-out duration-500
+}
