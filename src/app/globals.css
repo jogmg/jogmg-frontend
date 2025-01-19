@@ -227,7 +227,7 @@ textarea {
 }
 
 .portfolio-container.active .image {
-  @apply opacity-50 transition-all ease-out duration-500;;
+  @apply opacity-50 transition-all ease-out duration-500;
 }
 
 .portfolio-container .chevron-triple-right-icon {
@@ -282,20 +282,33 @@ textarea {
   @apply relative flex justify-end items-center pr-[40px] w-[146px] h-[35px];
 }
 
+.figma-icon,
+.adobe-xd-icon {
+  @apply mr-[7px] hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
+}
+
+.figma-icon:hover g path {
+  @apply stroke-primary transition-all ease-out duration-500;
+}
+
+.adobe-xd-icon:hover #foreground {
+  @apply fill-primary transition-all ease-out duration-500;
+}
+
 .portfolio-btn {
   @apply absolute right-0;
 }
 
-.portfolio-btn .container {
+.portfolio-btn button {
   @apply relative flex items-center;
 }
 
-.portfolio-btn .container .right-arrow-icon {
+.portfolio-btn button .right-arrow-icon {
   @apply z-[2];
 }
 
-.portfolio-btn .container .pop-side {
-  @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center w-[122px] h-[35px] pl-[13px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-(light) text-background-(main) transition-all ease-in duration-500;
+.portfolio-btn button .pop-side {
+  @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center text-nowrap h-[35px] pl-[13px] pr-[25px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-(light) text-background-(main) transition-all ease-in duration-500;
 }
 
 .portfolio-btn:hover .pop-side {
@@ -319,14 +332,21 @@ textarea {
 }
 
 .portfolio-details .heading .chevron-icon-container .chevron-icon-wrapper {
-  @apply absolute w-full flex items-center transition-all ease-in duration-500
+  @apply absolute w-full flex items-center transition-all ease-in duration-500;
 }
 
-.portfolio-details.active .heading .chevron-icon-container .chevron-icon-wrapper {
+.portfolio-details.active
+  .heading
+  .chevron-icon-container
+  .chevron-icon-wrapper {
   @apply translate-x-full transition-all ease-out duration-500;
 }
 
-.portfolio-details .heading .chevron-icon-container .chevron-icon-wrapper .chevron-up-icon {
+.portfolio-details
+  .heading
+  .chevron-icon-container
+  .chevron-icon-wrapper
+  .chevron-up-icon {
   @apply absolute transition-all ease-in duration-500;
 }
 

@@ -3,22 +3,27 @@
 import Image, { StaticImageData } from "next/image";
 import GithubIcon from "./GithubIcon";
 import AdobeXDIcon from "./AdobeXDIcon";
+import FigmaIcon from "./FigmaIcon";
 import Button from "./Button";
 import { useState } from "react";
 import ChevronUpIcon from "./ChevronUpIcon";
 import ChevronTripleRightIcon from "../../../public/icons/chevron-triple-right.svg";
 
 export interface PortfolioProps {
-  bgUrl: StaticImageData;
-  ctaType: "github" | "figma" | "adobexd";
   title: string;
+  bgUrl: StaticImageData;
+  mainUrl: string;
+  ctaUrl: string;
+  ctaType: "github" | "figma" | "adobexd";
   descs: { iconUrl: string; title: string; text: string }[];
 }
 
 export default function Portfolio({
-  bgUrl,
-  ctaType,
   title,
+  bgUrl,
+  mainUrl = "",
+  ctaUrl = "",
+  ctaType,
   descs,
 }: PortfolioProps) {
   const [active, setIsActive] = useState(false);
@@ -43,10 +48,16 @@ export default function Portfolio({
       />
       <div className="cta-container">
         <div className="ctas">
-          {ctaType === "github" && <GithubIcon width="50" height="50" />}
-          {ctaType === "adobexd" && <AdobeXDIcon />}
-          {/* {ctaType === "figma" && <GithubIcon width="50" height="50" />} */}
-          <Button text="View Project" type="portfolio" />
+          {ctaType === "github" && (
+            <GithubIcon url={ctaUrl} width="50" height="50" />
+          )}
+          {ctaType === "adobexd" && <AdobeXDIcon url={ctaUrl} />}
+          {ctaType === "figma" && <FigmaIcon url={ctaUrl} />}
+          <Button
+            url={mainUrl}
+            text={`${ctaType === "github" ? "View Project" : "View Case"}`}
+            type="portfolio"
+          />
         </div>
       </div>
       <div className={`portfolio-details ${active ? "active" : ""}`}>

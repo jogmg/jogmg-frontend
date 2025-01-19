@@ -5,6 +5,7 @@ import sendIcon from "../../../public/icons/send-fill.svg";
 import chevronRightIcon from "../../../public/icons/chevron-right.svg";
 import arrowLeftIcon from "../../../public/icons/arrow-left-short.svg";
 import arrowRightCircleIcon from "../../../public/icons/arrow-right-circle-fill.svg";
+import Link from "next/link";
 
 interface Props {
   text: string;
@@ -12,9 +13,17 @@ interface Props {
   id?: string;
   action?: () => void;
   iconType?: "link" | "send" | "forward" | "back";
+  url?: string;
 }
 
-export default function Button({ text, type, id, action, iconType }: Props) {
+export default function Button({
+  text,
+  type,
+  id,
+  action,
+  iconType,
+  url = "",
+}: Props) {
   return (
     <>
       {type === "main" && (
@@ -47,18 +56,21 @@ export default function Button({ text, type, id, action, iconType }: Props) {
         </button>
       )}
       {type === "portfolio" && (
-        <button
-          type="button"
-          className={`portfolio-btn ${lexend.className}`}
-          id={id}
+        <Link
+          className="portfolio-btn"
+          href={url}
+          target="_blank"
+          aria-label="View Portfolio"
         >
-          <div className="container">
-            <Image src={arrowRightCircleIcon} alt="Arrow Right Circle Icon" className="right-arrow-icon" />
-            <div className="pop-side">
-              {text}
-            </div>
-          </div>
-        </button>
+          <button type="button" className={`${lexend.className}`}>
+            <Image
+              src={arrowRightCircleIcon}
+              alt="Arrow Right Circle Icon"
+              className="right-arrow-icon"
+            />
+            <div className="pop-side">{text}</div>
+          </button>
+        </Link>
       )}
     </>
   );

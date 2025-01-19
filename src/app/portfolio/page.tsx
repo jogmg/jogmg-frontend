@@ -14,9 +14,11 @@ import gridIcon from "../../../public/icons/grid-fill.svg";
 export default function page() {
   const portfolios: PortfolioProps[] = [
     {
-      bgUrl: ssImage,
-      ctaType: "github",
       title: "Synthesis Society",
+      bgUrl: ssImage,
+      mainUrl: "https://synthesissociety.com",
+      ctaUrl: "https://github.com/JoGMG/synthesis-society",
+      ctaType: "github",
       descs: [
         {
           iconUrl: personIcon,
@@ -41,9 +43,11 @@ export default function page() {
       ],
     },
     {
+      title: "Mayeso",
       bgUrl: mayesoImage,
       ctaType: "github",
-      title: "Mayeso",
+      mainUrl: "https://mayeso.netlify.app/",
+      ctaUrl: "https://github.com/JoGMG/mayeso",
       descs: [
         {
           iconUrl: personIcon,
@@ -68,9 +72,11 @@ export default function page() {
       ],
     },
     {
+      title: "Know Your Movies",
       bgUrl: kymImage,
       ctaType: "github",
-      title: "Know Your Movies",
+      mainUrl: "https://jogmg.github.io/know-your-movies/dynamic/home_page.html",
+      ctaUrl: "https://github.com/JoGMG/know-your-movies",
       descs: [
         {
           iconUrl: personIcon,
@@ -95,9 +101,11 @@ export default function page() {
       ],
     },
     {
+      title: "UBA Redesign",
       bgUrl: ubaImage,
       ctaType: "adobexd",
-      title: "UBA Redesign",
+      mainUrl: "https://docs.google.com/presentation/d/11xygpCqqnT_WWE73yq61G5b7cWG1T_O6k3Q1licJw7s/edit?usp=sharing",
+      ctaUrl: "https://xd.adobe.com/view/31081c83-8b82-4d49-8c3d-31a0b2a8c64a-645b/?fullscreen",
       descs: [
         {
           iconUrl: personIcon,
@@ -122,9 +130,11 @@ export default function page() {
       ],
     },
     {
+      title: "ComeUp",
       bgUrl: comeupImage,
       ctaType: "adobexd",
-      title: "ComeUp",
+      mainUrl: "https://docs.google.com/presentation/d/1NOv66HgnTt617qK9F6iKo4L9xJGleja7X_9Kda568wc/edit?usp=sharing",
+      ctaUrl: "https://xd.adobe.com/view/cfcf1443-c8c0-49c0-8dc4-abffe5ae9303-9a9c/",
       descs: [
         {
           iconUrl: personIcon,
@@ -149,9 +159,11 @@ export default function page() {
       ],
     },
     {
+      title: "Joko",
       bgUrl: jokoImage,
       ctaType: "figma",
-      title: "Joko",
+      mainUrl: "https://docs.google.com/presentation/d/1lgxcA4mQRFI7TAIhRdJB0WzkAwn0WrVXG5ltLvaFp-I/edit?usp=sharing",
+      ctaUrl: "https://www.figma.com/proto/3i5tXuf07tiLBIUsw75d23/UX-Design-Certificate---Portfolio-Project-1-%5BA-seat-reservation-app-Joko%5D?page-id=92%3A2&type=design&node-id=133-31&viewport=408%2C182%2C0.32&t=QFsTaULImxaPF05E-1&scaling=scale-down&starting-point-node-id=710%3A6148&show-proto-sidebar=1&mode=design",
       descs: [
         {
           iconUrl: personIcon,
@@ -182,8 +194,10 @@ export default function page() {
       {portfolios.map((portfolio, index) => (
         <Portfolio
           key={index}
-          bgUrl={portfolio.bgUrl}
           title={portfolio.title}
+          bgUrl={portfolio.bgUrl}
+          mainUrl={portfolio.mainUrl}
+          ctaUrl={portfolio.ctaUrl}
           ctaType={portfolio.ctaType}
           descs={portfolio.descs}
         />
