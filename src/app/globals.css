@@ -205,13 +205,41 @@ textarea {
   @apply translate-x-[-3px] transition-all ease-in duration-300;
 }
 
-/* Portfolio */
+/* Portfolio Page */
+.portfolio {
+  @apply px-[50px] py-[70px] gap-y-[50px] grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 bg-background-(main);
+}
+
 .portfolio-container {
-  @apply relative w-[368px] h-[221px] rounded-[25px] overflow-hidden text-[14px];
+  @apply relative mx-auto w-[368px] h-[221px] rounded-[25px] overflow-hidden text-[14px] hover:shadow-[-8px_8px_10px_0_#1FDA53];
+}
+
+.portfolio-container.active {
+  @apply shadow-[-8px_8px_10px_0_#1FDA53];
 }
 
 .portfolio-container .image {
-  @apply absolute object-cover;
+  @apply absolute object-cover transition-all ease-out duration-500;
+}
+
+.portfolio-container:hover .image {
+  @apply opacity-50 transition-all ease-out duration-500;
+}
+
+.portfolio-container.active .image {
+  @apply opacity-50 transition-all ease-out duration-500;;
+}
+
+.portfolio-container .chevron-triple-right-icon {
+  @apply invisible opacity-0 absolute translate-x-[-70px] transition-all ease-in duration-500;
+}
+
+.portfolio-container:hover .chevron-triple-right-icon {
+  @apply visible opacity-100 translate-x-[190px] transition-transform ease-out duration-500 delay-1000;
+}
+
+.portfolio-container.active .chevron-triple-right-icon {
+  @apply visible opacity-100 translate-x-[190px] transition-transform ease-out duration-500 delay-1000;
 }
 
 .portfolio-details {
@@ -279,19 +307,31 @@ textarea {
 }
 
 .chevron-up-icon g path {
-  @apply fill-primary transition-all ease-in duration-500
+  @apply fill-primary transition-all ease-in duration-500;
 }
 
 .chevron-up-icon:hover g path {
-  @apply fill-primary-(light) transition-all ease-out duration-500
+  @apply fill-primary-(light) transition-all ease-out duration-500;
 }
 
-.portfolio-details .heading .chevron-up-icon {
-  @apply transition-all ease-in duration-500;
+.portfolio-details .heading .chevron-icon-container {
+  @apply relative w-full;
 }
 
-.portfolio-details.active .heading .chevron-up-icon {
-  @apply translate-x-[134px] -rotate-180 transition-all ease-out duration-500;
+.portfolio-details .heading .chevron-icon-container .chevron-icon-wrapper {
+  @apply absolute w-full flex items-center transition-all ease-in duration-500
+}
+
+.portfolio-details.active .heading .chevron-icon-container .chevron-icon-wrapper {
+  @apply translate-x-full transition-all ease-out duration-500;
+}
+
+.portfolio-details .heading .chevron-icon-container .chevron-icon-wrapper .chevron-up-icon {
+  @apply absolute transition-all ease-in duration-500;
+}
+
+.portfolio-details.active .heading .chevron-icon-container .chevron-up-icon {
+  @apply -translate-x-full -rotate-180 transition-all ease-out duration-500;
 }
 
 .portfolio-details .desc-container {

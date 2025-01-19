@@ -1,59 +1,51 @@
 "use client";
 
-import Image from "next/image";
-import SSImage from "../../../public/images/ss.webp";
-import chevronUpIcon from "../../../public/icons/chevron-up.svg";
+import Image, { StaticImageData } from "next/image";
 import GithubIcon from "./GithubIcon";
+import AdobeXDIcon from "./AdobeXDIcon";
 import Button from "./Button";
-import personIcon from "../../../public/icons/person-bounding-box.svg";
-import calenderIcon from "../../../public/icons/calendar-week.svg";
-import stackIcon from "../../../public/icons/stack.svg";
-import gridIcon from "../../../public/icons/grid-fill.svg";
 import { useState } from "react";
 import ChevronUpIcon from "./ChevronUpIcon";
+import ChevronTripleRightIcon from "../../../public/icons/chevron-triple-right.svg";
 
-export default function Portfolio() {
+export interface PortfolioProps {
+  bgUrl: StaticImageData;
+  ctaType: "github" | "figma" | "adobexd";
+  title: string;
+  descs: { iconUrl: string; title: string; text: string }[];
+}
+
+export default function Portfolio({
+  bgUrl,
+  ctaType,
+  title,
+  descs,
+}: PortfolioProps) {
   const [active, setIsActive] = useState(false);
 
   const handleHeadingClick = () => {
     setIsActive(!active);
   };
 
-  const portfolioDescs = [
-    {
-      imgUrl: personIcon,
-      title: "Role",
-      text: "Fullstack Developer",
-    },
-    {
-      imgUrl: calenderIcon,
-      title: "Duration",
-      text: "May ‘24 - Jul. ‘24",
-    },
-    {
-      imgUrl: stackIcon,
-      title: "Tech",
-      text: "Next.js, React, Firebase",
-    },
-    {
-      imgUrl: gridIcon,
-      title: "Type",
-      text: "Web App",
-    },
-  ];
-
   return (
-    <div className="portfolio-container">
+    <div className={`portfolio-container ${active ? "active" : ""}`}>
       <Image
-        src={SSImage}
-        alt="Synthesis Society Image"
+        src={bgUrl}
+        alt={`${title} Image`}
         placeholder="blur"
         fill
         className="image"
       />
+      <Image
+        src={ChevronTripleRightIcon}
+        alt="Chevron Triple Right Icon"
+        className="chevron-triple-right-icon"
+      />
       <div className="cta-container">
         <div className="ctas">
-          <GithubIcon width="50" height="50" />
+          {ctaType === "github" && <GithubIcon width="50" height="50" />}
+          {ctaType === "adobexd" && <AdobeXDIcon />}
+          {/* {ctaType === "figma" && <GithubIcon width="50" height="50" />} */}
           <Button text="View Project" type="portfolio" />
         </div>
       </div>
@@ -67,14 +59,18 @@ export default function Portfolio() {
                 Your browser does not support the video tag.
               </video>
             </div>
-            <p>Synthesis Society</p>
+            <p className="text-nowrap">{title}</p>
           </div>
-          <ChevronUpIcon />
+          <div className="chevron-icon-container">
+            <div className="chevron-icon-wrapper">
+              <ChevronUpIcon />
+            </div>
+          </div>
         </div>
         <ul className="desc-container">
-          {portfolioDescs.map((desc, index) => (
+          {descs.map((desc, index) => (
             <li className="desc-text" key={index}>
-              <Image src={desc.imgUrl} alt={desc.title + " Icon"} />
+              <Image src={desc.iconUrl} alt={desc.title + " Icon"} />
               <p>
                 <span className="desc-title">{desc.title}: </span>
                 {desc.text}
