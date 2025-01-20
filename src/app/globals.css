@@ -182,15 +182,15 @@ form {
 }
 
 .input-container {
-  @apply flex gap-[13px];
+  @apply flex gap-[13px] transition-all ease-in duration-300;
 }
 
 .input-field {
-  @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-secondary focus:border-[1px] focus:bg-background-(main);
+  @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-gray-300 focus:border-[1px] focus:bg-background-(main);
 }
 
 textarea {
-  @apply h-[80px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-secondary resize-none;
+  @apply h-[80px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-gray-300 resize-none;
 }
 
 #send-btn {
@@ -207,15 +207,15 @@ textarea {
 
 /* Portfolio Page */
 .portfolio {
-  @apply px-[50px] py-[70px] gap-y-[50px] grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 bg-background-(main);
+  @apply h-screen min-h-[400px] overflow-y-scroll px-[50px] py-[70px] gap-y-[50px] grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3;
 }
 
 .portfolio-container {
-  @apply relative mx-auto w-[368px] h-[221px] rounded-[25px] overflow-hidden text-[14px] hover:shadow-[-8px_8px_10px_0_#1FDA53];
+  @apply relative mx-auto w-[368px] h-[221px] rounded-[25px] overflow-hidden text-[14px] bg-background-(main) hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
 }
 
 .portfolio-container.active {
-  @apply shadow-[-8px_8px_10px_0_#1FDA53];
+  @apply shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
 }
 
 .portfolio-container .image {
