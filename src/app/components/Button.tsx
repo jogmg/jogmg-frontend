@@ -12,8 +12,8 @@ interface Props {
   type: "main" | "alt" | "portfolio";
   id?: string;
   action?: () => void;
-  iconType?: "link" | "send" | "forward" | "back";
-  url?: string;
+  iconType?: "new-tab" | "send" | "forward" | "back";
+  linkUrl?: string;
 }
 
 export default function Button({
@@ -22,56 +22,69 @@ export default function Button({
   id,
   action,
   iconType,
-  url = "",
+  linkUrl = undefined,
 }: Props) {
   return (
     <>
-      {type === "main" && (
+      {linkUrl ? (<Link
+        className={type === "portfolio" ? "portfolio-btn" : undefined}
+        href={linkUrl}
+        target={type === "portfolio" ? "_blank" : undefined}
+        aria-label={text}>
         <button
           type="button"
-          className={`main-btn ${lexend.className}`}
-          id={id}
-        >
-          {text}
-          {iconType === "link" && (
-            <Image src={arrowUpRightIcon} alt="Arrow Up Right Icon" />
-          )}
-          {iconType === "send" && <Image src={sendIcon} alt="Send Icon" />}
-        </button>
-      )}
-      {type === "alt" && (
-        <button
-          type="button"
-          className={`alt-btn ${lexend.className}`}
+          className={`${type === "main" ? "main-btn" : type === "alt" ? "alt-btn" : ""} ${lexend.className}`}
           id={id}
           onClick={action}
         >
           {iconType === "back" && (
             <Image src={arrowLeftIcon} alt="Arrow Left Icon" />
           )}
-          {text}
+          {type === "portfolio" && <Image
+            src={arrowRightCircleIcon}
+            alt="Arrow Right Circle Icon"
+            className="right-arrow-icon"
+          />}
+          {type === "portfolio" ? (
+            <div className="pop-side">{text}</div>
+          ) : (
+            text
+          )}
+          {iconType === "new-tab" && (
+            <Image src={arrowUpRightIcon} alt="Arrow Up Right Icon" />
+          )}
+          {iconType === "send" && <Image src={sendIcon} alt="Send Icon" />}
           {iconType === "forward" && (
             <Image src={chevronRightIcon} alt="Chevron Right Icon" />
           )}
         </button>
-      )}
-      {type === "portfolio" && (
-        <Link
-          className="portfolio-btn"
-          href={url}
-          target="_blank"
-          aria-label="View Portfolio"
-        >
-          <button type="button" className={`${lexend.className}`}>
-            <Image
-              src={arrowRightCircleIcon}
-              alt="Arrow Right Circle Icon"
-              className="right-arrow-icon"
-            />
-            <div className="pop-side">{text}</div>
-          </button>
-        </Link>
-      )}
+      </Link>) : (<button
+        type="button"
+        className={`${type === "main" ? "main-btn" : type === "alt" ? "alt-btn" : ""} ${lexend.className}`}
+        id={id}
+        onClick={action}
+      >
+        {iconType === "back" && (
+          <Image src={arrowLeftIcon} alt="Arrow Left Icon" />
+        )}
+        {type === "portfolio" && <Image
+          src={arrowRightCircleIcon}
+          alt="Arrow Right Circle Icon"
+          className="right-arrow-icon"
+        />}
+        {type === "portfolio" ? (
+          <div className="pop-side">{text}</div>
+        ) : (
+          text
+        )}
+        {iconType === "new-tab" && (
+          <Image src={arrowUpRightIcon} alt="Arrow Up Right Icon" />
+        )}
+        {iconType === "send" && <Image src={sendIcon} alt="Send Icon" />}
+        {iconType === "forward" && (
+          <Image src={chevronRightIcon} alt="Chevron Right Icon" />
+        )}
+      </button>)}
     </>
   );
 }

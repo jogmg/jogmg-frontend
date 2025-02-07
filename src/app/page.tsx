@@ -40,14 +40,12 @@ export default function Home() {
               bring your ideas to life.
             </p>
             <div className="cta-container">
-              <Link href={"/portfolio"}>
-                <Button
-                  id="view-btn"
-                  text="View Portfolio"
-                  type="main"
-                  iconType="link"
-                />
-              </Link>
+              <Button
+                id="view-btn"
+                text="View Portfolio"
+                type="main"
+                linkUrl="/portfolio"
+              />
               <Button
                 id="contact-btn"
                 text="Contact Me"

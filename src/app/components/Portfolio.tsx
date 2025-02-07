@@ -54,7 +54,7 @@ export default function Portfolio({
           {ctaType === "adobexd" && <AdobeXDIcon url={ctaUrl} />}
           {ctaType === "figma" && <FigmaIcon url={ctaUrl} />}
           <Button
-            url={mainUrl}
+            linkUrl={mainUrl}
             text={`${ctaType === "github" ? "View Project" : "View Case"}`}
             type="portfolio"
           />
