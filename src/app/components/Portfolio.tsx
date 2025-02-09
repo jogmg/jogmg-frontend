@@ -6,7 +6,7 @@ import AdobeXDIcon from "./AdobeXDIcon";
 import FigmaIcon from "./FigmaIcon";
 import Button from "./Button";
 import { useState } from "react";
-import ChevronUpIcon from "./ChevronUpIcon";
+import ChevronUpIcon from "../../../public/icons/chevron-up.svg";
 import ChevronTripleRightIcon from "../../../public/icons/chevron-triple-right.svg";
 
 export interface PortfolioProps {
@@ -74,7 +74,11 @@ export default function Portfolio({
           </div>
           <div className="chevron-icon-container">
             <div className="chevron-icon-wrapper">
-              <ChevronUpIcon />
+              <Image
+                src={ChevronUpIcon}
+                alt="Chevron Up Icon"
+                className="chevron-up-icon"
+              />
             </div>
           </div>
         </div>

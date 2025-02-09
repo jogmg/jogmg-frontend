@@ -6,8 +6,12 @@
   color-scheme: dark;
 }
 
+html {
+  @apply scroll-smooth;
+}
+
 body {
-  @apply flex flex-col h-screen text-[16px] text-secondary bg-background-(main);
+  @apply flex flex-col h-screen text-[16px] tracking-[0.8px] text-secondary bg-background-(main);
 }
 
 footer {
@@ -18,16 +22,24 @@ footer {
   @apply absolute object-cover w-screen h-screen z-[-20];
 }
 
-h1 {
-  @apply text-[48px] font-bold;
+.h1 {
+  @apply text-[48px] font-bold tracking-[2.4px];
 }
 
-h2 {
-  @apply text-[32px] font-semibold;
+.h2 {
+  @apply text-[32px] font-semibold tracking-[1.6px];
 }
 
-p {
-  @apply tracking-[0.8px];
+.h3 {
+  @apply text-[28px] font-semibold tracking-[1.4px];
+}
+
+.h4 {
+  @apply text-[21px] font-semibold tracking-[1.05px];
+}
+
+.h5 {
+  @apply text-[19px] font-semibold tracking-[0.95px];
 }
 
 /* NavBar */
@@ -107,7 +119,7 @@ header {
 }
 
 /* Home Page */
-.home-container {
+.home {
   @apply relative flex items-center px-[100px] h-screen;
 }
 
@@ -211,7 +223,7 @@ textarea {
 }
 
 .portfolio-container {
-  @apply relative mx-auto w-[368px] h-[221px] rounded-[25px] overflow-hidden text-[14px] bg-background-(main) hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
+  @apply relative mx-auto w-[368px] h-[221px] rounded-[25px] overflow-hidden text-[14px] tracking-[0.7px] bg-background-(main) hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
 }
 
 .portfolio-container.active {
@@ -319,14 +331,6 @@ textarea {
   @apply cursor-pointer;
 }
 
-.chevron-up-icon g path {
-  @apply fill-primary transition-all ease-in duration-500;
-}
-
-.chevron-up-icon:hover g path {
-  @apply fill-primary-(light) transition-all ease-out duration-500;
-}
-
 .portfolio-details .heading .chevron-icon-container {
   @apply relative w-full;
 }
@@ -364,4 +368,170 @@ textarea {
 
 .portfolio-details .desc-container .desc-text {
   @apply flex gap-[7px];
+}
+
+/* About Page */
+.about {
+  @apply flex justify-between px-[50px] py-[70px] h-screen min-h-[400px] overflow-y-scroll;
+}
+
+.side-intro {
+  @apply flex flex-col items-center gap-[30px] p-[30px] rounded-[10px] h-fit bg-background-(alt);
+}
+
+.side-intro-image {
+  @apply relative size-[200px] rounded-[50%] overflow-hidden;
+}
+
+.official-image {
+  @apply absolute object-cover object-[0px_0px];
+}
+
+.side-intro-details {
+  @apply flex flex-col items-center gap-[20px];
+}
+
+.side-intro-details .title-role {
+  @apply flex flex-col items-center gap-[10px];
+}
+
+.side-intro-details .location {
+  @apply flex items-center gap-[7px];
+}
+
+.side-intro-details .language-container {
+  @apply flex gap-[12px];
+}
+
+.side-intro-details .language {
+  @apply relative flex rounded-[7px] pb-[2px] overflow-hidden z-[1];
+}
+
+.side-intro-details .language-container .text {
+  @apply px-[7px] py-[3px] rounded-[7px] bg-[#212121];
+}
+
+.side-intro-details .language-container .progress-bg {
+  @apply absolute -bottom-[5px] w-full h-[15px] bg-[#4D4D4D] -z-[2];
+}
+
+.side-intro-details .language-container .progress {
+  @apply absolute -bottom-[5px] h-[15px] bg-primary -z-[1];
+}
+
+.work-experience-education {
+  @apply flex flex-col gap-[30px] w-[509px] h-full min-h-[600px] overflow-y-scroll;
+}
+
+.work-experience-container,
+.education-container {
+  @apply flex flex-col gap-[20px];
+}
+
+.work-experience-card,
+.education-card {
+  @apply grid grid-cols-[26px_1fr] gap-[10px];
+}
+
+.work-image-container,
+.education-image-container {
+  @apply relative size-[26px] rounded-[50%] overflow-hidden;
+}
+
+.work-image,
+.education-image {
+  @apply absolute object-cover;
+}
+
+.work-experience,
+.education {
+  @apply flex flex-col gap-[10px];
+}
+
+.work-experience .role,
+.work-experience .duration,
+.education .field,
+.education .duration {
+  @apply text-primary;
+}
+
+.work-experience .desc {
+  @apply list-disc pl-[20px];
+}
+
+.side-sections-container {
+  @apply relative w-[264]
+}
+
+.side-sections {
+  @apply flex flex-col h-fit gap-[12px] p-[30px] rounded-[10px] bg-background-(alt) fixed;
+}
+
+.sections-container {
+  @apply relative flex;
+}
+
+.line-bar-bg {
+  @apply absolute h-full w-[3px] rounded-[5px] bg-[#333333];
+}
+
+.sections {
+  @apply flex flex-col gap-[10px];
+}
+
+.work-section-container,
+.education-section-container {
+  @apply relative flex;
+}
+
+.line-bar {
+  @apply hidden absolute h-full w-[3px] rounded-[5px] bg-primary-(light);
+}
+
+.line-bar.active {
+  @apply flex;
+}
+
+.work-section,
+.education-section {
+  @apply flex flex-col gap-[4px];
+}
+
+.work-section .main,
+.education-section .main {
+  @apply flex items-center gap-[7px] py-[3px] pl-[15px] pr-[30px] cursor-pointer;
+}
+
+.sub-container {
+  @apply hidden flex-col;
+}
+
+.sub-container.active {
+  @apply flex;
+}
+
+.work-section .sub,
+.education-section .sub {
+  @apply flex items-center gap-[4px] py-[3px] pl-[15px] text-[14px];
+}
+
+.work-section .sub.active,
+.education-section .sub.active {
+  @apply bg-primary-(light) text-background-(main);
+}
+
+.sections .chevron-up-icon {
+  @apply -rotate-180 transition-all ease-in duration-300;
+}
+
+.sections .chevron-up-icon.active {
+  @apply rotate-0 transition-all ease-out duration-300;
+}
+
+.arrow-left-icon {
+  @apply -rotate-180;
+}
+
+.arrow-left-icon.active path g {
+  @apply fill-background-(main)
 }
