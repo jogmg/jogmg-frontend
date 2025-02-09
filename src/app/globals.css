@@ -219,11 +219,11 @@ textarea {
 
 /* Portfolio Page */
 .portfolio {
-  @apply h-screen min-h-[400px] overflow-y-scroll px-[50px] py-[70px] gap-y-[50px] grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3;
+  @apply h-screen min-h-[400px] overflow-y-scroll px-[50px] py-[70px] gap-y-[50px] grid grid-cols-1 min-[900px]:grid-cols-2 min-[1300px]:grid-cols-3 place-items-center;
 }
 
 .portfolio-container {
-  @apply relative mx-auto w-[368px] h-[221px] rounded-[25px] overflow-hidden text-[14px] tracking-[0.7px] bg-background-(main) hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
+  @apply relative w-[368px] h-[221px] rounded-[25px] overflow-hidden text-[14px] tracking-[0.7px] bg-background-(main) hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
 }
 
 .portfolio-container.active {
