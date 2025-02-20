@@ -6,6 +6,7 @@ import WorkExperience, {
 } from "../components/WorkExperience";
 import Education, { EducationProps } from "../components/Education";
 import SideSections from "../components/SideSections";
+import { SharedContextProvider } from "../SharedContext";
 import worldIcon from "../../../public/icons/world-svgrepo-com.svg";
 import OfficialImage from "../../../public/images/official-image.webp";
 import primedEhealthImage from "../../../public/images/primedehealth.webp";
@@ -14,7 +15,6 @@ import nipcoImage from "../../../public/images/nipcogas.webp";
 import uopeopleImage from "../../../public/images/uopeople.webp";
 import alxImage from "../../../public/images/alx.webp";
 import courseraImage from "../../../public/images/coursera.webp";
-import { SharedContextProvider } from "../SharedContext";
 
 export default function page() {
   const workExperience: WorkExperienceProps[] = [
@@ -73,31 +73,31 @@ export default function page() {
 
   return (
     <main className="about">
+      <aside className="side-intro">
+        <div className="side-intro-image">
+          <Image
+            src={OfficialImage}
+            alt="Official Image"
+            className="official-image"
+            fill
+          />
+        </div>
+        <div className="side-intro-details">
+          <div className="title-role">
+            <h3 className={`h3 ${lexend.className}`}>Joshua Attah</h3>
+            <p className="text-primary">Software Developer</p>
+          </div>
+          <div className="location">
+            <Image src={worldIcon} alt="World Icon" />
+            <p>Kaduna, Nigeria</p>
+          </div>
+          <div className="language-container">
+            <LanguageCard text="English" level="100%" />
+            <LanguageCard text="German" level="40%" />
+          </div>
+        </div>
+      </aside>
       <SharedContextProvider>
-        <aside className="side-intro">
-          <div className="side-intro-image">
-            <Image
-              src={OfficialImage}
-              alt="Official Image"
-              className="official-image"
-              fill
-            />
-          </div>
-          <div className="side-intro-details">
-            <div className="title-role">
-              <h3 className={`h3 ${lexend.className}`}>Joshua Attah</h3>
-              <p className="text-primary">Software Developer</p>
-            </div>
-            <div className="location">
-              <Image src={worldIcon} alt="World Icon" />
-              <p>Kaduna, Nigeria</p>
-            </div>
-            <div className="language-container">
-              <LanguageCard text="English" level="100%" />
-              <LanguageCard text="German" level="40%" />
-            </div>
-          </div>
-        </aside>
         <section className="work-experience-education">
           <h1 className={`h3 ${lexend.className}`}>Work Experience</h1>
           {workExperience.map((item, index) => (

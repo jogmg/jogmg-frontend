@@ -19,27 +19,21 @@ export default function WorkExperience({
   descs,
   imgSrc,
 }: WorkExperienceProps) {
-  const { setIsInView1, setIsInView2, setIsInView3 } = useSharedContext();
+  const { setIsInView } = useSharedContext();
 
   const { ref: ref1 } = useInView({
     threshold: 0,
-    onChange(inView: boolean) {
-      setIsInView1(inView);
-    },
+    onChange: (inView: boolean) => setIsInView("isInView1", inView),
   });
 
   const { ref: ref2 } = useInView({
     threshold: 0,
-    onChange(inView: boolean) {
-      setIsInView2(inView);
-    },
+    onChange: (inView: boolean) => setIsInView("isInView2", inView),
   });
 
   const { ref: ref3 } = useInView({
     threshold: 0,
-    onChange(inView: boolean) {
-      setIsInView3(inView);
-    },
+    onChange: (inView: boolean) => setIsInView("isInView3", inView),
   });
 
   return (

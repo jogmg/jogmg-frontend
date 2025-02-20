@@ -17,32 +17,32 @@ export default function Education({
   duration,
   imgSrc,
 }: EducationProps) {
-  const { setIsInView4, setIsInView5, setIsInView6 } = useSharedContext();
+  const { setIsInView } = useSharedContext();
 
   const { ref: ref4 } = useInView({
     threshold: 0,
     onChange(inView: boolean) {
-      setIsInView4(inView);
+      setIsInView("isInView4", inView);
     },
   });
 
   const { ref: ref5 } = useInView({
     threshold: 0,
     onChange(inView: boolean) {
-      setIsInView5(inView);
+      setIsInView("isInView5", inView);
     },
   });
 
   const { ref: ref6 } = useInView({
     threshold: 0,
     onChange(inView: boolean) {
-      setIsInView6(inView);
+      setIsInView("isInView6", inView);
     },
   });
 
   return (
     <>
-      <article className="education-container">
+      <article className="education-container" id={title}>
         <div className="education-card">
           <div className="education-image-container">
             <Image

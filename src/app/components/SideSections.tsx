@@ -8,8 +8,7 @@ import Link from "next/link";
 import useSharedContext from "../SharedContext";
 
 export default function SideSections() {
-  const { isInView1, isInView2, isInView3, isInView4, isInView5, isInView6 } =
-    useSharedContext();
+  const { isInView } = useSharedContext();
   const [isWorkActive, setIsWorkActive] = useState(false);
   const [isEduActive, setIsEduActive] = useState(false);
 
@@ -28,7 +27,9 @@ export default function SideSections() {
         <div className="work-section-container">
           <div
             className={`line-bar ${
-              isInView1 || isInView2 || isInView3 ? "active" : ""
+              isInView.isInView1 || isInView.isInView2 || isInView.isInView3
+                ? "active"
+                : ""
             }`}
           ></div>
           <div className="work-section">
@@ -42,20 +43,26 @@ export default function SideSections() {
             </div>
             <div className={`sub-container ${isWorkActive ? "active" : ""}`}>
               <Link href={"#Primed E-health"}>
-                <div className={`sub ${isInView1 ? "active" : ""}`}>
-                  <ArrowLeftIcon color={isInView1 ? "#000000" : "#333333"} />
+                <div className={`sub ${isInView.isInView1 ? "active" : ""}`}>
+                  <ArrowLeftIcon
+                    color={isInView.isInView1 ? "#000000" : "#333333"}
+                  />
                   <p>Primed E-health</p>
                 </div>
               </Link>
               <Link href={"#AITI"}>
-                <div className={`sub ${isInView2 ? "active" : ""}`}>
-                  <ArrowLeftIcon color={isInView2 ? "#000000" : "#333333"} />
+                <div className={`sub ${isInView.isInView2 ? "active" : ""}`}>
+                  <ArrowLeftIcon
+                    color={isInView.isInView2 ? "#000000" : "#333333"}
+                  />
                   <p>AITI</p>
                 </div>
               </Link>
               <Link href={"#NIPCO Gas Limited"}>
-                <div className={`sub ${isInView3 ? "active" : ""}`}>
-                  <ArrowLeftIcon color={isInView3 ? "#000000" : "#333333"} />
+                <div className={`sub ${isInView.isInView3 ? "active" : ""}`}>
+                  <ArrowLeftIcon
+                    color={isInView.isInView3 ? "#000000" : "#333333"}
+                  />
                   <p>NIPCO Gas Limited</p>
                 </div>
               </Link>
@@ -66,7 +73,9 @@ export default function SideSections() {
           <div className="education-section">
             <div
               className={`line-bar ${
-                isInView4 || isInView5 || isInView6 ? "active" : ""
+                isInView.isInView4 || isInView.isInView5 || isInView.isInView6
+                  ? "active"
+                  : ""
               }`}
             ></div>
             <div className="main" onClick={handleSetIsEduActive}>
@@ -78,18 +87,30 @@ export default function SideSections() {
               />
             </div>
             <div className={`sub-container ${isEduActive ? "active" : ""}`}>
-              <div className={`sub ${isInView4 ? "active" : ""}`}>
-                <ArrowLeftIcon color={isInView4 ? "#000000" : "#333333"} />
-                <p>UoPeople</p>
-              </div>
-              <div className={`sub ${isInView5 ? "active" : ""}`}>
-                <ArrowLeftIcon color={isInView5 ? "#000000" : "#333333"} />
-                <p>ALX</p>
-              </div>
-              <div className={`sub ${isInView6 ? "active" : ""}`}>
-                <ArrowLeftIcon color={isInView6 ? "#000000" : "#333333"} />
-                <p>Coursera</p>
-              </div>
+              <Link href={"#University of the People"}>
+                <div className={`sub ${isInView.isInView4 ? "active" : ""}`}>
+                  <ArrowLeftIcon
+                    color={isInView.isInView4 ? "#000000" : "#333333"}
+                  />
+                  <p>UoPeople</p>
+                </div>
+              </Link>
+              <Link href={"#ALX"}>
+                <div className={`sub ${isInView.isInView5 ? "active" : ""}`}>
+                  <ArrowLeftIcon
+                    color={isInView.isInView5 ? "#000000" : "#333333"}
+                  />
+                  <p>ALX</p>
+                </div>
+              </Link>
+              <Link href={"#Coursera"}>
+                <div className={`sub ${isInView.isInView6 ? "active" : ""}`}>
+                  <ArrowLeftIcon
+                    color={isInView.isInView6 ? "#000000" : "#333333"}
+                  />
+                  <p>Coursera</p>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

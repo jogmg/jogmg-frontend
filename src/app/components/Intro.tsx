@@ -24,9 +24,7 @@ export default function Intro() {
           <p>Hey there! 👋</p>
           <div className="name-title-cta-container">
             <div className="name-title-container">
-              <h1 className={`h1 ${lexend.className}`}>
-                I'm Joshua Attah
-              </h1>
+              <h1 className={`h1 ${lexend.className}`}>I'm Joshua Attah</h1>
               <div className="title-card-container">
                 <TitleCard text="SOFTWARE DEVELOPER" />
                 <TitleCard text="UI/UX DESIGNER" />

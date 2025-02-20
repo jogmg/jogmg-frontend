@@ -1,47 +1,54 @@
 "use client";
 
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useReducer } from "react";
 
 interface Props {
-  isInView1: boolean;
-  setIsInView1: (inView: boolean) => void;
-  isInView2: boolean;
-  setIsInView2: (inView: boolean) => void;
-  isInView3: boolean;
-  setIsInView3: (inView: boolean) => void;
-  isInView4: boolean;
-  setIsInView4: (inView: boolean) => void;
-  isInView5: boolean;
-  setIsInView5: (inView: boolean) => void;
-  isInView6: boolean;
-  setIsInView6: (inView: boolean) => void;
+  isInView: InViewProps;
+  setIsInView: (type: keyof InViewProps, inView: boolean) => void;
 }
+
+type InViewProps = {
+  isInView1: boolean;
+  isInView2: boolean;
+  isInView3: boolean;
+  isInView4: boolean;
+  isInView5: boolean;
+  isInView6: boolean;
+};
 
 const SharedContext = createContext<Props | undefined>(undefined);
 
 export function SharedContextProvider({ children }: { children: ReactNode }) {
-  const [isInView1, setIsInView1] = useState(false);
-  const [isInView2, setIsInView2] = useState(false);
-  const [isInView3, setIsInView3] = useState(false);
-  const [isInView4, setIsInView4] = useState(false);
-  const [isInView5, setIsInView5] = useState(false);
-  const [isInView6, setIsInView6] = useState(false);
+  const initialState: InViewProps = {
+    isInView1: false,
+    isInView2: false,
+    isInView3: false,
+    isInView4: false,
+    isInView5: false,
+    isInView6: false,
+  };
+
+  function reducer(
+    state: InViewProps,
+    action: { type: keyof InViewProps; payload: boolean }
+  ): InViewProps {
+    return {
+      ...state,
+      [action.type]: action.payload,
+    };
+  }
+
+  const [isInView, dispatch] = useReducer(reducer, initialState);
+
+  const setIsInView = (type: keyof InViewProps, inView: boolean) => {
+    dispatch({ type, payload: inView });
+  };
 
   return (
     <SharedContext.Provider
       value={{
-        isInView1,
-        setIsInView1,
-        isInView2,
-        setIsInView2,
-        isInView3,
-        setIsInView3,
-        isInView4,
-        setIsInView4,
-        isInView5,
-        setIsInView5,
-        isInView6,
-        setIsInView6,
+        isInView,
+        setIsInView,
       }}
     >
       {children}

@@ -460,7 +460,7 @@ textarea {
 }
 
 .side-sections-container {
-  @apply relative w-[264]
+  @apply relative w-[264];
 }
 
 .side-sections {
@@ -533,5 +533,5 @@ textarea {
 }
 
 .arrow-left-icon.active path g {
-  @apply fill-background-(main)
+  @apply fill-background-(main);
 }
