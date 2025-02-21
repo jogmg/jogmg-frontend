@@ -4,6 +4,8 @@ import "./globals.css";
 import NavBar from "@/app/components/NavBar";
 import VideoLoop from "@/app/components/VideoLoop";
 import Footer from "./components/Footer";
+import NavMenu from "./components/NavMenu";
+import { SharedContextProvider } from "./SharedContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,10 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${quantico.className}`}>
-        <VideoLoop />
-        <NavBar />
-        {children}
-        <Footer />
+        <SharedContextProvider>
+          <VideoLoop />
+          <NavMenu />
+          <NavBar />
+          {children}
+          <Footer />
+        </SharedContextProvider>
       </body>
     </html>
   );

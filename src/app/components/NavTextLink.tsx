@@ -7,9 +7,10 @@ import { useEffect, useState } from "react";
 interface Props {
   text: string;
   to: string;
+  action?: () => void;
 }
 
-export default function NavTextLink({ text, to }: Props) {
+export default function NavTextLink({ text, to, action }: Props) {
   const [isActive, setIsActive] = useState(false);
 
   const pathname = usePathname();
@@ -23,6 +24,7 @@ export default function NavTextLink({ text, to }: Props) {
       className="nav-text-container"
       href={to}
       aria-current={isActive ? "page" : undefined}
+      onClick={action}
     >
       <p className={`nav-text ${isActive ? "active" : ""}`}>{text}</p>
       <div className={`nav-text-line ${isActive ? "active" : ""}`}></div>

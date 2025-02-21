@@ -1,10 +1,18 @@
 "use client";
 
-import { createContext, ReactNode, useContext, useReducer } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useReducer,
+  useState,
+} from "react";
 
 interface Props {
   isInView: InViewProps;
   setIsInView: (type: keyof InViewProps, inView: boolean) => void;
+  isNavMenuOpen: boolean;
+  setIsNavMenuOpen: (status: boolean) => void;
 }
 
 type InViewProps = {
@@ -44,11 +52,15 @@ export function SharedContextProvider({ children }: { children: ReactNode }) {
     dispatch({ type, payload: inView });
   };
 
+  const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
+
   return (
     <SharedContext.Provider
       value={{
         isInView,
         setIsInView,
+        isNavMenuOpen,
+        setIsNavMenuOpen,
       }}
     >
       {children}

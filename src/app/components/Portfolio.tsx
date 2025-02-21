@@ -46,7 +46,7 @@ export default function Portfolio({
         alt="Chevron Triple Right Icon"
         className="chevron-triple-right-icon"
       />
-      <div className="cta-container">
+      <div className={`cta-container ${active ? "inactive" : ""}`}>
         <div className="ctas">
           {ctaType === "github" && (
             <GithubIcon url={ctaUrl} width="50" height="50" />

@@ -6,7 +6,6 @@ import WorkExperience, {
 } from "../components/WorkExperience";
 import Education, { EducationProps } from "../components/Education";
 import SideSections from "../components/SideSections";
-import { SharedContextProvider } from "../SharedContext";
 import worldIcon from "../../../public/icons/world-svgrepo-com.svg";
 import OfficialImage from "../../../public/images/official-image.webp";
 import primedEhealthImage from "../../../public/images/primedehealth.webp";
@@ -97,37 +96,35 @@ export default function page() {
           </div>
         </div>
       </aside>
-      <SharedContextProvider>
-        <section className="work-experience-education">
-          <h1 className={`h3 ${lexend.className}`}>Work Experience</h1>
-          {workExperience.map((item, index) => (
-            <WorkExperience
-              key={index}
-              title={item.title}
-              role={item.role}
-              duration={item.duration}
-              descs={item.descs}
-              imgSrc={item.imgSrc}
-            />
-          ))}
-          <h2 className={`h3 ${lexend.className}`}>Education</h2>
-          {education.map((item, index) => (
-            <Education
-              key={index}
-              title={item.title}
-              field={item.field}
-              duration={item.duration}
-              imgSrc={item.imgSrc}
-            />
-          ))}
-        </section>
-        <aside className="side-sections-container">
-          <nav className="side-sections">
-            <h4 className={`h4 ${lexend.className}`}>Sections</h4>
-            <SideSections />
-          </nav>
-        </aside>
-      </SharedContextProvider>
+      <section className="work-experience-education">
+        <h1 className={`h3 ${lexend.className}`}>Work Experience</h1>
+        {workExperience.map((item, index) => (
+          <WorkExperience
+            key={index}
+            title={item.title}
+            role={item.role}
+            duration={item.duration}
+            descs={item.descs}
+            imgSrc={item.imgSrc}
+          />
+        ))}
+        <h2 className={`h3 ${lexend.className}`}>Education</h2>
+        {education.map((item, index) => (
+          <Education
+            key={index}
+            title={item.title}
+            field={item.field}
+            duration={item.duration}
+            imgSrc={item.imgSrc}
+          />
+        ))}
+      </section>
+      <aside className="side-sections-container">
+        <nav className="side-sections">
+          <h4 className={`h4 ${lexend.className}`}>Sections</h4>
+          <SideSections />
+        </nav>
+      </aside>
     </main>
   );
 }

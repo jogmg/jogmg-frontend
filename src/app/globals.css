@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  @apply flex flex-col h-screen text-[16px] tracking-[0.8px] text-secondary bg-background-(main);
+  @apply flex flex-col h-screen text-[14px] md:text-[16px] tracking-[0.7px] md:tracking-[0.8px] text-secondary bg-background-(main);
 }
 
 footer {
@@ -23,37 +23,37 @@ footer {
 }
 
 .h1 {
-  @apply text-[48px] font-bold tracking-[2.4px];
+  @apply text-[28px] md:text-[48px] font-bold tracking-[1.4px] md:tracking-[2.4px];
 }
 
 .h2 {
-  @apply text-[32px] font-semibold tracking-[1.6px];
+  @apply text-[24px] md:text-[32px] font-semibold tracking-[1.2px] md:tracking-[1.6px];
 }
 
 .h3 {
-  @apply text-[28px] font-semibold tracking-[1.4px];
+  @apply text-[21px] md:text-[28px] font-semibold tracking-[1.05px] md:tracking-[1.4px];
 }
 
 .h4 {
-  @apply text-[21px] font-semibold tracking-[1.05px];
+  @apply text-[19px] md:text-[21px] font-semibold tracking-[0.95px] md:tracking-[1.05px];
 }
 
 .h5 {
-  @apply text-[19px] font-semibold tracking-[0.95px];
+  @apply text-[17px] md:text-[19px] font-semibold tracking-[0.85px] md:tracking-[0.95px];
 }
 
 /* NavBar */
 header {
-  @apply px-[100px] py-[20px];
+  @apply px-[20px] md:px-[70px] lg:px-[100px] py-[20px];
 }
 
 .nav-bar {
   @apply flex items-center justify-between;
 }
 
-/* NavLinks */
-.nav-links {
-  @apply flex gap-[30px];
+/* NavBarLinks */
+.nav-bar-links {
+  @apply hidden lg:flex gap-[30px];
 }
 
 .nav-text-container {
@@ -89,9 +89,9 @@ header {
   @apply visible opacity-100 transition-all ease-out duration-500;
 }
 
-/* NavSocials */
-.nav-socials {
-  @apply flex gap-[30px] pl-[120px];
+/* NavBarSocials */
+.nav-bar-socials {
+  @apply hidden lg:flex gap-[30px] pl-[130px];
 }
 
 .linkedin-icon #foreground {
@@ -118,16 +118,61 @@ header {
   @apply fill-primary transition-all ease-out duration-500;
 }
 
-/* Home Page */
-.home {
-  @apply relative flex items-center px-[100px] h-screen;
+/* Nav Menu */
+.nav-menu-container {
+  @apply invisible opacity-0 flex lg:hidden absolute w-screen h-screen bg-background-(main) bg-opacity-25 z-[100] transition-all ease-in duration-500;
 }
 
-.intro-container {
-  @apply ml-auto right-[100px] bottom-[0px] px-[70px] py-[50px] w-[646px] rounded-[25px] bg-background-(alt) shadow-[-30px_-30px_30px_0_rgba(31,218,83,0.25)];
+.nav-menu-container.active {
+  @apply visible opacity-100 transition-all ease-out duration-500;
+}
+
+.nav-menu {
+  @apply translate-x-[414px] fixed right-0 flex flex-col gap-[20px] w-screen sm:w-[414px] h-full px-[20px] md:px-[70px] pt-[20px] pb-[50px] bg-background-(alt) transition-all ease-out duration-500;
+}
+
+.nav-menu.active {
+  @apply translate-x-0 transition-all ease-out duration-500;
+}
+
+.nav-menu-top {
+  @apply flex justify-end;
+}
+
+.nav-menu-links {
+  @apply flex flex-col items-center gap-[30px] py-[20px];
+}
+
+.nav-menu-socials {
+  @apply flex justify-center gap-[30px] mt-auto;
+}
+
+.menu-icon {
+  @apply flex lg:hidden cursor-pointer;
+}
+
+.menu-icon:hover path {
+  @apply fill-primary-(light) transition-all ease-out duration-500;
+}
+
+.close-icon {
+  @apply cursor-pointer;
+}
+
+.close-icon:hover path {
+  @apply fill-primary-(light) transition-all ease-out duration-500;
+}
+
+/* Home Page */
+.home {
+  @apply relative flex items-center justify-center min-[850px]:justify-end px-[20px] md:px-[70px] lg:px-[100px] h-screen;
 }
 
 /* Intro */
+.intro-container {
+  @apply right-[100px] bottom-[0px] px-[30px] md:px-[70px] py-[30px] md:py-[50px] w-[390px] md:w-[646px] rounded-[15px] md:rounded-[25px] bg-background-(alt) shadow-[0px_0px_40px_0_rgba(31,218,83,0.25)] md:shadow-[-30px_-30px_30px_0_rgba(31,218,83,0.25)];
+}
+
 .intro {
   @apply invisible fixed opacity-0 flex flex-col items-start gap-[14px];
 }
@@ -145,7 +190,7 @@ header {
 }
 
 .title-card-container {
-  @apply flex gap-[10px] items-center;
+  @apply flex max-[406px]:flex-col gap-[10px] items-start min-[407px]:items-center;
 }
 
 .title-card {
@@ -156,16 +201,22 @@ header {
   @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] bg-primary text-background-(main) hover:bg-primary-(light) transition-all ease-out duration-500;
 }
 
+.alt-btn {
+  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] border-primary border-[1px] text-primary hover:bg-background-(main) transition-all ease-out duration-500;
+}
+
+#view-btn,
+#contact-btn,
+#back-btn {
+  @apply max-[406px]:w-full max-[406px]:justify-center;
+}
+
 #view-btn img {
   @apply transition-all ease-out duration-500;
 }
 
 #view-btn:hover img {
   @apply translate-x-[2px] translate-y-[-2px] transition-all ease-in duration-300;
-}
-
-.alt-btn {
-  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] border-primary border-[1px] text-primary hover:bg-background-(main) transition-all ease-out duration-500;
 }
 
 #contact-btn img {
@@ -176,8 +227,8 @@ header {
   @apply translate-x-[3px] transition-all ease-in duration-300;
 }
 
-.cta-container {
-  @apply flex gap-[24px];
+.intro-container .cta-container {
+  @apply flex gap-[24px] max-[406px]:flex-col max-[406px]:w-full;
 }
 
 /* Contact Me */
@@ -206,7 +257,7 @@ textarea {
 }
 
 #send-btn {
-  @apply justify-center gap-[7px] w-[170px];
+  @apply justify-center gap-[7px] w-[120px] max-[406px]:w-full md:w-[170px];
 }
 
 #back-btn img {
@@ -219,11 +270,11 @@ textarea {
 
 /* Portfolio Page */
 .portfolio {
-  @apply h-screen min-h-[400px] overflow-y-scroll px-[50px] py-[70px] gap-y-[50px] grid grid-cols-1 min-[900px]:grid-cols-2 min-[1300px]:grid-cols-3 place-items-center;
+  @apply h-screen min-h-[400px] overflow-y-scroll px-[20px] md:px-[50px] py-[70px] gap-y-[50px] grid grid-cols-1 min-[900px]:grid-cols-2 min-[1300px]:grid-cols-3 place-items-center;
 }
 
 .portfolio-container {
-  @apply relative w-[368px] h-[221px] rounded-[25px] overflow-hidden text-[14px] tracking-[0.7px] bg-background-(main) hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
+  @apply relative w-[334px] sm:w-[368px] h-[200px] sm:h-[221px] rounded-[25px] overflow-hidden text-[14px] tracking-[0.7px] bg-background-(main) hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
 }
 
 .portfolio-container.active {
@@ -255,11 +306,11 @@ textarea {
 }
 
 .portfolio-details {
-  @apply absolute bottom-0 flex flex-col gap-[12px] px-[30px] py-[10px] w-full h-full bg-[rgba(15,15,15,0.7)] translate-y-[180px] transition-all ease-in duration-500;
+  @apply absolute bottom-0 flex flex-col gap-[12px] px-[20px] sm:px-[30px] py-[10px] w-full h-full bg-[rgba(15,15,15,0.7)] translate-y-[160px] sm:translate-y-[180px] transition-all ease-in duration-500;
 }
 
 .portfolio-details.active {
-  @apply py-[30px] translate-y-0 transition-all ease-out duration-500;
+  @apply py-[20px] sm:py-[30px] translate-y-0 transition-all ease-out duration-500;
 }
 
 .portfolio-details .heading {
@@ -287,7 +338,11 @@ textarea {
 }
 
 .portfolio-container .cta-container {
-  @apply absolute bottom-[24px] right-[30px] z-[10];
+  @apply visible opacity-100 absolute bottom-[24px] right-[30px] z-[10] transition-all ease-in duration-500;
+}
+
+.portfolio-container .cta-container.inactive {
+  @apply invisible opacity-0 transition-all ease-out duration-500;
 }
 
 .portfolio-container .cta-container .ctas {
@@ -372,11 +427,11 @@ textarea {
 
 /* About Page */
 .about {
-  @apply flex justify-between px-[50px] py-[70px] h-screen min-h-[400px] overflow-y-scroll;
+  @apply flex flex-col min-[823px]:flex-row gap-[50px] px-[20px] md:px-[50px] py-[70px] h-screen min-h-[400px] overflow-y-scroll;
 }
 
 .side-intro {
-  @apply flex flex-col items-center gap-[30px] p-[30px] rounded-[10px] h-fit bg-background-(alt);
+  @apply flex max-[483px]:flex-col min-[823px]:flex-col justify-center items-center gap-[30px] p-[30px] rounded-[10px] h-fit bg-background-(alt);
 }
 
 .side-intro-image {
@@ -420,7 +475,7 @@ textarea {
 }
 
 .work-experience-education {
-  @apply flex flex-col gap-[30px] w-[509px] h-full min-h-[600px] overflow-y-scroll;
+  @apply flex flex-col gap-[30px] w-full min-[823px]:w-[409px] min-[823px]:flex-grow h-full min-h-[600px] overflow-y-scroll;
 }
 
 .work-experience-container,
@@ -460,7 +515,7 @@ textarea {
 }
 
 .side-sections-container {
-  @apply relative w-[264];
+  @apply relative w-[264] hidden min-[1152px]:flex;
 }
 
 .side-sections {

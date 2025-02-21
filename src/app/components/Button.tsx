@@ -26,30 +26,65 @@ export default function Button({
 }: Props) {
   return (
     <>
-      {linkUrl ? (<Link
-        className={type === "portfolio" ? "portfolio-btn" : undefined}
-        href={linkUrl}
-        target={type === "portfolio" ? "_blank" : undefined}
-        aria-label={text}>
+      {linkUrl ? (
+        <Link
+          className={type === "portfolio" ? "portfolio-btn" : undefined}
+          href={linkUrl}
+          target={type === "portfolio" ? "_blank" : undefined}
+          aria-label={text}
+        >
+          <button
+            type="button"
+            className={`${
+              type === "main" ? "main-btn" : type === "alt" ? "alt-btn" : ""
+            } ${lexend.className}`}
+            id={id}
+            onClick={action}
+          >
+            {iconType === "back" && (
+              <Image src={arrowLeftIcon} alt="Arrow Left Icon" />
+            )}
+            {type === "portfolio" && (
+              <Image
+                src={arrowRightCircleIcon}
+                alt="Arrow Right Circle Icon"
+                className="right-arrow-icon"
+              />
+            )}
+            {type === "portfolio" ? (
+              <div className="pop-side">{text}</div>
+            ) : (
+              text
+            )}
+            {iconType === "new-tab" && (
+              <Image src={arrowUpRightIcon} alt="Arrow Up Right Icon" />
+            )}
+            {iconType === "send" && <Image src={sendIcon} alt="Send Icon" />}
+            {iconType === "forward" && (
+              <Image src={chevronRightIcon} alt="Chevron Right Icon" />
+            )}
+          </button>
+        </Link>
+      ) : (
         <button
           type="button"
-          className={`${type === "main" ? "main-btn" : type === "alt" ? "alt-btn" : ""} ${lexend.className}`}
+          className={`${
+            type === "main" ? "main-btn" : type === "alt" ? "alt-btn" : ""
+          } ${lexend.className}`}
           id={id}
           onClick={action}
         >
           {iconType === "back" && (
             <Image src={arrowLeftIcon} alt="Arrow Left Icon" />
           )}
-          {type === "portfolio" && <Image
-            src={arrowRightCircleIcon}
-            alt="Arrow Right Circle Icon"
-            className="right-arrow-icon"
-          />}
-          {type === "portfolio" ? (
-            <div className="pop-side">{text}</div>
-          ) : (
-            text
+          {type === "portfolio" && (
+            <Image
+              src={arrowRightCircleIcon}
+              alt="Arrow Right Circle Icon"
+              className="right-arrow-icon"
+            />
           )}
+          {type === "portfolio" ? <div className="pop-side">{text}</div> : text}
           {iconType === "new-tab" && (
             <Image src={arrowUpRightIcon} alt="Arrow Up Right Icon" />
           )}
@@ -58,33 +93,7 @@ export default function Button({
             <Image src={chevronRightIcon} alt="Chevron Right Icon" />
           )}
         </button>
-      </Link>) : (<button
-        type="button"
-        className={`${type === "main" ? "main-btn" : type === "alt" ? "alt-btn" : ""} ${lexend.className}`}
-        id={id}
-        onClick={action}
-      >
-        {iconType === "back" && (
-          <Image src={arrowLeftIcon} alt="Arrow Left Icon" />
-        )}
-        {type === "portfolio" && <Image
-          src={arrowRightCircleIcon}
-          alt="Arrow Right Circle Icon"
-          className="right-arrow-icon"
-        />}
-        {type === "portfolio" ? (
-          <div className="pop-side">{text}</div>
-        ) : (
-          text
-        )}
-        {iconType === "new-tab" && (
-          <Image src={arrowUpRightIcon} alt="Arrow Up Right Icon" />
-        )}
-        {iconType === "send" && <Image src={sendIcon} alt="Send Icon" />}
-        {iconType === "forward" && (
-          <Image src={chevronRightIcon} alt="Chevron Right Icon" />
-        )}
-      </button>)}
+      )}
     </>
   );
 }
