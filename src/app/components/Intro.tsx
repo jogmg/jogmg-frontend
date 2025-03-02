@@ -74,7 +74,10 @@ export default function Intro() {
 
     setStatus("initial");
 
-    if (result.error) {
+    if (
+      result.error ||
+      (result.statusCode !== 200 && result.statusCode !== 201)
+    ) {
       return toast.error("Failed to send message", { theme: "dark" });
     } else {
       userDataDispatch({ empty: true });
