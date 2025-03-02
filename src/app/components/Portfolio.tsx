@@ -56,7 +56,7 @@ export default function Portfolio({
           <Button
             linkUrl={mainUrl}
             text={`${ctaType === "github" ? "View Project" : "View Case"}`}
-            type="portfolio"
+            btnType="portfolio"
           />
         </div>
       </div>

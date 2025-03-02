@@ -6,6 +6,7 @@ import VideoLoop from "@/app/components/VideoLoop";
 import Footer from "./components/Footer";
 import NavMenu from "./components/NavMenu";
 import { SharedContextProvider } from "./SharedContext";
+import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={`${quantico.className}`}>
         <SharedContextProvider>
           <VideoLoop />
+          <ToastContainer />
           <NavMenu />
           <NavBar />
           {children}

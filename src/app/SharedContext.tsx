@@ -8,13 +8,6 @@ import {
   useState,
 } from "react";
 
-interface Props {
-  isInView: InViewProps;
-  setIsInView: (type: keyof InViewProps, inView: boolean) => void;
-  isNavMenuOpen: boolean;
-  setIsNavMenuOpen: (status: boolean) => void;
-}
-
 type InViewProps = {
   isInView1: boolean;
   isInView2: boolean;
@@ -23,6 +16,13 @@ type InViewProps = {
   isInView5: boolean;
   isInView6: boolean;
 };
+
+interface Props {
+  isInView: InViewProps;
+  setIsInView: (type: keyof InViewProps, inView: boolean) => void;
+  isNavMenuOpen: boolean;
+  setIsNavMenuOpen: (status: boolean) => void;
+}
 
 const SharedContext = createContext<Props | undefined>(undefined);
 

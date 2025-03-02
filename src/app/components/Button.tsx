@@ -6,37 +6,46 @@ import chevronRightIcon from "../../../public/icons/chevron-right.svg";
 import arrowLeftIcon from "../../../public/icons/arrow-left-short.svg";
 import arrowRightCircleIcon from "../../../public/icons/arrow-right-circle-fill.svg";
 import Link from "next/link";
+import LoadingCircleIcon from "./LoadingCirlceIcon";
 
 interface Props {
   text: string;
-  type: "main" | "alt" | "portfolio";
+  type?: "button" | "submit" | "reset";
+  btnType: "main" | "alt" | "portfolio";
   id?: string;
   action?: () => void;
   iconType?: "new-tab" | "send" | "forward" | "back";
   linkUrl?: string;
+  status?: "initial" | "sending";
 }
 
 export default function Button({
   text,
-  type,
+  type = "button",
   id,
   action,
+  btnType,
   iconType,
   linkUrl = undefined,
+  status = "initial",
 }: Props) {
   return (
     <>
       {linkUrl ? (
         <Link
-          className={type === "portfolio" ? "portfolio-btn" : undefined}
+          className={btnType === "portfolio" ? "portfolio-btn" : undefined}
           href={linkUrl}
-          target={type === "portfolio" ? "_blank" : undefined}
+          target={btnType === "portfolio" ? "_blank" : undefined}
           aria-label={text}
         >
           <button
-            type="button"
+            type={type}
             className={`${
-              type === "main" ? "main-btn" : type === "alt" ? "alt-btn" : ""
+              btnType === "main"
+                ? "main-btn"
+                : btnType === "alt"
+                ? "alt-btn"
+                : ""
             } ${lexend.className}`}
             id={id}
             onClick={action}
@@ -44,14 +53,14 @@ export default function Button({
             {iconType === "back" && (
               <Image src={arrowLeftIcon} alt="Arrow Left Icon" />
             )}
-            {type === "portfolio" && (
+            {btnType === "portfolio" && (
               <Image
                 src={arrowRightCircleIcon}
                 alt="Arrow Right Circle Icon"
                 className="right-arrow-icon"
               />
             )}
-            {type === "portfolio" ? (
+            {btnType === "portfolio" ? (
               <div className="pop-side">{text}</div>
             ) : (
               text
@@ -67,9 +76,9 @@ export default function Button({
         </Link>
       ) : (
         <button
-          type="button"
+          type={type}
           className={`${
-            type === "main" ? "main-btn" : type === "alt" ? "alt-btn" : ""
+            btnType === "main" ? "main-btn" : btnType === "alt" ? "alt-btn" : ""
           } ${lexend.className}`}
           id={id}
           onClick={action}
@@ -77,21 +86,28 @@ export default function Button({
           {iconType === "back" && (
             <Image src={arrowLeftIcon} alt="Arrow Left Icon" />
           )}
-          {type === "portfolio" && (
+          {btnType === "portfolio" && (
             <Image
               src={arrowRightCircleIcon}
               alt="Arrow Right Circle Icon"
               className="right-arrow-icon"
             />
           )}
-          {type === "portfolio" ? <div className="pop-side">{text}</div> : text}
+          {btnType === "portfolio" ? (
+            <div className="pop-side">{text}</div>
+          ) : (
+            text
+          )}
           {iconType === "new-tab" && (
             <Image src={arrowUpRightIcon} alt="Arrow Up Right Icon" />
           )}
-          {iconType === "send" && <Image src={sendIcon} alt="Send Icon" />}
+          {iconType === "send" && status !== "sending" && (
+            <Image src={sendIcon} alt="Send Icon" />
+          )}
           {iconType === "forward" && (
             <Image src={chevronRightIcon} alt="Chevron Right Icon" />
           )}
+          {status === "sending" && <LoadingCircleIcon />}
         </button>
       )}
     </>

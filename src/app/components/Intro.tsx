@@ -1,13 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useReducer, useState } from "react";
 import { lexend } from "../fonts";
 import TitleCard from "./TitleCard";
 import Button from "./Button";
 import InputField from "./InputField";
+import { sendUser } from "../storage/controllers";
+import { toast } from "react-toastify";
+
+export interface UserDataProps {
+  name: string;
+  email: string;
+  subject?: string;
+  message: string;
+}
+
+interface ResultProps {
+  error: boolean;
+  statusCode: number;
+  message: string;
+  data: UserDataProps;
+}
 
 export default function Intro() {
   const [toggled, setIsToggled] = useState(false);
+  const [status, setStatus] = useState<"initial" | "sending">("initial");
 
   const handleGoBack = () => {
     setIsToggled(false);
@@ -15,6 +32,54 @@ export default function Intro() {
 
   const handleGetInTouch = () => {
     setIsToggled(true);
+  };
+
+  const initialUserData: UserDataProps = {
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  };
+
+  const userDataReducer = (
+    state: UserDataProps,
+    action: {
+      type?: keyof UserDataProps | string;
+      value?: string;
+      empty?: boolean;
+    }
+  ) => {
+    if (action.empty) {
+      return initialUserData;
+    }
+
+    return { ...state, [action.type!]: action.value };
+  };
+
+  const [userData, userDataDispatch] = useReducer(
+    userDataReducer,
+    initialUserData
+  );
+
+  const setUserData = (type: keyof UserDataProps | string, value: string) => {
+    userDataDispatch({ type, value });
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setStatus("sending");
+
+    const result: ResultProps = await sendUser(userData);
+
+    setStatus("initial");
+
+    if (result.error) {
+      return toast.error("Failed to send message", { theme: "dark" });
+    } else {
+      userDataDispatch({ empty: true });
+      return toast.success("Message sent successfully", { theme: "dark" });
+    }
   };
 
   return (
@@ -40,13 +105,13 @@ export default function Intro() {
               <Button
                 id="view-btn"
                 text="View Portfolio"
-                type="main"
+                btnType="main"
                 linkUrl="/portfolio"
               />
               <Button
                 id="contact-btn"
                 text="Contact Me"
-                type="alt"
+                btnType="alt"
                 iconType="forward"
                 action={handleGetInTouch}
               />
@@ -55,24 +120,53 @@ export default function Intro() {
         </article>
         <article className={`get-in-touch ${toggled ? "active" : ""}`}>
           <h2 className={`h2 ${lexend.className}`}>Contact Me</h2>
-          <form action="">
+          <form method="post" action="submit" onSubmit={handleSubmit}>
             <div className="input-container">
-              <InputField name="name" placeholder="Name" />
-              <InputField type="email" name="email" placeholder="Email" />
+              <InputField
+                name="name"
+                value={userData.name}
+                action={setUserData}
+              />
+              <InputField
+                type="email"
+                name="email"
+                value={userData.email}
+                action={setUserData}
+              />
             </div>
-            <InputField name="subject" placeholder="Subject" />
-            <textarea name="message" placeholder="Message" />
-          </form>
-          <div className="cta-container">
-            <Button id="send-btn" text="Send" type="main" iconType="send" />
-            <Button
-              id="back-btn"
-              text="Go Back"
-              type="alt"
-              iconType="back"
-              action={handleGoBack}
+            <InputField
+              name="subject"
+              value={userData.subject}
+              action={setUserData}
+              required={false}
             />
-          </div>
+            <textarea
+              name="message"
+              placeholder="Message"
+              title="Enter your message"
+              value={userData.message}
+              onChange={(e) => {
+                setUserData("message", e.target.value);
+              }}
+            />
+            <div className="cta-container">
+              <Button
+                id="send-btn"
+                text={status === "sending" ? "Sending..." : "Send"}
+                type="submit"
+                btnType="main"
+                iconType="send"
+                status={status}
+              />
+              <Button
+                id="back-btn"
+                text="Go Back"
+                btnType="alt"
+                iconType="back"
+                action={handleGoBack}
+              />
+            </div>
+          </form>
         </article>
       </section>
     </>

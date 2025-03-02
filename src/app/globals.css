@@ -244,6 +244,10 @@ form {
   @apply flex flex-col gap-[13px] w-full;
 }
 
+.get-in-touch .cta-container {
+  @apply mt-[17px];
+}
+
 .input-container {
   @apply flex gap-[13px] transition-all ease-in duration-300;
 }
@@ -266,6 +270,10 @@ textarea {
 
 #back-btn:hover img {
   @apply translate-x-[-3px] transition-all ease-in duration-300;
+}
+
+.loading-circle-icon {
+  @apply h-[17px] w-[17px] md:h-[20px] md:w-[20px] animate-spin text-background-(main);
 }
 
 /* Portfolio Page */
