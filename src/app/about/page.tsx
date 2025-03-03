@@ -14,6 +14,12 @@ import nipcoImage from "../../../public/images/nipcogas.webp";
 import uopeopleImage from "../../../public/images/uopeople.webp";
 import alxImage from "../../../public/images/alx.webp";
 import courseraImage from "../../../public/images/coursera.webp";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Joshua Attah's work experience and education.",
+};
 
 export default function page() {
   const workExperience: WorkExperienceProps[] = [
