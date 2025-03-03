@@ -65,12 +65,18 @@ export default function Portfolio({
           <div className="loop-title-container">
             <div className="loop-icon-container">
               <div className="circle"></div>
-              <video autoPlay loop muted playsInline className="vid-loop">
+              <video
+                autoPlay={true}
+                loop={true}
+                muted={true}
+                playsInline={true}
+                className="vid-loop"
+              >
                 <source src="/green-ring-loop.webm" type="video/webm" />
                 Your browser does not support the video tag.
               </video>
             </div>
-            <p className="text-nowrap w-auto">{title}</p>
+            <p className="text-nowrap w-fit">{title}</p>
           </div>
           <div className="chevron-icon-container">
             <div className="chevron-icon-wrapper">

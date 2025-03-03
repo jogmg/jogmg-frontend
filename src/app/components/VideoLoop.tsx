@@ -1,10 +1,10 @@
 export default function VideoLoop() {
   return (
     <video
-      autoPlay
-      loop
-      muted
-      playsInline
+      autoPlay={true}
+      loop={true}
+      muted={true}
+      playsInline={true}
       className="video-loop"
     >
       <source src="/background-loop.webm" type="video/webm" />
