@@ -2,7 +2,7 @@
 
 import Image, { StaticImageData } from "next/image";
 import useSharedContext from "../SharedContext";
-const useInView = require("react-intersection-observer").useInView;
+import { useInView } from "react-intersection-observer";
 
 export interface EducationProps {
   title: string;

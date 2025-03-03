@@ -92,16 +92,16 @@ export default function Intro() {
           <p>Hey there! 👋</p>
           <div className="name-title-cta-container">
             <div className="name-title-container">
-              <h1 className={`h1 ${lexend.className}`}>I'm Joshua Attah</h1>
+              <h1 className={`h1 ${lexend.className}`}>I&apos;m Joshua Attah</h1>
               <div className="title-card-container">
                 <TitleCard text="SOFTWARE DEVELOPER" />
                 <TitleCard text="UI/UX DESIGNER" />
               </div>
             </div>
             <p className="text-balance">
-              I'm a Software Developer and UI/UX Designer from Nigeria,
+              I&apos;m a Software Developer and UI/UX Designer from Nigeria,
               dedicated to delivering high-quality software solutions that meet
-              user needs. I design, build, and burnout. Let's collaborate to
+              user needs. I design, build, and burnout. Let&apos;s collaborate to
               bring your ideas to life.
             </p>
             <div className="cta-container">

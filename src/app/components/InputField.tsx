@@ -21,9 +21,7 @@ export default function InputField({
       placeholder={name[0].toUpperCase() + name.slice(1)}
       title={`Enter your ${name}`}
       value={value}
-      onChange={(e) => {
-        action ? action(name, e.target.value) : {};
-      }}
+      onChange={(e) => action && action(name, e.target.value)}
       required={required}
     />
   );

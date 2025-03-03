@@ -17,7 +17,7 @@ export default function NavTextLink({ text, to, action }: Props) {
 
   useEffect(() => {
     setIsActive(pathname === to);
-  }, [pathname]);
+  }, [pathname, to]);
 
   return (
     <Link
