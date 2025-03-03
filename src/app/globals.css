@@ -383,7 +383,7 @@ textarea {
 }
 
 .portfolio-btn button .pop-side {
-  @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center text-nowrap h-[35px] pl-[13px] pr-[25px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-(light) text-background-(main) transition-all ease-in duration-500;
+  @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center text-nowrap h-[35px] w-auto pl-[13px] pr-[25px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-(light) text-background-(main) transition-all ease-in duration-500;
 }
 
 .portfolio-btn:hover .pop-side {

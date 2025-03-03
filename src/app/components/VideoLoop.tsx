@@ -4,6 +4,7 @@ export default function VideoLoop() {
       autoPlay
       loop
       muted
+      playsInline
       className="video-loop"
     >
       <source src="/background-loop.webm" type="video/webm" />
