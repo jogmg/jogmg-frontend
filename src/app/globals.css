@@ -523,7 +523,7 @@ textarea {
 }
 
 .side-sections-container {
-  @apply relative w-[264] hidden min-[1152px]:flex;
+  @apply relative w-[264px] hidden min-[1152px]:flex;
 }
 
 .side-sections {
