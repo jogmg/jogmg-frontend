@@ -157,6 +157,16 @@ header {
   @apply flex justify-center gap-[30px] mt-auto;
 }
 
+.nav-menu-socials .github-info-container,
+.nav-menu-socials .linkedin-info-container {
+  @apply relative flex flex-col items-center;
+}
+
+.nav-menu-socials .github-info-container:hover .info,
+.nav-menu-socials .linkedin-info-container:hover .info {
+  @apply flex;
+}
+
 .menu-icon {
   @apply flex lg:hidden cursor-pointer;
 }
