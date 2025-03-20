@@ -11,11 +11,11 @@ import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: {
-    default: "Jogmg - Joshua Attah's Portfolio",
-    template: "%s | Jogmg",
+    default: "JoGMG - Joshua Attah's Website",
+    template: "%s | JoGMG",
   },
   description:
-    "Joshua Attah's portfolio website. A software developer who builds solutions.",
+    "This is the website of Joshua Attah (JoGMG). A software developer who designs and builds business solutions.",
   authors: { name: "Joshua Attah" },
 };
 

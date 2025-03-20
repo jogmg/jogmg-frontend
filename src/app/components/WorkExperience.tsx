@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 export interface WorkExperienceProps {
   title: string;
   role: string;
-  duration: string;
+  date: string;
   descs: string[];
   imgSrc: StaticImageData;
 }
@@ -15,7 +15,7 @@ export interface WorkExperienceProps {
 export default function WorkExperience({
   title,
   role,
-  duration,
+  date,
   descs,
   imgSrc,
 }: WorkExperienceProps) {
@@ -36,6 +36,11 @@ export default function WorkExperience({
     onChange: (inView: boolean) => setIsInView("isInView3", inView),
   });
 
+  const { ref: ref4 } = useInView({
+    threshold: 0,
+    onChange: (inView: boolean) => setIsInView("isInView4", inView),
+  });
+
   return (
     <>
       <article className="work-experience-container" id={title}>
@@ -50,36 +55,36 @@ export default function WorkExperience({
             />
           </div>
           <div className="work-experience">
-            <h5>{title}</h5>
+            <h5
+              ref={
+                title === "Synthesis Society"
+                  ? ref1
+                  : title === "Primed E-health"
+                  ? ref2
+                  : title === "AITI"
+                  ? ref3
+                  : title === "NIPCO Gas Limited"
+                  ? ref4
+                  : undefined
+              }
+            >
+              {title}
+            </h5>
             <div>
               <p className="role">{role}</p>
-              <p>
-                {duration.split("(")[0]}
-                {duration.includes("(") && (
+              <p className="date">
+                {date.split("(")[0]}
+                {date.includes("(") && (
                   <span className="duration">
-                    ({duration.split("(")[1].split(")")[0]})
+                    ({date.split("(")[1].split(")")[0]})
                   </span>
                 )}
-                {duration.split(")")[1]}
+                {date.split(")")[1]}
               </p>
             </div>
             <ol className="desc">
               {descs.map((desc, index) => (
-                <li
-                  key={index}
-                  ref={
-                    title === "Primed E-health" && index === descs.length - 1
-                      ? ref1
-                      : title === "AITI" && index === descs.length - 1
-                      ? ref2
-                      : title === "NIPCO Gas Limited" &&
-                        index === descs.length - 1
-                      ? ref3
-                      : undefined
-                  }
-                >
-                  {desc}
-                </li>
+                <li key={index}>{desc}</li>
               ))}
             </ol>
           </div>

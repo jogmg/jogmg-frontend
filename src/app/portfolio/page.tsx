@@ -14,7 +14,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Portfolio",
-  description: "Joshua Attah's projects.",
+  description: "Explore Joshua Attah's portfolio projects so far.",
 };
 
 export default function page() {
@@ -22,8 +22,8 @@ export default function page() {
     {
       title: "Synthesis Society",
       bgUrl: ssImage,
-      mainUrl: "https://synthesissociety.com",
-      ctaUrl: "https://github.com/JoGMG/synthesis-society",
+      mainUrl: "https://synthesis-society-jo-gmg.vercel.app",
+      ctaUrl: "https://github.com/jogmg/synthesis-society",
       ctaType: "github",
       descs: [
         {
@@ -34,7 +34,7 @@ export default function page() {
         {
           iconUrl: calenderIcon,
           title: "Duration",
-          text: "May ‘24 - Jul. ‘24",
+          text: "May '24 - Jul. '24",
         },
         {
           iconUrl: stackIcon,
@@ -52,8 +52,8 @@ export default function page() {
       title: "Mayeso",
       bgUrl: mayesoImage,
       ctaType: "github",
-      mainUrl: "https://mayeso.netlify.app/",
-      ctaUrl: "https://github.com/JoGMG/mayeso",
+      mainUrl: "https://mayeso.netlify.app",
+      ctaUrl: "https://github.com/jogmg/mayeso",
       descs: [
         {
           iconUrl: personIcon,
@@ -63,7 +63,7 @@ export default function page() {
         {
           iconUrl: calenderIcon,
           title: "Duration",
-          text: "Feb. ‘24 - Mar. ‘24",
+          text: "Feb. '24 - Mar. '24",
         },
         {
           iconUrl: stackIcon,
@@ -83,7 +83,7 @@ export default function page() {
       ctaType: "github",
       mainUrl:
         "https://jogmg.github.io/know-your-movies/dynamic/home_page.html",
-      ctaUrl: "https://github.com/JoGMG/know-your-movies",
+      ctaUrl: "https://github.com/jogmg/know-your-movies",
       descs: [
         {
           iconUrl: personIcon,
@@ -93,7 +93,7 @@ export default function page() {
         {
           iconUrl: calenderIcon,
           title: "Duration",
-          text: "Sep. ‘23 - Nov. ‘23",
+          text: "Sep. '23 - Nov. '23",
         },
         {
           iconUrl: stackIcon,
@@ -124,7 +124,7 @@ export default function page() {
         {
           iconUrl: calenderIcon,
           title: "Duration",
-          text: "May ‘23 - Jun. ‘23",
+          text: "May '23 - Jun. '23",
         },
         {
           iconUrl: stackIcon,
@@ -155,7 +155,7 @@ export default function page() {
         {
           iconUrl: calenderIcon,
           title: "Duration",
-          text: "Mar. ‘23 - Apr. ‘23",
+          text: "Mar. '23 - Apr. '23",
         },
         {
           iconUrl: stackIcon,
@@ -186,7 +186,7 @@ export default function page() {
         {
           iconUrl: calenderIcon,
           title: "Duration",
-          text: "Dec. ‘22 - Mar. ‘23",
+          text: "Dec. '22 - Mar. '23",
         },
         {
           iconUrl: stackIcon,

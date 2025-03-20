@@ -49,7 +49,12 @@ export default function Portfolio({
       <div className={`cta-container ${active ? "inactive" : ""}`}>
         <div className="ctas">
           {ctaType === "github" && (
-            <GithubIcon url={ctaUrl} width="50" height="50" />
+            <GithubIcon
+              url={ctaUrl}
+              width="50"
+              height="50"
+              infoPosY="-top-[30px]"
+            />
           )}
           {ctaType === "adobexd" && <AdobeXDIcon url={ctaUrl} />}
           {ctaType === "figma" && <FigmaIcon url={ctaUrl} />}
@@ -65,7 +70,14 @@ export default function Portfolio({
           <div className="loop-title-container">
             <div className="loop-icon-container">
               <div className="circle"></div>
-              <video autoPlay loop muted playsInline className="vid-loop">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="vid-loop"
+                poster="images/green-ring-loop-fallback.webp"
+              >
                 <source src="/green-ring-loop.webm" type="video/webm" />
                 Your browser does not support the video tag.
               </video>

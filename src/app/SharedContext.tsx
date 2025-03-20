@@ -15,6 +15,7 @@ type InViewProps = {
   isInView4: boolean;
   isInView5: boolean;
   isInView6: boolean;
+  isInView7: boolean;
 };
 
 interface Props {
@@ -34,6 +35,7 @@ export function SharedContextProvider({ children }: { children: ReactNode }) {
     isInView4: false,
     isInView5: false,
     isInView6: false,
+    isInView7: false,
   };
 
   function reducer(

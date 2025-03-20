@@ -94,6 +94,16 @@ header {
   @apply hidden lg:flex gap-[30px] pl-[130px];
 }
 
+.nav-bar-socials .github-info-container,
+.nav-bar-socials .linkedin-info-container {
+  @apply relative flex flex-col items-center;
+}
+
+.nav-bar-socials .github-info-container:hover .info,
+.nav-bar-socials .linkedin-info-container:hover .info {
+  @apply flex;
+}
+
 .linkedin-icon #foreground {
   @apply fill-secondary transition-all ease-in duration-500;
 }
@@ -330,11 +340,11 @@ textarea {
 }
 
 .portfolio-details .heading .loop-title-container .loop-icon-container {
-  @apply relative flex items-center justify-center w-[14px] h-[14px] rounded-full overflow-hidden;
+  @apply relative size-[14px] flex items-center justify-center rounded-full overflow-hidden;
 }
 
 .portfolio-details .heading .loop-title-container .loop-icon-container .circle {
-  @apply absolute w-[5px] h-[5px] rounded-full bg-primary;
+  @apply absolute size-[4.5px] rounded-full bg-primary;
 }
 
 .portfolio-details
@@ -357,9 +367,24 @@ textarea {
   @apply relative flex justify-end items-center pr-[40px] w-[146px] h-[35px];
 }
 
-.figma-icon,
-.adobe-xd-icon {
-  @apply mr-[7px] hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
+.portfolio-container .cta-container .ctas .github-info-container {
+  @apply relative flex flex-col items-center;
+}
+
+.portfolio-container .cta-container .ctas .adobexd-info-container,
+.portfolio-container .cta-container .ctas .figma-info-container {
+  @apply relative flex flex-col items-center mr-[7px];
+}
+
+.portfolio-container .cta-container .ctas .github-info-container:hover .info,
+.portfolio-container .cta-container .ctas .adobexd-info-container:hover .info,
+.portfolio-container .cta-container .ctas .figma-info-container:hover .info {
+  @apply flex;
+}
+
+.portfolio-container .cta-container .ctas .figma-icon,
+.portfolio-container .cta-container .ctas .adobe-xd-icon {
+  @apply hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
 }
 
 .figma-icon:hover g path {
@@ -511,6 +536,11 @@ textarea {
   @apply flex flex-col gap-[10px];
 }
 
+.work-experience .date,
+.education .date {
+  @apply whitespace-pre-wrap;
+}
+
 .work-experience .role,
 .work-experience .duration,
 .education .field,
@@ -557,7 +587,7 @@ textarea {
 
 .work-section,
 .education-section {
-  @apply flex flex-col gap-[4px];
+  @apply flex flex-col gap-[4px] w-full;
 }
 
 .work-section .main,
@@ -565,12 +595,14 @@ textarea {
   @apply flex items-center gap-[7px] py-[3px] pl-[15px] pr-[30px] cursor-pointer;
 }
 
-.sub-container {
-  @apply hidden flex-col;
+.work-section .sub-container,
+.education-section .sub-container {
+  @apply hidden;
 }
 
-.sub-container.active {
-  @apply flex;
+.work-section .sub-container.active,
+.education-section .sub-container.active {
+  @apply flex flex-col;
 }
 
 .work-section .sub,
@@ -597,4 +629,8 @@ textarea {
 
 .arrow-left-icon.active path g {
   @apply fill-background-(main);
+}
+
+.info {
+  @apply z-[1] hidden absolute py-[3px] px-[7px] text-[14px] text-nowrap bg-background-(main) border-[1px] border-primary-(light) rounded-[4px];
 }

@@ -7,24 +7,17 @@ import { useInView } from "react-intersection-observer";
 export interface EducationProps {
   title: string;
   field: string;
-  duration: string;
+  date: string;
   imgSrc: StaticImageData;
 }
 
 export default function Education({
   title,
   field,
-  duration,
+  date,
   imgSrc,
 }: EducationProps) {
   const { setIsInView } = useSharedContext();
-
-  const { ref: ref4 } = useInView({
-    threshold: 0,
-    onChange(inView: boolean) {
-      setIsInView("isInView4", inView);
-    },
-  });
 
   const { ref: ref5 } = useInView({
     threshold: 0,
@@ -37,6 +30,13 @@ export default function Education({
     threshold: 0,
     onChange(inView: boolean) {
       setIsInView("isInView6", inView);
+    },
+  });
+
+  const { ref: ref7 } = useInView({
+    threshold: 0,
+    onChange(inView: boolean) {
+      setIsInView("isInView7", inView);
     },
   });
 
@@ -54,24 +54,26 @@ export default function Education({
             />
           </div>
           <div className="education">
-            <h5>{title}</h5>
+            <h5
+              ref={
+                title === "University of the People"
+                  ? ref5
+                  : title === "ALX"
+                  ? ref6
+                  : title === "Coursera"
+                  ? ref7
+                  : undefined
+              }
+            >
+              {title}
+            </h5>
             <div>
               <p className="field">{field}</p>
-              <p
-                ref={
-                  title === "University of the People"
-                    ? ref4
-                    : title === "ALX"
-                    ? ref5
-                    : title === "Coursera"
-                    ? ref6
-                    : undefined
-                }
-              >
-                {duration.split("(")[0]}
-                {duration.includes("(") && (
+              <p className="date">
+                {date.split("(")[0]}
+                {date.includes("(") && (
                   <span className="duration">
-                    ({duration.split("(")[1].split(")")[0]})
+                    ({date.split("(")[1].split(")")[0]})
                   </span>
                 )}
               </p>

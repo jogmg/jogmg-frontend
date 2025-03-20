@@ -14,39 +14,51 @@ import nipcoImage from "../../../public/images/nipcogas.webp";
 import uopeopleImage from "../../../public/images/uopeople.webp";
 import alxImage from "../../../public/images/alx.webp";
 import courseraImage from "../../../public/images/coursera.webp";
+import ssImage from "../../../public/images/sslogo.webp"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Joshua Attah's work experience and education.",
+  description: "Learn more about Joshua Attah.",
 };
 
 export default function page() {
   const workExperience: WorkExperienceProps[] = [
     {
-      title: "Primed E-health",
-      role: "Software Developer Intern (Backend)",
-      duration: "Apr. - Nov. 2024 (8 mos)  •  Remote  •  Full-Time",
+      title: "Synthesis Society",
+      role: "Web Developer & Editor",
+      date: "Jan. 2024 - Present  •  Remote  •  Part-Time",
       descs: [
-        "Developed backend features for the Virtual Clinic telemedicine app, including forgot and reset password functionality using Sendchamp for SMS-based OTP delivery, and CRUD operations for imaging management.",
-        "Built and maintained the push notification update token endpoint to keep users’ notification tokens updated for real-time alerts.",
+        "Develop, update and maintain the organization's website.",
+        "Design and edit event related materials including flyers, tickets, banners, logos and videos.",
+      ],
+      imgSrc: ssImage,
+    },
+    {
+      title: "Primed E-health",
+      role: "Software Developer Intern",
+      date: "Apr. 2024 - Nov. 2024 (8 mos)  •  Remote  •  Full-Time",
+      descs: [
+        "Collaborated on the Virtual Clinic telemedicine mobile app to develop forgot and reset password functionality using Sendchamp for SMS-based OTP delivery, and added push notification update functionality for real-time alerts.",
+        "Implemented CRUD operations for imaging management.",
+        "Built Angular web app, and implemented user authentication service with Nestjs.",
       ],
       imgSrc: primedEhealthImage,
     },
     {
       title: "AITI",
       role: "Tech Mentor",
-      duration: "Apr. - Nov. 2024 (8 mos)  •  Remote  •  Full-Time",
+      date: "Apr. 2024 - Nov. 2024 (8 mos)  •  Remote  •  Full-Time",
       descs: [
-        "Review and provide feedback on student projects involving both frontend development (React, Next.js) and backend development (Express, MongoDB), ensuring they meet industry standards and best practices.",
-        "Break down and structure tutor videos for both frontend and backend development into clear, digestible sections, making complex concepts easier for students to understand and apply.",
+        "Mentored students in both frontend and backend development.",
+        "Broke down tutor videos into clear, digestible sections to enhance their learning experience.",
       ],
       imgSrc: aitiImage,
     },
     {
       title: "NIPCO Gas Limited",
       role: "Data Entry Clerk",
-      duration: "Jan. - Jun. 2023 (6 mos)  •  On-site  •  Full-Time",
+      date: "Jan. 2023 - Jun. 2023 (6 mos)  •  On-site  •  Full-Time",
       descs: [
         "Accurately inputted, organized, and stored data in MS Excel, including expense records for repairs, and maintained digital copies by scanning and saving documents.",
         "Prepared and generated monthly reports summarizing total expenses incurred on repairs, ensuring timely and accurate financial tracking.",
@@ -59,19 +71,19 @@ export default function page() {
     {
       title: "University of the People",
       field: "B.Sc Computer Science",
-      duration: "2023 - Present",
+      date: "2023 - Present",
       imgSrc: uopeopleImage,
     },
     {
       title: "ALX",
-      field: "Software Engineering (Backend Specialization)",
-      duration: "Jan. 2023 - Mar. 2024 (1yr 2 mos)",
+      field: "Software Engineering",
+      date: "Jan. 2023 - Mar. 2024 (1yr 2 mos)",
       imgSrc: alxImage,
     },
     {
       title: "Coursera",
       field: "Google UX Design",
-      duration: "Dec. 2022 - Jun. 2023 (7 mos)",
+      date: "Dec. 2022 - Jun. 2023 (7 mos)",
       imgSrc: courseraImage,
     },
   ];
@@ -109,7 +121,7 @@ export default function page() {
             key={index}
             title={item.title}
             role={item.role}
-            duration={item.duration}
+            date={item.date}
             descs={item.descs}
             imgSrc={item.imgSrc}
           />
@@ -120,7 +132,7 @@ export default function page() {
             key={index}
             title={item.title}
             field={item.field}
-            duration={item.duration}
+            date={item.date}
             imgSrc={item.imgSrc}
           />
         ))}
