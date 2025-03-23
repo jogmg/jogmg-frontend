@@ -15,8 +15,38 @@ export const metadata: Metadata = {
     template: "%s | JoGMG",
   },
   description:
-    "This is the website of Joshua Attah (JoGMG). A software developer who designs and builds business solutions.",
+    "Welcome to the website of Joshua Attah (JoGMG). A software developer who designs and builds business solutions.",
   authors: { name: "Joshua Attah" },
+  openGraph: {
+    siteName: "JoGMG - Joshua Attah's Website",
+    title: "JoGMG",
+    description:
+      "Welcome to the website of Joshua Attah (JoGMG). A software developer who designs and builds business solutions.",
+    type: "website",
+    url: "https://jogmg-frontend.vercel.app/",
+    images: [
+      {
+        url: "/images/og-image.webp",
+        alt: "JoGMG logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JoGMG",
+    description:
+      "Welcome to the website of Joshua Attah (JoGMG). A software developer who designs and builds business solutions.",
+    images: [
+      {
+        url: "/images/og-image.webp",
+        alt: "JoGMG logo",
+      },
+    ],
+  },
+  applicationName: "JoGMG - Joshua Attah's Website",
+  appleWebApp: {
+    title: "JoGMG - Joshua Attah's Website",
+  },
 };
 
 export default function RootLayout({
