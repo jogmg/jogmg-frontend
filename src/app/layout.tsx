@@ -19,26 +19,26 @@ export const metadata: Metadata = {
   authors: { name: "Joshua Attah" },
   openGraph: {
     siteName: "JoGMG - Joshua Attah's Website",
-    title: "JoGMG",
+    title: "JoGMG - Joshua Attah's Website",
     description:
       "Welcome to the website of Joshua Attah (JoGMG). A software developer who designs and builds business solutions.",
     type: "website",
     url: "https://jogmg-frontend.vercel.app/",
     images: [
       {
-        url: "/images/og-image.webp",
+        url: "/images/og-image.png",
         alt: "JoGMG logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JoGMG",
+    title: "JoGMG - Joshua Attah's Website",
     description:
       "Welcome to the website of Joshua Attah (JoGMG). A software developer who designs and builds business solutions.",
     images: [
       {
-        url: "/images/og-image.webp",
+        url: "/images/og-image.png",
         alt: "JoGMG logo",
       },
     ],
