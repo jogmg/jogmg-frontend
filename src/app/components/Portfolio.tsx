@@ -1,13 +1,13 @@
 "use client";
 
 import Image, { StaticImageData } from "next/image";
-import GithubIcon from "./GithubIcon";
-import AdobeXDIcon from "./AdobeXDIcon";
-import FigmaIcon from "./FigmaIcon";
-import Button from "./Button";
 import { useState } from "react";
-import ChevronUpIcon from "../../../public/icons/chevron-up.svg";
 import ChevronTripleRightIcon from "../../../public/icons/chevron-triple-right.svg";
+import ChevronUpIcon from "../../../public/icons/chevron-up.svg";
+import AdobeXDIcon from "./AdobeXDIcon";
+import Button from "./Button";
+import FigmaIcon from "./FigmaIcon";
+import GithubIcon from "./GithubIcon";
 
 export interface PortfolioProps {
   title: string;
@@ -34,13 +34,7 @@ export default function Portfolio({
 
   return (
     <div className={`portfolio-container ${active ? "active" : ""}`}>
-      <Image
-        src={bgUrl}
-        alt={`${title} Image`}
-        placeholder="blur"
-        fill
-        className="image"
-      />
+      <Image src={bgUrl} alt={`${title} Image`} fill className="image" />
       <Image
         src={ChevronTripleRightIcon}
         alt="Chevron Triple Right Icon"

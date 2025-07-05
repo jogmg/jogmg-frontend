@@ -1,5 +1,6 @@
 "use client";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   createContext,
   ReactNode,
@@ -26,6 +27,8 @@ interface Props {
 }
 
 const SharedContext = createContext<Props | undefined>(undefined);
+
+const queryClient = new QueryClient();
 
 export function SharedContextProvider({ children }: { children: ReactNode }) {
   const initialState: InViewProps = {
@@ -57,16 +60,18 @@ export function SharedContextProvider({ children }: { children: ReactNode }) {
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
 
   return (
-    <SharedContext.Provider
-      value={{
-        isInView,
-        setIsInView,
-        isNavMenuOpen,
-        setIsNavMenuOpen,
-      }}
-    >
-      {children}
-    </SharedContext.Provider>
+    <QueryClientProvider client={queryClient}>
+      <SharedContext.Provider
+        value={{
+          isInView,
+          setIsInView,
+          isNavMenuOpen,
+          setIsNavMenuOpen,
+        }}
+      >
+        {children}
+      </SharedContext.Provider>
+    </QueryClientProvider>
   );
 }
 

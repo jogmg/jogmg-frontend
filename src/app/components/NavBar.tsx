@@ -1,26 +1,38 @@
 "use client";
 
+import GithubIcon from "@/app/components/GithubIcon";
+import LinkedinIcon from "@/app/components/LinkedinIcon";
 import Logo from "@/app/components/Logo";
 import NavTextLink from "@/app/components/NavTextLink";
-import LinkedinIcon from "@/app/components/LinkedinIcon";
-import GithubIcon from "@/app/components/GithubIcon";
+import { useEffect, useState } from "react";
 import MenuIcon from "./MenuIcon";
 
 export default function NavBar() {
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsActive(window.scrollY > 70);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header>
-      <nav className="nav-bar">
-        <div className="nav-bar-links">
-          <NavTextLink text="PORTFOLIO" to="/portfolio" />
-          <NavTextLink text="ABOUT" to="/about" />
-        </div>
-        <Logo />
-        <div className="nav-bar-socials">
-          <LinkedinIcon />
-          <GithubIcon />
-        </div>
-        <MenuIcon />
-      </nav>
-    </header>
+    <nav className={`nav-bar ${isActive ? "active" : ""}`}>
+      <div className="nav-bar-links">
+        <NavTextLink text="PORTFOLIO" to="/portfolio" />
+        <NavTextLink text="ABOUT" to="/about" />
+      </div>
+      <Logo />
+      <div className="nav-bar-socials">
+        <LinkedinIcon />
+        <GithubIcon />
+      </div>
+      <MenuIcon />
+    </nav>
   );
 }

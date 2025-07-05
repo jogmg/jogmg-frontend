@@ -5,7 +5,7 @@ import { lexend } from "../fonts";
 import TitleCard from "./TitleCard";
 import Button from "./Button";
 import InputField from "./InputField";
-import { sendUser } from "../storage/controllers";
+import { sendUser } from "../queries/query";
 import { toast } from "react-toastify";
 
 export interface UserDataProps {

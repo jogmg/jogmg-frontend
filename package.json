@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.81.5",
     "@vercel/analytics": "^1.5.0",
     "jogmg-website": "file:",
     "next": "15.1.3",

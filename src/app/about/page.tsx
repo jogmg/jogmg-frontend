@@ -1,21 +1,21 @@
+import { Metadata } from "next";
 import Image from "next/image";
-import { lexend } from "../fonts";
+import worldIcon from "../../../public/icons/world-svgrepo-com.svg";
+import aitiImage from "../../../public/images/aiti.webp";
+import alxImage from "../../../public/images/alx.webp";
+import courseraImage from "../../../public/images/coursera.webp";
+import nipcoImage from "../../../public/images/nipcogas.webp";
+import OfficialImage from "../../../public/images/official-image.webp";
+import primedEhealthImage from "../../../public/images/primedehealth.webp";
+import ssImage from "../../../public/images/sslogo.webp";
+import uopeopleImage from "../../../public/images/uopeople.webp";
+import Education, { EducationProps } from "../components/Education";
 import LanguageCard from "../components/LanguageCard";
+import SideSections from "../components/SideSections";
 import WorkExperience, {
   WorkExperienceProps,
 } from "../components/WorkExperience";
-import Education, { EducationProps } from "../components/Education";
-import SideSections from "../components/SideSections";
-import worldIcon from "../../../public/icons/world-svgrepo-com.svg";
-import OfficialImage from "../../../public/images/official-image.webp";
-import primedEhealthImage from "../../../public/images/primedehealth.webp";
-import aitiImage from "../../../public/images/aiti.webp";
-import nipcoImage from "../../../public/images/nipcogas.webp";
-import uopeopleImage from "../../../public/images/uopeople.webp";
-import alxImage from "../../../public/images/alx.webp";
-import courseraImage from "../../../public/images/coursera.webp";
-import ssImage from "../../../public/images/sslogo.webp"
-import { Metadata } from "next";
+import { lexend } from "../fonts";
 
 export const metadata: Metadata = {
   title: "About",
@@ -41,7 +41,7 @@ export default function page() {
       descs: [
         "Collaborated on the Virtual Clinic telemedicine mobile app to develop forgot and reset password functionality using Sendchamp for SMS-based OTP delivery, and added push notification update functionality for real-time alerts.",
         "Implemented CRUD operations for imaging management.",
-        "Built Angular web app, and implemented user authentication service with Nestjs.",
+        "Built web app using Angular, and implemented user authentication service with Nestjs.",
       ],
       imgSrc: primedEhealthImage,
     },
