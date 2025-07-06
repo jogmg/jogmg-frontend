@@ -1,12 +1,13 @@
 "use client";
 
+import { useMutation } from "@tanstack/react-query";
 import { FormEvent, useReducer, useState } from "react";
+import { toast } from "react-toastify";
 import { lexend } from "../fonts";
-import TitleCard from "./TitleCard";
+import { sendUser } from "../queries/query";
 import Button from "./Button";
 import InputField from "./InputField";
-import { sendUser } from "../queries/query";
-import { toast } from "react-toastify";
+import TitleCard from "./TitleCard";
 
 export interface UserDataProps {
   name: string;
@@ -15,16 +16,8 @@ export interface UserDataProps {
   message: string;
 }
 
-interface ResultProps {
-  error: boolean;
-  statusCode: number;
-  message: string;
-  data: UserDataProps;
-}
-
 export default function Intro() {
   const [toggled, setIsToggled] = useState(false);
-  const [status, setStatus] = useState<"initial" | "sending">("initial");
 
   const handleGoBack = () => {
     setIsToggled(false);
@@ -65,24 +58,22 @@ export default function Intro() {
     userDataDispatch({ type, value });
   };
 
+  const { mutate, isPending } = useMutation({
+    mutationFn: (userData: UserDataProps) => sendUser(userData),
+    onSuccess: () => {
+      userDataDispatch({ empty: true });
+      toast.success("Message sent successfully", { theme: "dark" });
+    },
+    onError: (error) => {
+      toast.error("Error: " + error.message, {
+        theme: "dark",
+      });
+    },
+  });
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    setStatus("sending");
-
-    const result: ResultProps = await sendUser(userData);
-
-    setStatus("initial");
-
-    if (
-      result.error ||
-      (result.statusCode !== 200 && result.statusCode !== 201)
-    ) {
-      return toast.error("Failed to send message", { theme: "dark" });
-    } else {
-      userDataDispatch({ empty: true });
-      return toast.success("Message sent successfully", { theme: "dark" });
-    }
+    mutate(userData);
   };
 
   return (
@@ -92,7 +83,9 @@ export default function Intro() {
           <p>Hey there! 👋</p>
           <div className="name-title-cta-container">
             <div className="name-title-container">
-              <h1 className={`h1 ${lexend.className}`}>I&apos;m Joshua Attah</h1>
+              <h1 className={`h1 ${lexend.className}`}>
+                I&apos;m Joshua Attah
+              </h1>
               <div className="title-card-container">
                 <TitleCard text="SOFTWARE DEVELOPER" />
                 <TitleCard text="UI/UX DESIGNER" />
@@ -101,8 +94,8 @@ export default function Intro() {
             <p className="text-balance">
               I&apos;m a Software Developer and UI/UX Designer from Nigeria,
               dedicated to delivering high-quality software solutions that meet
-              user needs. I design, build, and burnout. Let&apos;s collaborate to
-              bring your ideas to life.
+              user needs. I design, build, and burnout. Let&apos;s collaborate
+              to bring your ideas to life.
             </p>
             <div className="cta-container">
               <Button
@@ -151,15 +144,16 @@ export default function Intro() {
               onChange={(e) => {
                 setUserData("message", e.target.value);
               }}
+              required
             />
             <div className="cta-container">
               <Button
                 id="send-btn"
-                text={status === "sending" ? "Sending..." : "Send"}
+                text={isPending ? "Sending..." : "Send"}
                 type="submit"
                 btnType="main"
                 iconType="send"
-                status={status}
+                loading={isPending}
               />
               <Button
                 id="back-btn"

@@ -1,13 +1,6 @@
 import { UserDataProps } from "../components/Intro";
 import { PortfolioProps } from "../components/Portfolio";
 
-export interface IResponse<T> {
-  error: boolean;
-  statusCode: number;
-  message: string;
-  data: T;
-}
-
 export const sendUser = async (data: UserDataProps) => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_DB_URL!}/users`, {
     method: "POST",
@@ -17,10 +10,10 @@ export const sendUser = async (data: UserDataProps) => {
     body: JSON.stringify(data),
   });
 
-  return await response.json();
+  return response;
 };
 
-export const getPortfolios = async (): Promise<IResponse<PortfolioProps[]>> => {
+export const getPortfolios = async (): Promise<PortfolioProps[]> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_DB_URL!}/portfolios`);
   return await response.json();
 };

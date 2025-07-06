@@ -13,11 +13,12 @@ const PortfolioContainer = () => {
   const { data, isSuccess } = useQuery({
     queryKey: ["portfolios"],
     queryFn: getPortfolios,
+    staleTime: 24 * 60 * 60 * 1000,
   });
 
   const icons = [personIcon, calenderIcon, stackIcon, gridIcon];
 
-  const portfolios = data?.data.map((item) => ({
+  const portfolios = data?.map((item) => ({
     ...item,
     descs: item.descs.map((desc, idx) => ({
       ...desc,

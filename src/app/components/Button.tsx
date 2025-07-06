@@ -1,11 +1,11 @@
-import { lexend } from "../fonts";
 import Image from "next/image";
-import arrowUpRightIcon from "../../../public/icons/arrow-up-right.svg";
-import sendIcon from "../../../public/icons/send-fill.svg";
-import chevronRightIcon from "../../../public/icons/chevron-right.svg";
+import Link from "next/link";
 import arrowLeftIcon from "../../../public/icons/arrow-left-short.svg";
 import arrowRightCircleIcon from "../../../public/icons/arrow-right-circle-fill.svg";
-import Link from "next/link";
+import arrowUpRightIcon from "../../../public/icons/arrow-up-right.svg";
+import chevronRightIcon from "../../../public/icons/chevron-right.svg";
+import sendIcon from "../../../public/icons/send-fill.svg";
+import { lexend } from "../fonts";
 import LoadingCircleIcon from "./LoadingCirlceIcon";
 
 interface Props {
@@ -16,7 +16,7 @@ interface Props {
   action?: () => void;
   iconType?: "new-tab" | "send" | "forward" | "back";
   linkUrl?: string;
-  status?: "initial" | "sending";
+  loading?: boolean;
 }
 
 export default function Button({
@@ -27,7 +27,7 @@ export default function Button({
   btnType,
   iconType,
   linkUrl = undefined,
-  status = "initial",
+  loading,
 }: Props) {
   return (
     <>
@@ -101,13 +101,13 @@ export default function Button({
           {iconType === "new-tab" && (
             <Image src={arrowUpRightIcon} alt="Arrow Up Right Icon" />
           )}
-          {iconType === "send" && status !== "sending" && (
-            <Image src={sendIcon} alt="Send Icon" />
-          )}
           {iconType === "forward" && (
             <Image src={chevronRightIcon} alt="Chevron Right Icon" />
           )}
-          {status === "sending" && <LoadingCircleIcon />}
+          {iconType === "send" && !loading && (
+            <Image src={sendIcon} alt="Send Icon" />
+          )}
+          {loading && <LoadingCircleIcon />}
         </button>
       )}
     </>
