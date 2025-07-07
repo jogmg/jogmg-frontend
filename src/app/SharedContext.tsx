@@ -12,9 +12,9 @@ import {
 
 interface ISharedContext {
   expInViews: Record<string, boolean>;
-  setExpInViews: Dispatch<SetStateAction<{}>>;
+  setExpInViews: Dispatch<SetStateAction<object>>;
   eduInViews: Record<string, boolean>;
-  setEduInViews: Dispatch<SetStateAction<{}>>;
+  setEduInViews: Dispatch<SetStateAction<object>>;
   isNavMenuOpen: boolean;
   setIsNavMenuOpen: (status: boolean) => void;
 }

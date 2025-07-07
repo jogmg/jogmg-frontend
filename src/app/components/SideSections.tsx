@@ -18,11 +18,11 @@ export default function SideSections({ workExp, education }: ISideSections) {
   const [isEduActive, setIsEduActive] = useState(false);
 
   const handleSetIsWorkActive = () => {
-    setIsWorkActive((prev) => workExp?.length! > 0 && !prev);
+    setIsWorkActive((prev) => !prev);
   };
 
   const handleSetIsEduActive = () => {
-    setIsEduActive((prev) => education?.length! > 0 && !prev);
+    setIsEduActive((prev) => !prev);
   };
 
   return (
