@@ -8,7 +8,7 @@ import sendIcon from "../../../public/icons/send-fill.svg";
 import { lexend } from "../fonts";
 import LoadingCircleIcon from "./LoadingCirlceIcon";
 
-interface Props {
+interface IButton {
   text: string;
   type?: "button" | "submit" | "reset";
   btnType: "main" | "alt" | "portfolio";
@@ -28,7 +28,7 @@ export default function Button({
   iconType,
   linkUrl = undefined,
   loading,
-}: Props) {
+}: IButton) {
   return (
     <>
       {linkUrl ? (

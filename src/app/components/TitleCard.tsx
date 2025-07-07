@@ -1,9 +1,9 @@
 import { consolas } from "../fonts";
 
-interface Props {
+interface ITitleCard {
   text: string;
 }
 
-export default function TitleCard({ text }: Props) {
+export default function TitleCard({ text }: ITitleCard) {
   return <div className={`title-card ${consolas.className}`}>{text}</div>;
 }

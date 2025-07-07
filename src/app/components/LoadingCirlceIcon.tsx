@@ -1,8 +1,8 @@
-interface Props {
+interface ILoadingCircleIcon {
   className?: string;
 }
 
-export default function LoadingCircleIcon({ className }: Props) {
+export default function LoadingCircleIcon({ className }: ILoadingCircleIcon) {
   return (
     <svg
       className={`loading-circle-icon ${className}`}

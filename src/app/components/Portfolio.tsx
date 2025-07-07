@@ -1,6 +1,6 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useState } from "react";
 import ChevronTripleRightIcon from "../../../public/icons/chevron-triple-right.svg";
 import ChevronUpIcon from "../../../public/icons/chevron-up.svg";
@@ -9,9 +9,9 @@ import Button from "./Button";
 import FigmaIcon from "./FigmaIcon";
 import GithubIcon from "./GithubIcon";
 
-export interface PortfolioProps {
+export interface IPortfolioProps {
   title: string;
-  bgUrl: StaticImageData;
+  bgUrl: string;
   mainUrl: string;
   ctaUrl: string;
   ctaType: "github" | "figma" | "adobexd";
@@ -25,7 +25,7 @@ export default function Portfolio({
   ctaUrl = "",
   ctaType,
   descs,
-}: PortfolioProps) {
+}: IPortfolioProps) {
   const [active, setIsActive] = useState(false);
 
   const handleHeadingClick = () => {

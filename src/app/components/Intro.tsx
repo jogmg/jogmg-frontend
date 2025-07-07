@@ -9,7 +9,7 @@ import Button from "./Button";
 import InputField from "./InputField";
 import TitleCard from "./TitleCard";
 
-export interface UserDataProps {
+export interface IUserData {
   name: string;
   email: string;
   subject?: string;
@@ -27,7 +27,7 @@ export default function Intro() {
     setIsToggled(true);
   };
 
-  const initialUserData: UserDataProps = {
+  const initialUserData: IUserData = {
     name: "",
     email: "",
     subject: "",
@@ -35,9 +35,9 @@ export default function Intro() {
   };
 
   const userDataReducer = (
-    state: UserDataProps,
+    state: IUserData,
     action: {
-      type?: keyof UserDataProps | string;
+      type?: keyof IUserData | string;
       value?: string;
       empty?: boolean;
     }
@@ -54,12 +54,12 @@ export default function Intro() {
     initialUserData
   );
 
-  const setUserData = (type: keyof UserDataProps | string, value: string) => {
+  const setUserData = (type: keyof IUserData | string, value: string) => {
     userDataDispatch({ type, value });
   };
 
   const { mutate, isPending } = useMutation({
-    mutationFn: (userData: UserDataProps) => sendUser(userData),
+    mutationFn: (userData: IUserData) => sendUser(userData),
     onSuccess: () => {
       userDataDispatch({ empty: true });
       toast.success("Message sent successfully", { theme: "dark" });

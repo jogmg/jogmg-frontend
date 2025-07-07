@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Info from "./Info";
 
-interface Props {
+interface IGithubIcon {
   width?: string;
   height?: string;
   url?: string;
@@ -13,7 +13,7 @@ export default function GithubIcon({
   height = "41",
   url = "https://github.com/jogmg",
   infoPosY = "-bottom-[35px]",
-}: Props) {
+}: IGithubIcon) {
   return (
     <div className="github-info-container">
       <Link href={url} target="_blank" aria-label="View my Github">

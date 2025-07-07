@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import PortfolioContainer from "./PortfolioContainer";
+import PortfolioContent from "./PortfolioContent";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function page() {
-  return <PortfolioContainer />;
+  return <PortfolioContent />;
 }

@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Info from "./Info";
 
-interface Props {
+interface IFigmaIcon {
   url: string;
   infoPosY?: string;
 }
 
-export default function FigmaIcon({ url, infoPosY = "-top-[37px]" }: Props) {
+export default function FigmaIcon({ url, infoPosY = "-top-[37px]" }: IFigmaIcon) {
   return (
     <div className="figma-info-container">
       <Link href={url} target="_blank" aria-label="View Portfolio Prototype">

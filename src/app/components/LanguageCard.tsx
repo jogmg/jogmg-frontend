@@ -1,9 +1,9 @@
-interface Props {
+interface ILanguageCard {
   text: string;
   level: string;
 }
 
-export default function LanguageCard({ text, level }: Props) {
+export default function LanguageCard({ text, level }: ILanguageCard) {
   return (
     <div className="language">
       <p className="text">{text}</p>

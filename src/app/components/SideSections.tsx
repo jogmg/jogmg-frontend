@@ -1,22 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import ChevronUpIcon from "../../../public/icons/chevron-up.svg";
 import { useState } from "react";
+import ChevronUpIcon from "../../../public/icons/chevron-up.svg";
 import useSharedContext from "../SharedContext";
+import { IEducation, IWorkExperience } from "../queries/query";
 import SideSectionNavItem from "./SideSectionNavItem";
 
-export default function SideSections() {
-  const { isInView } = useSharedContext();
+interface ISideSections {
+  workExp?: IWorkExperience[];
+  education?: IEducation[];
+}
+
+export default function SideSections({ workExp, education }: ISideSections) {
+  const { expInViews, eduInViews } = useSharedContext();
   const [isWorkActive, setIsWorkActive] = useState(false);
   const [isEduActive, setIsEduActive] = useState(false);
 
   const handleSetIsWorkActive = () => {
-    setIsWorkActive(!isWorkActive);
+    setIsWorkActive((prev) => workExp?.length! > 0 && !prev);
   };
 
   const handleSetIsEduActive = () => {
-    setIsEduActive(!isEduActive);
+    setIsEduActive((prev) => education?.length! > 0 && !prev);
   };
 
   return (
@@ -26,10 +32,7 @@ export default function SideSections() {
         <div className="work-section-container">
           <div
             className={`line-bar ${
-              isInView.isInView1 ||
-              isInView.isInView2 ||
-              isInView.isInView3 ||
-              isInView.isInView4
+              Object.values(expInViews).some((inView) => inView === true)
                 ? "active"
                 : ""
             }`}
@@ -44,19 +47,13 @@ export default function SideSections() {
               />
             </div>
             <div className={`sub-container ${isWorkActive ? "active" : ""}`}>
-              <SideSectionNavItem
-                title="Synthesis Society"
-                isInView={isInView.isInView1}
-              />
-              <SideSectionNavItem
-                title="Primed E-health"
-                isInView={isInView.isInView2}
-              />
-              <SideSectionNavItem title="AITI" isInView={isInView.isInView3} />
-              <SideSectionNavItem
-                title="NIPCO Gas Limited"
-                isInView={isInView.isInView4}
-              />
+              {workExp?.map((exp) => (
+                <SideSectionNavItem
+                  key={exp._id}
+                  title={exp.title}
+                  isInView={expInViews[exp._id]}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -64,7 +61,7 @@ export default function SideSections() {
           <div className="education-section">
             <div
               className={`line-bar ${
-                isInView.isInView5 || isInView.isInView6 || isInView.isInView7
+                Object.values(eduInViews).some((inView) => inView === true)
                   ? "active"
                   : ""
               }`}
@@ -78,15 +75,17 @@ export default function SideSections() {
               />
             </div>
             <div className={`sub-container ${isEduActive ? "active" : ""}`}>
-              <SideSectionNavItem
-                title="UoPeople"
-                isInView={isInView.isInView5}
-              />
-              <SideSectionNavItem title="ALX" isInView={isInView.isInView6} />
-              <SideSectionNavItem
-                title="Coursera"
-                isInView={isInView.isInView7}
-              />
+              {education?.map((edu) => (
+                <SideSectionNavItem
+                  key={edu._id}
+                  title={
+                    edu.title === "University of the People"
+                      ? "UoPeople"
+                      : edu.title
+                  }
+                  isInView={eduInViews[edu._id]}
+                />
+              ))}
             </div>
           </div>
         </div>

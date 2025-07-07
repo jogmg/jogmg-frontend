@@ -1,8 +1,8 @@
-interface Props {
+interface ICloseIcon {
   action?: () => void;
 }
 
-export default function CloseIcon({ action }: Props) {
+export default function CloseIcon({ action }: ICloseIcon) {
   return (
     <svg
       width="40"

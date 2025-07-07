@@ -1,4 +1,4 @@
-interface Props {
+interface IInputField {
   name: string;
   type?: string;
   value?: string;
@@ -12,7 +12,7 @@ export default function InputField({
   value,
   action,
   required = true,
-}: Props) {
+}: IInputField) {
   return (
     <input
       className="input-field"

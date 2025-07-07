@@ -1,8 +1,8 @@
-interface Props {
+interface IArrowLeftIcon {
     color?: string;
 }
 
-export default function ArrowLeftIcon({color = "#333333"}: Props) {
+export default function ArrowLeftIcon({color = "#333333"}: IArrowLeftIcon) {
   return (
     <svg
       width="20"

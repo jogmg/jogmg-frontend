@@ -4,13 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-interface Props {
+interface INavTextLink {
   text: string;
   to: string;
   action?: () => void;
 }
 
-export default function NavTextLink({ text, to, action }: Props) {
+export default function NavTextLink({ text, to, action }: INavTextLink) {
   const [isActive, setIsActive] = useState(false);
 
   const pathname = usePathname();

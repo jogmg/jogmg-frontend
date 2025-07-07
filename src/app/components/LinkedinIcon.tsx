@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Info from "./Info";
 
-interface Props {
+interface ILinkedinIcon {
   infoPosY?: string;
 }
 
-export default function LinkedinIcon({ infoPosY = "-bottom-[35px]" }: Props) {
+export default function LinkedinIcon({
+  infoPosY = "-bottom-[35px]",
+}: ILinkedinIcon) {
   return (
     <div className="linkedin-info-container">
       <Link

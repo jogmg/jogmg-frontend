@@ -5,11 +5,11 @@ import calenderIcon from "../../../public/icons/calendar-week.svg";
 import gridIcon from "../../../public/icons/grid-fill.svg";
 import personIcon from "../../../public/icons/person-bounding-box.svg";
 import stackIcon from "../../../public/icons/stack.svg";
+import LoadingSkeleton from "../components/LoadingSkeleton";
 import Portfolio from "../components/Portfolio";
-import PortfolioSkeleton from "../components/PortfolioSkeleton";
 import { getPortfolios } from "../queries/query";
 
-const PortfolioContainer = () => {
+const PortfolioContent = () => {
   const { data, isSuccess } = useQuery({
     queryKey: ["portfolios"],
     queryFn: getPortfolios,
@@ -29,9 +29,9 @@ const PortfolioContainer = () => {
   return (
     <main className="portfolio">
       {isSuccess
-        ? portfolios?.map((portfolio, index) => (
+        ? portfolios?.map((portfolio) => (
             <Portfolio
-              key={index}
+              key={portfolio._id}
               title={portfolio.title}
               bgUrl={portfolio.bgUrl}
               mainUrl={portfolio.mainUrl}
@@ -41,10 +41,10 @@ const PortfolioContainer = () => {
             />
           ))
         : Array.from({ length: 6 }).map((_, idx) => (
-            <PortfolioSkeleton key={idx} />
+            <LoadingSkeleton key={idx} portfolio />
           ))}
     </main>
   );
 };
 
-export default PortfolioContainer;
+export default PortfolioContent;
