@@ -1,15 +1,15 @@
 "use client";
 
+import useSharedContext from "@/app/SharedContext";
+import SideSectionNavItem from "@app/components/about/SideSectionNavItem";
+import { IEducationData, IWorkExperienceData } from "@app/query";
+import ChevronUpIcon from "@public/icons/chevron-up.svg";
 import Image from "next/image";
 import { useState } from "react";
-import ChevronUpIcon from "../../../public/icons/chevron-up.svg";
-import useSharedContext from "../SharedContext";
-import { IEducation, IWorkExperience } from "../queries/query";
-import SideSectionNavItem from "./SideSectionNavItem";
 
 interface ISideSections {
-  workExp?: IWorkExperience[];
-  education?: IEducation[];
+  workExp?: IWorkExperienceData[];
+  education?: IEducationData[];
 }
 
 export default function SideSections({ workExp, education }: ISideSections) {

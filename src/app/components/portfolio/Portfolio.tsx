@@ -1,21 +1,21 @@
 "use client";
 
-import Image from "next/image";
+import Button from "@app/components/Button";
+import AdobeXDIcon from "@app/components/icons/AdobeXDIcon";
+import FigmaIcon from "@app/components/icons/FigmaIcon";
+import GithubIcon from "@app/components/icons/GithubIcon";
+import ChevronTripleRightIcon from "@public/icons/chevron-triple-right.svg";
+import ChevronUpIcon from "@public/icons/chevron-up.svg";
+import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
-import ChevronTripleRightIcon from "../../../public/icons/chevron-triple-right.svg";
-import ChevronUpIcon from "../../../public/icons/chevron-up.svg";
-import AdobeXDIcon from "./AdobeXDIcon";
-import Button from "./Button";
-import FigmaIcon from "./FigmaIcon";
-import GithubIcon from "./GithubIcon";
 
-export interface IPortfolioProps {
+interface IPortfolio {
   title: string;
-  bgUrl: string;
+  bgUrl: string | StaticImageData;
   mainUrl: string;
   ctaUrl: string;
   ctaType: "github" | "figma" | "adobexd";
-  descs: { iconUrl: string; title: string; text: string }[];
+  descs: { iconUrl: string | StaticImageData; title: string; text: string }[];
 }
 
 export default function Portfolio({
@@ -25,7 +25,7 @@ export default function Portfolio({
   ctaUrl = "",
   ctaType,
   descs,
-}: IPortfolioProps) {
+}: IPortfolio) {
   const [active, setIsActive] = useState(false);
 
   const handleHeadingClick = () => {
@@ -72,7 +72,7 @@ export default function Portfolio({
                 className="vid-loop"
                 poster="images/green-ring-loop-fallback.webp"
               >
-                <source src="/green-ring-loop.webm" type="video/webm" />
+                <source src="/videos/green-ring-loop.webm" type="video/webm" />
                 Your browser does not support the video tag.
               </video>
             </div>

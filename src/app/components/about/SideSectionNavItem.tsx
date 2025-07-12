@@ -1,5 +1,5 @@
+import ArrowLeftIcon from "@app/components/icons/ArrowLeftIcon";
 import Link from "next/link";
-import ArrowLeftIcon from "./ArrowLeftIcon";
 
 interface ISideSectionNavItem {
   title: string;

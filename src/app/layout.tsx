@@ -1,13 +1,13 @@
-import NavBar from "@/app/components/NavBar";
-import VideoLoop from "@/app/components/VideoLoop";
+import Footer from "@app/components/Footer";
+import NavBar from "@app/components/NavBar";
+import NavMenu from "@app/components/NavMenu";
+import VideoLoop from "@app/components/VideoLoop";
+import { quantico } from "@app/fonts";
+import "@app/globals.css";
+import { SharedContextProvider } from "@app/SharedContext";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { ToastContainer } from "react-toastify";
-import Footer from "./components/Footer";
-import NavMenu from "./components/NavMenu";
-import { quantico } from "./fonts";
-import "./globals.css";
-import { SharedContextProvider } from "./SharedContext";
 
 export const metadata: Metadata = {
   title: {

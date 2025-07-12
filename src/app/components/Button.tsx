@@ -1,12 +1,12 @@
+import LoadingCircleIcon from "@app/components/icons/LoadingCirlceIcon";
+import { lexend } from "@app/fonts";
+import arrowLeftIcon from "@public/icons/arrow-left-short.svg";
+import arrowRightCircleIcon from "@public/icons/arrow-right-circle-fill.svg";
+import arrowUpRightIcon from "@public/icons/arrow-up-right.svg";
+import chevronRightIcon from "@public/icons/chevron-right.svg";
+import sendIcon from "@public/icons/send-fill.svg";
 import Image from "next/image";
 import Link from "next/link";
-import arrowLeftIcon from "../../../public/icons/arrow-left-short.svg";
-import arrowRightCircleIcon from "../../../public/icons/arrow-right-circle-fill.svg";
-import arrowUpRightIcon from "../../../public/icons/arrow-up-right.svg";
-import chevronRightIcon from "../../../public/icons/chevron-right.svg";
-import sendIcon from "../../../public/icons/send-fill.svg";
-import { lexend } from "../fonts";
-import LoadingCircleIcon from "./LoadingCirlceIcon";
 
 interface IButton {
   text: string;

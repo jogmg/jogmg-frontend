@@ -1,4 +1,4 @@
-import useSharedContext from "../SharedContext";
+import useSharedContext from "@app/SharedContext";
 
 export default function MenuIcon() {
   const { setIsNavMenuOpen } = useSharedContext();

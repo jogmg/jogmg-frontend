@@ -1,13 +1,13 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import calenderIcon from "../../../public/icons/calendar-week.svg";
-import gridIcon from "../../../public/icons/grid-fill.svg";
-import personIcon from "../../../public/icons/person-bounding-box.svg";
-import stackIcon from "../../../public/icons/stack.svg";
-import LoadingSkeleton from "../components/LoadingSkeleton";
-import Portfolio from "../components/Portfolio";
-import { getPortfolios } from "../queries/query";
+import calenderIcon from "@public/icons/calendar-week.svg";
+import gridIcon from "@public/icons/grid-fill.svg";
+import personIcon from "@public/icons/person-bounding-box.svg";
+import stackIcon from "@public/icons/stack.svg";
+import LoadingSkeleton from "@app/components/LoadingSkeleton";
+import Portfolio from "@app/components/portfolio/Portfolio";
+import { getPortfolios } from "@app/query";
 
 const PortfolioContent = () => {
   const { data, isSuccess } = useQuery({

@@ -2,12 +2,14 @@ interface ILoadingSkeleton {
   portfolio: boolean;
   workExp: boolean;
   education: boolean;
+  skill: boolean;
 }
 
 const LoadingSkeleton = ({
   portfolio,
   workExp,
   education,
+  skill,
 }: Partial<ILoadingSkeleton>) => {
   return (
     <>
@@ -42,6 +44,8 @@ const LoadingSkeleton = ({
             <div className="role-date-skeleton"></div>
           </div>
         </div>
+      ) : skill ? (
+        <div className="skill-skeleton"></div>
       ) : undefined}
     </>
   );

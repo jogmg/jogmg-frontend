@@ -477,8 +477,12 @@ textarea {
   @apply flex flex-col min-[823px]:flex-row gap-[50px] px-[20px] md:px-[50px] py-[70px];
 }
 
+.left_section_container {
+  @apply min-[823px]:sticky min-[823px]:top-28 flex flex-col gap-[50px] h-fit min-[823px]:min-w-[280px] min-[823px]:max-w-[280px];
+}
+
 .side-intro {
-  @apply min-[823px]:sticky min-[823px]:top-28 flex max-[483px]:flex-col min-[823px]:flex-col justify-center items-center gap-[30px] p-[30px] rounded-[10px] h-fit bg-background-(alt);
+  @apply flex max-[483px]:flex-col min-[823px]:flex-col justify-center items-center gap-[30px] p-[30px] rounded-[10px] h-fit bg-background-(alt);
 }
 
 .side-intro-image {
@@ -486,7 +490,7 @@ textarea {
 }
 
 .official-image {
-  @apply absolute object-cover object-[0px_0px];
+  @apply absolute object-cover object-top;
 }
 
 .side-intro-details {
@@ -494,7 +498,7 @@ textarea {
 }
 
 .side-intro-details .title-role {
-  @apply flex flex-col items-center gap-[10px];
+  @apply flex flex-col items-center gap-[10px] w-fit text-center;
 }
 
 .side-intro-details .location {
@@ -522,7 +526,7 @@ textarea {
 }
 
 .work-experience-education {
-  @apply flex flex-col gap-[30px] w-full min-[823px]:w-[409px] min-[823px]:flex-grow;
+  @apply flex flex-col gap-[30px] w-full;
 }
 
 .work-experience-card,
@@ -561,8 +565,36 @@ textarea {
   @apply list-disc pl-[20px];
 }
 
+.right_section_container {
+  @apply sticky top-28 hidden min-[1152px]:flex flex-col gap-[50px] h-fit min-w-[280px] max-w-[280px];
+}
+
+.skill_container.left {
+  @apply min-[1152px]:hidden flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-(alt);
+}
+
+.skill_container {
+  @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-(alt);
+
+  .skills {
+    @apply flex flex-wrap gap-[7px];
+
+    .skill_card {
+      @apply flex items-center gap-[5px] py-[3px] px-[5px] rounded-[7px] bg-[#212121];
+
+      .skill_image {
+        @apply relative size-[16px] rounded-[50%] overflow-hidden;
+
+        img {
+          @apply absolute object-contain;
+        }
+      }
+    }
+  }
+}
+
 .side-sections {
-  @apply sticky top-28 hidden min-[1152px]:flex flex-col gap-[12px] h-fit w-[264px] p-[30px] rounded-[10px] bg-background-(alt);
+  @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-(alt);
 }
 
 .sections-container {
@@ -691,4 +723,8 @@ textarea {
       }
     }
   }
+}
+
+.skill-skeleton {
+  @apply animate-pulse h-[26px] w-full rounded-md bg-skeleton-primary;
 }

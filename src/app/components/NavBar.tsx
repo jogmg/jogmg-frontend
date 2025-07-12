@@ -1,11 +1,11 @@
 "use client";
 
-import GithubIcon from "@/app/components/GithubIcon";
-import LinkedinIcon from "@/app/components/LinkedinIcon";
-import Logo from "@/app/components/Logo";
-import NavTextLink from "@/app/components/NavTextLink";
+import GithubIcon from "@app/components/icons/GithubIcon";
+import LinkedinIcon from "@app/components/icons/LinkedinIcon";
+import Logo from "@app/components/Logo";
+import NavTextLink from "@app/components/NavTextLink";
 import { useEffect, useState } from "react";
-import MenuIcon from "./MenuIcon";
+import MenuIcon from "@app/components/icons/MenuIcon";
 
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false);

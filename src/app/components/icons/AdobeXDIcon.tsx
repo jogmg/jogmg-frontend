@@ -1,12 +1,15 @@
+import Info from "@app/components/Info";
 import Link from "next/link";
-import Info from "./Info";
 
 interface IAdobeXDIcon {
   url: string;
   infoPosY?: string;
 }
 
-export default function AdobeXDIcon({ url, infoPosY = "-top-[37px]" }: IAdobeXDIcon) {
+export default function AdobeXDIcon({
+  url,
+  infoPosY = "-top-[37px]",
+}: IAdobeXDIcon) {
   return (
     <div className="adobexd-info-container">
       <Link href={url} target="_blank" aria-label="View Portfolio Prototype">

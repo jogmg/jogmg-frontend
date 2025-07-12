@@ -1,10 +1,10 @@
 "use client";
 
-import useSharedContext from "../SharedContext";
-import CloseIcon from "./CloseIcon";
-import GithubIcon from "./GithubIcon";
-import LinkedinIcon from "./LinkedinIcon";
-import NavTextLink from "./NavTextLink";
+import CloseIcon from "@app/components/icons/CloseIcon";
+import GithubIcon from "@app/components/icons/GithubIcon";
+import LinkedinIcon from "@app/components/icons/LinkedinIcon";
+import NavTextLink from "@app/components/NavTextLink";
+import useSharedContext from "@app/SharedContext";
 
 export default function NavMenu() {
   const { isNavMenuOpen, setIsNavMenuOpen } = useSharedContext();

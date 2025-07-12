@@ -1,13 +1,13 @@
 "use client";
 
+import Button from "@app/components/Button";
+import InputField from "@app/components/intro/InputField";
+import TitleCard from "@app/components/intro/TitleCard";
+import { lexend } from "@app/fonts";
+import { sendUser } from "@app/query";
 import { useMutation } from "@tanstack/react-query";
 import { FormEvent, useReducer, useState } from "react";
 import { toast } from "react-toastify";
-import { lexend } from "../fonts";
-import { sendUser } from "../queries/query";
-import Button from "./Button";
-import InputField from "./InputField";
-import TitleCard from "./TitleCard";
 
 export interface IUserData {
   name: string;
@@ -61,8 +61,8 @@ export default function Intro() {
   const { mutate, isPending } = useMutation({
     mutationFn: (userData: IUserData) => sendUser(userData),
     onSuccess: () => {
-      userDataDispatch({ empty: true });
       toast.success("Message sent successfully", { theme: "dark" });
+      userDataDispatch({ empty: true });
     },
     onError: (error) => {
       toast.error("Error: " + error.message, {

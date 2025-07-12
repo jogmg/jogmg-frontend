@@ -1,19 +1,19 @@
 "use client";
 
+import { IWorkExperienceData } from "@app/query";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import { IEducation } from "../queries/query";
 
-interface IEducationProps {
-  education: IEducation;
+interface IWorkExperience {
+  workExp: IWorkExperienceData;
   toggleInViews: (id: string, inView: boolean) => void;
 }
 
-export default function Education({
-  education,
+export default function WorkExperience({
+  workExp,
   toggleInViews,
-}: IEducationProps) {
-  const { _id, title, field, date, imgSrc } = education;
+}: IWorkExperience) {
+  const { _id, title, role, date, descs, imgSrc } = workExp;
 
   const { ref } = useInView({
     threshold: 1,
@@ -21,19 +21,19 @@ export default function Education({
   });
 
   return (
-    <div id={title.toLowerCase()} ref={ref} className="education-card">
-      <div className="education-image-container">
+    <div id={title.toLowerCase()} ref={ref} className="work-experience-card">
+      <div className="work-image-container">
         <Image
           src={imgSrc}
           alt={title + " Image"}
-          className="education-image"
+          className="work-image"
           fill
         />
       </div>
-      <div className="education">
+      <div className="work-experience">
         <h5>{title}</h5>
         <div>
-          <p className="field">{field}</p>
+          <p className="role">{role}</p>
           <p className="date">
             {date.split("(")[0]}
             {date.includes("(") && (
@@ -41,8 +41,14 @@ export default function Education({
                 ({date.split("(")[1].split(")")[0]})
               </span>
             )}
+            {date.split(")")[1]}
           </p>
         </div>
+        <ol className="desc">
+          {descs.map((desc, index) => (
+            <li key={index}>{desc}</li>
+          ))}
+        </ol>
       </div>
     </div>
   );

@@ -1,17 +1,18 @@
 "use client";
 
+import Education from "@app/components/about/Education";
+import LanguageCard from "@app/components/about/LanguageCard";
+import SideSections from "@app/components/about/SideSections";
+import SkillCard from "@app/components/about/SkillCard";
+import WorkExperience from "@app/components/about/WorkExperience";
+import LoadingSkeleton from "@app/components/LoadingSkeleton";
+import { lexend } from "@app/fonts";
+import { getEducation, getSkills, getWorkExperiences } from "@app/query";
+import useSharedContext from "@app/SharedContext";
+import worldIcon from "@public/icons/world-svgrepo-com.svg";
+import OfficialImage from "@public/images/official-image.webp";
 import { useQueries } from "@tanstack/react-query";
 import Image from "next/image";
-import worldIcon from "../../../public/icons/world-svgrepo-com.svg";
-import OfficialImage from "../../../public/images/official-image.webp";
-import Education from "../components/Education";
-import LanguageCard from "../components/LanguageCard";
-import LoadingSkeleton from "../components/LoadingSkeleton";
-import SideSections from "../components/SideSections";
-import WorkExperience from "../components/WorkExperience";
-import { lexend } from "../fonts";
-import { getEducation, getWorkExperiences } from "../queries/query";
-import useSharedContext from "../SharedContext";
 
 const AboutContent = () => {
   const { setExpInViews, setEduInViews } = useSharedContext();
@@ -31,8 +32,9 @@ const AboutContent = () => {
   };
 
   const [
-    { data: workExperiences, isSuccess: isSuccessWE },
-    { data: education, isSuccess: isSuccessEdu },
+    { data: workExperiences, isSuccess: isWESuccessful },
+    { data: education, isSuccess: isEduSuccessful },
+    { data: skills, isSuccess: isSkillsSuccessful },
   ] = useQueries({
     queries: [
       {
@@ -45,38 +47,61 @@ const AboutContent = () => {
         queryFn: getEducation,
         staleTime: 24 * 60 * 60 * 1000,
       },
+      {
+        queryKey: ["skills"],
+        queryFn: getSkills,
+        staleTime: 24 * 60 * 60 * 1000,
+      },
     ],
   });
 
   return (
     <main className="about">
-      <aside className="side-intro">
-        <div className="side-intro-image">
-          <Image
-            src={OfficialImage}
-            alt="Official Image"
-            className="official-image"
-            fill
-          />
-        </div>
-        <div className="side-intro-details">
-          <div className="title-role">
-            <h3 className={`h3 ${lexend.className}`}>Joshua Attah</h3>
-            <p className="text-primary">Software Developer</p>
+      <div className="left_section_container">
+        <aside className="side-intro">
+          <div className="side-intro-image">
+            <Image
+              src={OfficialImage}
+              alt="Official Image"
+              className="official-image"
+              fill
+            />
           </div>
-          <div className="location">
-            <Image src={worldIcon} alt="World Icon" />
-            <p>Kaduna, Nigeria</p>
+          <div className="side-intro-details">
+            <div className="title-role">
+              <h3 className={`h3 ${lexend.className}`}>Joshua Attah</h3>
+              <p className="text-primary">Software Developer</p>
+            </div>
+            <div className="location">
+              <Image src={worldIcon} alt="World Icon" />
+              <p>Kaduna, Nigeria</p>
+            </div>
+            <div className="language-container">
+              <LanguageCard text="English" level="100%" />
+              <LanguageCard text="German" level="40%" />
+            </div>
           </div>
-          <div className="language-container">
-            <LanguageCard text="English" level="100%" />
-            <LanguageCard text="German" level="40%" />
+        </aside>
+        <aside className="skill_container left">
+          <h4 className={`h4 ${lexend.className}`}>Skills</h4>
+          <div className="skills">
+            {isSkillsSuccessful
+              ? skills.map((skill) => (
+                  <SkillCard
+                    key={skill._id}
+                    title={skill.title}
+                    imgSrc={skill.imgSrc}
+                  />
+                ))
+              : Array.from({ length: 3 }).map((_, idx) => (
+                  <LoadingSkeleton key={idx} skill />
+                ))}
           </div>
-        </div>
-      </aside>
+        </aside>
+      </div>
       <section className="work-experience-education">
         <h1 className={`h3 ${lexend.className}`}>Work Experience</h1>
-        {isSuccessWE
+        {isWESuccessful
           ? workExperiences?.map((exp) => (
               <WorkExperience
                 key={exp._id}
@@ -88,7 +113,7 @@ const AboutContent = () => {
               <LoadingSkeleton key={idx} workExp />
             ))}
         <h2 className={`h3 ${lexend.className}`}>Education</h2>
-        {isSuccessEdu
+        {isEduSuccessful
           ? education?.map((edu) => (
               <Education
                 key={edu._id}
@@ -100,10 +125,28 @@ const AboutContent = () => {
               <LoadingSkeleton key={idx} education />
             ))}
       </section>
-      <aside className="side-sections">
-        <h4 className={`h4 ${lexend.className}`}>Sections</h4>
-        <SideSections workExp={workExperiences} education={education} />
-      </aside>
+      <div className="right_section_container">
+        <aside className="side-sections">
+          <h4 className={`h4 ${lexend.className}`}>Sections</h4>
+          <SideSections workExp={workExperiences} education={education} />
+        </aside>
+        <aside className="skill_container">
+          <h4 className={`h4 ${lexend.className}`}>Skills</h4>
+          <div className="skills">
+            {isSkillsSuccessful
+              ? skills.map((skill) => (
+                  <SkillCard
+                    key={skill._id}
+                    title={skill.title}
+                    imgSrc={skill.imgSrc}
+                  />
+                ))
+              : Array.from({ length: 3 }).map((_, idx) => (
+                  <LoadingSkeleton key={idx} skill />
+                ))}
+          </div>
+        </aside>
+      </div>
     </main>
   );
 };

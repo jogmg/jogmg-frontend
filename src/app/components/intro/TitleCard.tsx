@@ -1,4 +1,4 @@
-import { consolas } from "../fonts";
+import { consolas } from "@app/fonts";
 
 interface ITitleCard {
   text: string;

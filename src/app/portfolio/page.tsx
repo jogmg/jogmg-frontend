@@ -1,5 +1,5 @@
+import PortfolioContent from "@app/portfolio/PortfolioContent";
 import { Metadata } from "next";
-import PortfolioContent from "./PortfolioContent";
 
 export const metadata: Metadata = {
   title: "Portfolio",

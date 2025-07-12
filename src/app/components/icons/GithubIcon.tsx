@@ -1,5 +1,5 @@
+import Info from "@app/components/Info";
 import Link from "next/link";
-import Info from "./Info";
 
 interface IGithubIcon {
   width?: string;
