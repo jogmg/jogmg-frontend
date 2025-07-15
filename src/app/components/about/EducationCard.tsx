@@ -4,12 +4,12 @@ import { IEducationData } from "@app/query";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-interface IEducation {
+interface IEducationCard {
   education: IEducationData;
   toggleInViews: (id: string, inView: boolean) => void;
 }
 
-export default function Education({ education, toggleInViews }: IEducation) {
+export default function EducationCard({ education, toggleInViews }: IEducationCard) {
   const { _id, title, field, date, imgSrc } = education;
 
   const { ref } = useInView({
@@ -18,16 +18,11 @@ export default function Education({ education, toggleInViews }: IEducation) {
   });
 
   return (
-    <div id={title.toLowerCase()} ref={ref} className="education-card">
-      <div className="education-image-container">
-        <Image
-          src={imgSrc}
-          alt={title + " Image"}
-          className="education-image"
-          fill
-        />
+    <div id={title.toLowerCase()} ref={ref} className="education_card">
+      <div className="image_container">
+        <Image src={imgSrc} alt={`${title} Image`} fill />
       </div>
-      <div className="education">
+      <div className="education_container">
         <h5>{title}</h5>
         <div>
           <p className="field">{field}</p>

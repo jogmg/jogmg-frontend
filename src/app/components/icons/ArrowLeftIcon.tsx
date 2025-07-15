@@ -10,7 +10,7 @@ export default function ArrowLeftIcon({color = "#333333"}: IArrowLeftIcon) {
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="arrow-left-icon"
+      className="arrow_left_icon"
     >
       <g id="ArrowLeftShort">
         <path

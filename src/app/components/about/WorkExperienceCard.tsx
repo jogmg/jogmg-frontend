@@ -4,15 +4,15 @@ import { IWorkExperienceData } from "@app/query";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-interface IWorkExperience {
+interface IWorkExperienceCard {
   workExp: IWorkExperienceData;
   toggleInViews: (id: string, inView: boolean) => void;
 }
 
-export default function WorkExperience({
+export default function WorkExperienceCard({
   workExp,
   toggleInViews,
-}: IWorkExperience) {
+}: IWorkExperienceCard) {
   const { _id, title, role, date, descs, imgSrc } = workExp;
 
   const { ref } = useInView({
@@ -21,16 +21,11 @@ export default function WorkExperience({
   });
 
   return (
-    <div id={title.toLowerCase()} ref={ref} className="work-experience-card">
-      <div className="work-image-container">
-        <Image
-          src={imgSrc}
-          alt={title + " Image"}
-          className="work-image"
-          fill
-        />
+    <div id={title.toLowerCase()} ref={ref} className="workexp_card">
+      <div className="image_container">
+        <Image src={imgSrc} alt={`${title} Image`} fill />
       </div>
-      <div className="work-experience">
+      <div className="workexp_container">
         <h5>{title}</h5>
         <div>
           <p className="role">{role}</p>

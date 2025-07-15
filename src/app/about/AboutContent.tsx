@@ -1,10 +1,10 @@
 "use client";
 
-import Education from "@app/components/about/Education";
+import EducationCard from "@app/components/about/EducationCard";
 import LanguageCard from "@app/components/about/LanguageCard";
-import SideSections from "@app/components/about/SideSections";
+import SideNav from "@app/components/about/SideNav";
 import SkillCard from "@app/components/about/SkillCard";
-import WorkExperience from "@app/components/about/WorkExperience";
+import WorkExperienceCard from "@app/components/about/WorkExperienceCard";
 import LoadingSkeleton from "@app/components/LoadingSkeleton";
 import { lexend } from "@app/fonts";
 import { getEducation, getSkills, getWorkExperiences } from "@app/query";
@@ -58,31 +58,26 @@ const AboutContent = () => {
   return (
     <main className="about">
       <div className="left_section_container">
-        <aside className="side-intro">
-          <div className="side-intro-image">
-            <Image
-              src={OfficialImage}
-              alt="Official Image"
-              className="official-image"
-              fill
-            />
+        <aside className="side_intro">
+          <div className="image_container">
+            <Image src={OfficialImage} alt="Official Image" fill />
           </div>
-          <div className="side-intro-details">
-            <div className="title-role">
+          <div className="details">
+            <div className="heading_container">
               <h3 className={`h3 ${lexend.className}`}>Joshua Attah</h3>
-              <p className="text-primary">Software Developer</p>
+              <p className="role_text">Software Developer</p>
             </div>
-            <div className="location">
+            <div className="location_container">
               <Image src={worldIcon} alt="World Icon" />
               <p>Kaduna, Nigeria</p>
             </div>
-            <div className="language-container">
+            <div className="language_container">
               <LanguageCard text="English" level="100%" />
               <LanguageCard text="German" level="40%" />
             </div>
           </div>
         </aside>
-        <aside className="skill_container">
+        <aside className="skill_container left">
           <h4 className={`h4 ${lexend.className}`}>Skills</h4>
           <div className="skills">
             {isSkillsSuccessful
@@ -99,11 +94,11 @@ const AboutContent = () => {
           </div>
         </aside>
       </div>
-      <section className="work-experience-education">
+      <section className="workexp_education">
         <h1 className={`h3 ${lexend.className}`}>Work Experience</h1>
         {isWESuccessful
           ? workExperiences?.map((exp) => (
-              <WorkExperience
+              <WorkExperienceCard
                 key={exp._id}
                 workExp={exp}
                 toggleInViews={toggleExpInViews}
@@ -115,7 +110,7 @@ const AboutContent = () => {
         <h2 className={`h3 ${lexend.className}`}>Education</h2>
         {isEduSuccessful
           ? education?.map((edu) => (
-              <Education
+              <EducationCard
                 key={edu._id}
                 education={edu}
                 toggleInViews={toggleEduInViews}
@@ -126,9 +121,9 @@ const AboutContent = () => {
             ))}
       </section>
       <div className="right_section_container">
-        <aside className="side-sections">
+        <aside className="side_nav_container">
           <h4 className={`h4 ${lexend.className}`}>Sections</h4>
-          <SideSections workExp={workExperiences} education={education} />
+          <SideNav workExp={workExperiences} education={education} />
         </aside>
         <aside className="skill_container">
           <h4 className={`h4 ${lexend.className}`}>Skills</h4>
