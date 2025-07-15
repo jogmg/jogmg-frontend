@@ -8,8 +8,8 @@ interface ISkillCard {
 const SkillCard = ({ title, imgSrc }: ISkillCard) => {
   return (
     <div className="skill_card">
-      <div className="skill_image">
-        <Image src={imgSrc} alt={`${title} logo`} fill />
+      <div className="skill_image_container">
+        <Image className="skill_image" src={imgSrc} alt={`${title} logo`} fill />
       </div>
       <p>{title}</p>
     </div>
