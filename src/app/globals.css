@@ -637,30 +637,30 @@ textarea {
       }
     }
   }
-}
 
-.skill_container {
-  @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-(alt);
+  .skill_container {
+    @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-(alt);
 
-  .skills {
-    @apply flex flex-wrap gap-[7px];
+    .skills {
+      @apply flex flex-wrap gap-[7px];
 
-    .skill_card {
-      @apply flex items-center gap-[5px] py-[3px] px-[5px] rounded-[7px] bg-[#212121];
+      .skill_card {
+        @apply flex items-center gap-[5px] py-[3px] px-[5px] rounded-[7px] bg-[#212121];
 
-      .skill_image {
-        @apply relative size-[16px] rounded-full overflow-hidden;
+        .skill_image {
+          @apply relative size-[16px] rounded-full overflow-hidden;
 
-        img {
-          @apply absolute object-scale-down;
+          img {
+            @apply absolute object-scale-down;
+          }
         }
       }
     }
   }
-}
 
-.skill_container.left {
-  @apply min-[1152px]:hidden;
+  .skill_container.left {
+    @apply min-[1152px]:hidden;
+  }
 }
 
 .info {
