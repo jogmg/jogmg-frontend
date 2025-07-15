@@ -214,7 +214,7 @@ footer {
 }
 
 .title-card-container {
-  @apply flex max-[406px]:flex-col gap-[10px] items-start min-[407px]:items-center;
+  @apply flex flex-col min-[406px]:flex-row gap-[10px] items-start min-[406px]:items-center;
 }
 
 .title-card {
@@ -232,7 +232,7 @@ footer {
 #view-btn,
 #contact-btn,
 #back-btn {
-  @apply max-[406px]:w-full max-[406px]:justify-center;
+  @apply w-full min-[406px]:w-fit justify-center;
 }
 
 #view-btn img {
@@ -252,7 +252,7 @@ footer {
 }
 
 .intro-container .cta-container {
-  @apply flex gap-[24px] max-[406px]:flex-col max-[406px]:w-full;
+  @apply flex gap-[24px] flex-col min-[406px]:flex-row;
 }
 
 /* Contact Me */
@@ -285,7 +285,7 @@ textarea {
 }
 
 #send-btn {
-  @apply justify-center gap-[7px] w-[120px] max-[406px]:w-full md:w-[170px];
+  @apply justify-center gap-[7px] w-full min-[406px]:w-[120px] md:w-[170px];
 }
 
 #back-btn img {
@@ -361,6 +361,10 @@ textarea {
   @apply absolute size-[4.5px] rounded-full bg-primary;
 }
 
+.portfolio_title {
+  @apply whitespace-nowrap;
+}
+
 .portfolio-details
   .heading
   .loop-title-container
@@ -422,7 +426,7 @@ textarea {
 }
 
 .portfolio-btn button .pop-side {
-  @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center text-nowrap h-[35px] pl-[13px] pr-[25px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-(light) text-background-(main) transition-all ease-in duration-500;
+  @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center whitespace-nowrap h-[35px] pl-[13px] pr-[25px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-(light) text-background-(main) transition-all ease-in duration-500;
 }
 
 .portfolio-btn:hover .pop-side {
@@ -482,7 +486,7 @@ textarea {
 }
 
 .side-intro {
-  @apply flex max-[483px]:flex-col min-[823px]:flex-col justify-center items-center gap-[30px] p-[30px] rounded-[10px] h-fit bg-background-(alt);
+  @apply flex flex-col min-[483px]:max-[823px]:flex-row justify-center items-center gap-[30px] p-[30px] rounded-[10px] h-fit bg-background-(alt);
 }
 
 .side-intro-image {

@@ -76,7 +76,7 @@ export default function Portfolio({
                 Your browser does not support the video tag.
               </video>
             </div>
-            <p className="text-nowrap">{title}</p>
+            <p className="portfolio_title">{title}</p>
           </div>
           <div className="chevron-icon-container">
             <div className="chevron-icon-wrapper">
