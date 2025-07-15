@@ -82,7 +82,7 @@ const AboutContent = () => {
             </div>
           </div>
         </aside>
-        <aside className="skill_container left">
+        <aside className="skill_container">
           <h4 className={`h4 ${lexend.className}`}>Skills</h4>
           <div className="skills">
             {isSkillsSuccessful
