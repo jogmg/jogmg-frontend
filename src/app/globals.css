@@ -586,11 +586,11 @@ textarea {
     .skill_card {
       @apply flex items-center gap-[5px] py-[3px] px-[5px] rounded-[7px] bg-[#212121];
 
-      .skill_image_container {
+      .skill_image {
         @apply relative size-[16px] rounded-full overflow-hidden;
 
-        .skill_image {
-          @apply absolute object-cover;
+        img {
+          @apply absolute object-scale-down;
         }
       }
     }
