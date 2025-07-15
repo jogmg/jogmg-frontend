@@ -475,251 +475,265 @@ textarea {
 /* About Page */
 .about {
   @apply flex flex-col min-[823px]:flex-row gap-[50px] px-[20px] md:px-[50px] py-[70px];
+}
 
-  .left_section_container {
-    @apply min-[823px]:sticky min-[823px]:top-28 flex flex-col gap-[50px] h-fit min-[823px]:min-w-[280px] min-[823px]:max-w-[280px];
+.left_section_container {
+  @apply min-[823px]:sticky min-[823px]:top-28 flex flex-col gap-[50px] h-fit min-[823px]:min-w-[280px] min-[823px]:max-w-[280px];
+}
 
-    .side_intro {
-      @apply flex flex-col min-[483px]:max-[823px]:flex-row justify-center items-center gap-[30px] p-[30px] rounded-[10px] h-fit bg-background-(alt);
+.side_intro {
+  @apply flex flex-col min-[483px]:max-[823px]:flex-row justify-center items-center gap-[30px] p-[30px] rounded-[10px] h-fit bg-background-(alt);
+}
 
-      .image_container {
-        @apply relative size-[200px] rounded-full overflow-hidden;
+.side_intro .image_container {
+  @apply relative size-[200px] rounded-full overflow-hidden;
+}
 
-        img {
-          @apply absolute object-cover object-top;
-        }
-      }
+.side_intro .image_container img {
+  @apply absolute object-cover object-top;
+}
 
-      .details {
-        @apply flex flex-col items-center gap-[20px];
+.side_intro .details {
+  @apply flex flex-col items-center gap-[20px];
+}
 
-        .heading_container {
-          @apply flex flex-col items-center gap-[10px] w-fit text-center;
+.side_intro .details .heading_container {
+  @apply flex flex-col items-center gap-[10px] w-fit text-center;
+}
 
-          .role_text {
-            @apply text-primary;
-          }
-        }
+.side_intro .details .heading_container .role_text {
+  @apply text-primary;
+}
 
-        .location_container {
-          @apply flex items-center gap-[7px];
-        }
+.side_intro .details .location_container {
+  @apply flex items-center gap-[7px];
+}
 
-        .language_container {
-          @apply flex gap-[12px];
+.side_intro .details .language_container {
+  @apply flex gap-[12px];
+}
 
-          .language_card {
-            @apply relative flex rounded-[7px] pb-[2px] overflow-hidden z-[1];
+.side_intro .details .language_container .language_card {
+  @apply relative flex rounded-[7px] pb-[2px] overflow-hidden z-[1];
+}
 
-            .language_text {
-              @apply px-[7px] py-[3px] rounded-[7px] bg-[#212121];
-            }
+.side_intro .details .language_container .language_card .language_text {
+  @apply px-[7px] py-[3px] rounded-[7px] bg-[#212121];
+}
 
-            .progress_bg {
-              @apply absolute -bottom-[5px] w-full h-[15px] bg-[#4D4D4D] -z-[2];
-            }
+.side_intro .details .language_container .language_card .progress_bg {
+  @apply absolute -bottom-[5px] w-full h-[15px] bg-[#4D4D4D] -z-[2];
+}
 
-            .progress {
-              @apply absolute -bottom-[5px] h-[15px] bg-primary -z-[1];
-            }
-          }
-        }
-      }
-    }
-  }
+.side_intro .details .language_container .language_card .progress {
+  @apply absolute -bottom-[5px] h-[15px] bg-primary -z-[1];
+}
 
-  .workexp_education {
-    @apply flex flex-col gap-[30px] w-full;
+.workexp_education {
+  @apply flex flex-col gap-[30px] w-full;
+}
 
-    .workexp_card,
-    .education_card {
-      @apply grid grid-cols-[26px_1fr] gap-[10px] scroll-mt-[115px];
+.workexp_card,
+.education_card {
+  @apply grid grid-cols-[26px_1fr] gap-[10px] scroll-mt-[115px];
+}
 
-      .image_container {
-        @apply relative size-[26px] rounded-[50%] overflow-hidden;
+.workexp_card .image_container,
+.education_card .image_container {
+  @apply relative size-[26px] rounded-[50%] overflow-hidden;
+}
+.workexp_card .image_container img,
+.education_card .image_container img {
+  @apply absolute object-cover;
+}
 
-        img {
-          @apply absolute object-cover;
-        }
-      }
+.workexp_container,
+.education_container {
+  @apply flex flex-col gap-[10px];
+}
 
-      .workexp_container,
-      .education_container {
-        @apply flex flex-col gap-[10px];
+.workexp_container .date,
+.education_container .date {
+  @apply whitespace-pre-wrap;
+}
 
-        .date {
-          @apply whitespace-pre-wrap;
-        }
+.workexp_container .role,
+.education_container .role,
+.workexp_container .duration,
+.education_container .duration,
+.education_container .field {
+  @apply text-primary;
+}
 
-        .role,
-        .duration,
-        .field {
-          @apply text-primary;
-        }
+.workexp_container .desc {
+  @apply list-disc pl-[20px];
+}
 
-        .desc {
-          @apply list-disc pl-[20px];
-        }
-      }
-    }
-  }
+.right_section_container {
+  @apply sticky top-28 hidden min-[1152px]:flex flex-col gap-[50px] h-fit min-w-[280px] max-w-[280px];
+}
 
-  .right_section_container {
-    @apply sticky top-28 hidden min-[1152px]:flex flex-col gap-[50px] h-fit min-w-[280px] max-w-[280px];
+.side_nav_container {
+  @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-(alt);
+}
 
-    .side_nav_container {
-      @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-(alt);
+.side_nav {
+  @apply relative flex;
+}
 
-      .side_nav {
-        @apply relative flex;
+.side_nav .line_bar_bg {
+  @apply absolute h-full w-[3px] rounded-[5px] bg-[#333333];
+}
 
-        .line_bar_bg {
-          @apply absolute h-full w-[3px] rounded-[5px] bg-[#333333];
-        }
+.side_nav .sections {
+  @apply flex flex-col gap-[10px];
+}
 
-        .sections {
-          @apply flex flex-col gap-[10px];
+.workexp_section_container,
+.education_section_container {
+  @apply relative flex;
+}
 
-          .workexp_section_container,
-          .education_section_container {
-            @apply relative flex;
+.workexp_section_container .line_bar,
+.education_section_container .line_bar {
+  @apply hidden absolute h-full w-[3px] rounded-[5px] bg-primary-(light);
+}
 
-            .line_bar {
-              @apply hidden absolute h-full w-[3px] rounded-[5px] bg-primary-(light);
-            }
+.workexp_section_container .line_bar.active,
+.education_section_container .line_bar.active {
+  @apply flex;
+}
 
-            .line_bar.active {
-              @apply flex;
-            }
+.workexp_section,
+.education_section {
+  @apply flex flex-col gap-[4px] w-full;
+}
 
-            .workexp_section,
-            .education_section {
-              @apply flex flex-col gap-[4px] w-full;
+.workexp_section .main_section,
+.education_section .main_section {
+  @apply flex items-center gap-[7px] py-[3px] pl-[15px] pr-[30px] cursor-pointer;
+}
 
-              .main_section {
-                @apply flex items-center gap-[7px] py-[3px] pl-[15px] pr-[30px] cursor-pointer;
+.workexp_section .main_section .chevron_up_icon,
+.education_section .main_section .chevron_up_icon {
+  @apply -rotate-180 transition-all ease-in duration-300;
+}
 
-                .chevron_up_icon {
-                  @apply -rotate-180 transition-all ease-in duration-300;
-                }
+.workexp_section .main_section .chevron_up_icon.active,
+.education_section .main_section .chevron_up_icon.active {
+  @apply rotate-0 transition-all ease-out duration-300;
+}
 
-                .chevron_up_icon.active {
-                  @apply rotate-0 transition-all ease-out duration-300;
-                }
-              }
+.workexp_section .sub_section {
+  @apply hidden;
+}
 
-              .sub_section {
-                @apply hidden;
+.workexp_section .sub_section.active {
+  @apply flex flex-col;
+}
 
-                .sub_nav {
-                  @apply flex items-center gap-[4px] py-[3px] pl-[15px] text-[14px];
+.workexp_section .sub_section .sub_nav {
+  @apply flex items-center gap-[4px] py-[3px] pl-[15px] text-[14px];
+}
 
-                  .arrow_left_icon {
-                    @apply -rotate-180;
-                  }
+.workexp_section .sub_section .sub_nav.active {
+  @apply bg-primary-(light) text-background-(main);
+}
 
-                  .arrow_left_icon.active path g {
-                    @apply fill-background-(main);
-                  }
-                }
+.workexp_section .sub_section .sub_nav .arrow_left_icon {
+  @apply -rotate-180;
+}
 
-                .sub_nav.active {
-                  @apply bg-primary-(light) text-background-(main);
-                }
-              }
+.workexp_section .sub_section .sub_nav .arrow_left_icon.active path g {
+  @apply fill-background-(main);
+}
 
-              .sub_section.active {
-                @apply flex flex-col;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+.skill_container {
+  @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-(alt);
+}
 
-  .skill_container {
-    @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-(alt);
+.skill_container.left {
+  @apply min-[1152px]:hidden;
+}
 
-    .skills {
-      @apply flex flex-wrap gap-[7px];
+.skill_container .skills {
+  @apply flex flex-wrap gap-[7px];
+}
 
-      .skill_card {
-        @apply flex items-center gap-[5px] py-[3px] px-[5px] rounded-[7px] bg-[#212121];
+.skill_card {
+  @apply flex items-center gap-[5px] py-[3px] px-[5px] rounded-[7px] bg-[#212121];
+}
 
-        .skill_image {
-          @apply relative size-[16px] rounded-full overflow-hidden;
+.skill_card .skill_image {
+  @apply relative size-[16px] rounded-full overflow-hidden;
+}
 
-          img {
-            @apply absolute object-scale-down;
-          }
-        }
-      }
-    }
-  }
-
-  .skill_container.left {
-    @apply min-[1152px]:hidden;
-  }
+.skill_card .skill_image img {
+  @apply absolute object-scale-down;
 }
 
 .info {
   @apply z-[1] hidden absolute py-[3px] px-[7px] text-[14px] text-nowrap bg-background-(main) border-[1px] border-primary-(light) rounded-[4px];
 }
 
-/* Loading Skeletons */
+/* Portfolio Loading Skeletons */
 .portfolio-skeleton {
   @apply animate-pulse relative w-[334px] sm:w-[368px] h-[200px] sm:h-[221px] rounded-[25px] bg-skeleton-primary border-[1px] border-skeleton-border;
-
-  .details-skeleton {
-    @apply absolute flex items-center gap-[12px] px-[20px] sm:px-[30px] py-[10px] bottom-0 w-full h-[18%] rounded-b-[25px] bg-skeleton-bg;
-
-    .image-skeleton {
-      @apply size-[22px] rounded-full bg-skeleton-primary;
-    }
-
-    .text-skeleton {
-      @apply w-[60%] h-[20px] rounded-md bg-skeleton-primary;
-    }
-  }
-
-  .cta-skeleton {
-    @apply absolute flex gap-[12px] bottom-[25px] right-[30px];
-
-    .btn-skeleton {
-      @apply size-[30px] rounded-full bg-skeleton-secondary;
-    }
-  }
 }
 
+.portfolio-skeleton .details-skeleton {
+  @apply absolute flex items-center gap-[12px] px-[20px] sm:px-[30px] py-[10px] bottom-0 w-full h-[18%] rounded-b-[25px] bg-skeleton-bg;
+}
+
+.portfolio-skeleton .details-skeleton .image-skeleton {
+  @apply size-[22px] rounded-full bg-skeleton-primary;
+}
+
+.portfolio-skeleton .details-skeleton .text-skeleton {
+  @apply w-[60%] h-[20px] rounded-md bg-skeleton-primary;
+}
+
+.portfolio-skeleton .cta-skeleton {
+  @apply absolute flex gap-[12px] bottom-[25px] right-[30px];
+}
+
+.portfolio-skeleton .cta-skeleton .btn-skeleton {
+  @apply size-[30px] rounded-full bg-skeleton-secondary;
+}
+
+/* Work and Eduction Loading Skeletion */
 .work-education-skeleton {
   @apply animate-pulse grid grid-cols-[26px_1fr] gap-[10px];
-
-  .image-skeleton {
-    @apply size-[26px] rounded-full bg-skeleton-primary;
-  }
-
-  .work-education-container {
-    @apply flex flex-col gap-[20px];
-
-    .title-skeleton {
-      @apply h-[26px] rounded-md bg-skeleton-primary;
-    }
-
-    .role-date-skeleton {
-      @apply h-[52px] rounded-md bg-skeleton-primary;
-    }
-
-    .desc-skeleton-container {
-      @apply flex flex-col gap-[7px];
-
-      .desc-skeleton {
-        @apply h-[26px] rounded-md bg-skeleton-primary;
-      }
-    }
-  }
 }
 
+.work-education-skeleton .image-skeleton {
+  @apply size-[26px] rounded-full bg-skeleton-primary;
+}
+
+.work-education-skeleton .work-education-container {
+  @apply flex flex-col gap-[20px];
+}
+
+.work-education-skeleton .work-education-container .title-skeleton {
+  @apply h-[26px] rounded-md bg-skeleton-primary;
+}
+
+.work-education-skeleton .work-education-container .role-date-skeleton {
+  @apply h-[52px] rounded-md bg-skeleton-primary;
+}
+
+.work-education-skeleton .work-education-container .desc-skeleton-container {
+  @apply flex flex-col gap-[7px];
+}
+
+.work-education-skeleton
+  .work-education-container
+  .desc-skeleton-container
+  .desc-skeleton {
+  @apply h-[26px] rounded-md bg-skeleton-primary;
+}
+
+/* Skills loading skeleton */
 .skill-skeleton {
   @apply animate-pulse h-[26px] w-full rounded-md bg-skeleton-primary;
 }
