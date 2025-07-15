@@ -586,7 +586,7 @@ textarea {
 }
 
 .side_nav .sections {
-  @apply flex flex-col gap-[10px];
+  @apply flex flex-col gap-[10px] w-full;
 }
 
 .workexp_section_container,
@@ -624,27 +624,29 @@ textarea {
   @apply rotate-0 transition-all ease-out duration-300;
 }
 
-.workexp_section .sub_section {
+.workexp_section .sub_section,
+.education_section .sub_section {
   @apply hidden;
 }
 
-.workexp_section .sub_section.active {
+.workexp_section .sub_section.active,
+.education_section .sub_section.active {
   @apply flex flex-col;
 }
 
-.workexp_section .sub_section .sub_nav {
+.sub_nav {
   @apply flex items-center gap-[4px] py-[3px] pl-[15px] text-[14px];
 }
 
-.workexp_section .sub_section .sub_nav.active {
+.sub_nav.active {
   @apply bg-primary-(light) text-background-(main);
 }
 
-.workexp_section .sub_section .sub_nav .arrow_left_icon {
+.sub_nav .arrow_left_icon {
   @apply -rotate-180;
 }
 
-.workexp_section .sub_section .sub_nav .arrow_left_icon.active path g {
+.sub_nav .arrow_left_icon.active path g {
   @apply fill-background-(main);
 }
 
