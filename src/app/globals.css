@@ -590,7 +590,7 @@ textarea {
         @apply relative size-[16px] rounded-[50%] overflow-hidden;
 
         img {
-          @apply absolute object-contain;
+          @apply absolute object-scale-down;
         }
       }
     }
