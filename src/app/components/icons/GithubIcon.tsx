@@ -15,10 +15,10 @@ export default function GithubIcon({
   infoPosY = "-bottom-[35px]",
 }: IGithubIcon) {
   return (
-    <div className="github-info-container">
+    <div className="github_info_container">
       <Link href={url} target="_blank" aria-label="View my Github">
         <svg
-          className="github-icon"
+          className="github_icon"
           width={width}
           height={height}
           viewBox="0 0 40 41"

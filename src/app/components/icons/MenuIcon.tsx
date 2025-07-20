@@ -14,7 +14,7 @@ export default function MenuIcon() {
       viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="menu-icon"
+      className="menu_icon"
       onClick={openNavMenu}
     >
       <path

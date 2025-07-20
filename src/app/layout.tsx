@@ -1,6 +1,6 @@
 import Footer from "@app/components/Footer";
-import NavBar from "@app/components/NavBar";
-import NavMenu from "@app/components/NavMenu";
+import NavBar from "@app/components/nav/NavBar";
+import NavMenu from "@app/components/nav/NavMenu";
 import VideoLoop from "@app/components/VideoLoop";
 import { quantico } from "@app/fonts";
 import "@app/globals.css";
@@ -60,7 +60,7 @@ export default function RootLayout({
         <SharedContextProvider>
           <VideoLoop />
           <ToastContainer />
-          <div className="main-container">
+          <div className="main_container">
             <NavMenu />
             <NavBar />
             {children}

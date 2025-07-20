@@ -3,7 +3,7 @@
 import CloseIcon from "@app/components/icons/CloseIcon";
 import GithubIcon from "@app/components/icons/GithubIcon";
 import LinkedinIcon from "@app/components/icons/LinkedinIcon";
-import NavTextLink from "@app/components/NavTextLink";
+import NavLink from "@app/components/nav/NavLink";
 import useSharedContext from "@app/SharedContext";
 
 export default function NavMenu() {
@@ -14,16 +14,16 @@ export default function NavMenu() {
   };
 
   return (
-    <div className={`nav-menu-container ${isNavMenuOpen ? "active" : ""}`}>
-      <div className={`nav-menu ${isNavMenuOpen ? "active" : ""}`}>
-        <div className="nav-menu-top">
+    <div className={`navMenu_container ${isNavMenuOpen ? "active" : ""}`}>
+      <div className={`navMenu ${isNavMenuOpen ? "active" : ""}`}>
+        <div className="top_container">
           <CloseIcon action={closeNavMenu} />
         </div>
-        <nav className="nav-menu-links">
-          <NavTextLink text="PORTFOLIO" to="/portfolio" action={closeNavMenu} />
-          <NavTextLink text="ABOUT" to="/about" action={closeNavMenu} />
+        <nav className="navLink_container">
+          <NavLink text="PORTFOLIO" to="/portfolio" action={closeNavMenu} />
+          <NavLink text="ABOUT" to="/about" action={closeNavMenu} />
         </nav>
-        <div className="nav-menu-socials">
+        <div className="socials_container">
           <LinkedinIcon infoPosY="-top-[35px]" />
           <GithubIcon infoPosY="-top-[35px]" />
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import useSharedContext from "@/app/SharedContext";
-import SideNavItem from "@app/components/about/SideNavItem";
+import SideNavLink from "@app/components/about/SideNavLink";
 import { IEducationData, IWorkExperienceData } from "@app/query";
 import ChevronUpIcon from "@public/icons/chevron-up.svg";
 import Image from "next/image";
@@ -48,7 +48,7 @@ export default function SideNav({ workExp, education }: ISideNav) {
             </div>
             <div className={`sub_section ${isWorkActive ? "active" : ""}`}>
               {workExp?.map((exp) => (
-                <SideNavItem
+                <SideNavLink
                   key={exp._id}
                   title={exp.title}
                   isInView={expInViews[exp._id]}
@@ -76,7 +76,7 @@ export default function SideNav({ workExp, education }: ISideNav) {
             </div>
             <div className={`sub_section ${isEduActive ? "active" : ""}`}>
               {education?.map((edu) => (
-                <SideNavItem
+                <SideNavLink
                   key={edu._id}
                   title={
                     edu.title === "University of the People"

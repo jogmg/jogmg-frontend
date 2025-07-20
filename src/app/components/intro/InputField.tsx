@@ -15,7 +15,7 @@ export default function InputField({
 }: IInputField) {
   return (
     <input
-      className="input-field"
+      className="input_field"
       type={type}
       name={name}
       placeholder={name[0].toUpperCase() + name.slice(1)}

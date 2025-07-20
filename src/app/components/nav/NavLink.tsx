@@ -4,13 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-interface INavTextLink {
+interface INavLink {
   text: string;
   to: string;
   action?: () => void;
 }
 
-export default function NavTextLink({ text, to, action }: INavTextLink) {
+export default function NavLink({ text, to, action }: INavLink) {
   const [isActive, setIsActive] = useState(false);
 
   const pathname = usePathname();
@@ -21,13 +21,13 @@ export default function NavTextLink({ text, to, action }: INavTextLink) {
 
   return (
     <Link
-      className="nav-text-container"
+      className="navLink"
       href={to}
       aria-current={isActive ? "page" : undefined}
       onClick={action}
     >
-      <p className={`nav-text ${isActive ? "active" : ""}`}>{text}</p>
-      <div className={`nav-text-line ${isActive ? "active" : ""}`}></div>
+      <p className={`text ${isActive ? "active" : ""}`}>{text}</p>
+      <div className={`line ${isActive ? "active" : ""}`}></div>
     </Link>
   );
 }

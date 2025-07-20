@@ -14,7 +14,7 @@ interface IButton {
   btnType: "main" | "alt" | "portfolio";
   id?: string;
   action?: () => void;
-  iconType?: "new-tab" | "send" | "forward" | "back";
+  iconType?: "newTab" | "send" | "forward" | "back";
   linkUrl?: string;
   loading?: boolean;
 }
@@ -33,7 +33,7 @@ export default function Button({
     <>
       {linkUrl ? (
         <Link
-          className={btnType === "portfolio" ? "portfolio-btn" : undefined}
+          className={btnType === "portfolio" ? "portfolio_btn" : undefined}
           href={linkUrl}
           target={btnType === "portfolio" ? "_blank" : undefined}
           aria-label={text}
@@ -42,9 +42,9 @@ export default function Button({
             type={type}
             className={`${
               btnType === "main"
-                ? "main-btn"
+                ? "main_btn"
                 : btnType === "alt"
-                ? "alt-btn"
+                ? "alt_btn"
                 : ""
             } ${lexend.className}`}
             id={id}
@@ -57,15 +57,15 @@ export default function Button({
               <Image
                 src={arrowRightCircleIcon}
                 alt="Arrow Right Circle Icon"
-                className="right-arrow-icon"
+                className="right_arrow_icon"
               />
             )}
             {btnType === "portfolio" ? (
-              <div className="pop-side">{text}</div>
+              <div className="pop_side">{text}</div>
             ) : (
               text
             )}
-            {iconType === "new-tab" && (
+            {iconType === "newTab" && (
               <Image src={arrowUpRightIcon} alt="Arrow Up Right Icon" />
             )}
             {iconType === "send" && <Image src={sendIcon} alt="Send Icon" />}
@@ -78,7 +78,7 @@ export default function Button({
         <button
           type={type}
           className={`${
-            btnType === "main" ? "main-btn" : btnType === "alt" ? "alt-btn" : ""
+            btnType === "main" ? "main_btn" : btnType === "alt" ? "alt_btn" : ""
           } ${lexend.className}`}
           id={id}
           onClick={action}
@@ -90,15 +90,15 @@ export default function Button({
             <Image
               src={arrowRightCircleIcon}
               alt="Arrow Right Circle Icon"
-              className="right-arrow-icon"
+              className="right_arrow_icon"
             />
           )}
           {btnType === "portfolio" ? (
-            <div className="pop-side">{text}</div>
+            <div className="pop_side">{text}</div>
           ) : (
             text
           )}
-          {iconType === "new-tab" && (
+          {iconType === "newTab" && (
             <Image src={arrowUpRightIcon} alt="Arrow Up Right Icon" />
           )}
           {iconType === "forward" && (

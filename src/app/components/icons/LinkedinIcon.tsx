@@ -9,14 +9,14 @@ export default function LinkedinIcon({
   infoPosY = "-bottom-[35px]",
 }: ILinkedinIcon) {
   return (
-    <div className="linkedin-info-container">
+    <div className="linkedin_info_container">
       <Link
         href={"https://www.linkedin.com/in/joattah"}
         target="_blank"
         aria-label="Connect with me on Linkedin"
       >
         <svg
-          className="linkedin-icon"
+          className="linkedin_icon"
           width="40"
           height="40"
           viewBox="0 0 40 40"

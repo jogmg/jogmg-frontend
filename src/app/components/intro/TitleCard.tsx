@@ -5,5 +5,5 @@ interface ITitleCard {
 }
 
 export default function TitleCard({ text }: ITitleCard) {
-  return <div className={`title-card ${consolas.className}`}>{text}</div>;
+  return <div className={`titleCard ${consolas.className}`}>{text}</div>;
 }

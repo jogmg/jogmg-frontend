@@ -11,10 +11,10 @@ export default function AdobeXDIcon({
   infoPosY = "-top-[37px]",
 }: IAdobeXDIcon) {
   return (
-    <div className="adobexd-info-container">
+    <div className="adobexd_info_container">
       <Link href={url} target="_blank" aria-label="View Portfolio Prototype">
         <svg
-          className="adobe-xd-icon"
+          className="adobexd_icon"
           width="35"
           height="35"
           viewBox="0 0 39 38"

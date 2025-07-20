@@ -11,10 +11,10 @@ export default function FigmaIcon({
   infoPosY = "-top-[37px]",
 }: IFigmaIcon) {
   return (
-    <div className="figma-info-container">
+    <div className="figma_info_container">
       <Link href={url} target="_blank" aria-label="View Portfolio Prototype">
         <svg
-          className="figma-icon"
+          className="figma_icon"
           width="23"
           height="35"
           viewBox="0 0 26 38"

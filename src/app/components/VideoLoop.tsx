@@ -5,7 +5,7 @@ export default function VideoLoop() {
       loop
       muted
       playsInline
-      className="video-loop"
+      className="video_loop"
       poster="images/bg-loop-fallback.webp"
     >
       <source src="/videos/background-loop.webm" type="video/webm" />

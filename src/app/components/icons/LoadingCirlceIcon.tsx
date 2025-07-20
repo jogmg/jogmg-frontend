@@ -5,7 +5,7 @@ interface ILoadingCircleIcon {
 export default function LoadingCircleIcon({ className }: ILoadingCircleIcon) {
   return (
     <svg
-      className={`loading-circle-icon ${className}`}
+      className={`loadingCircle_icon ${className}`}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

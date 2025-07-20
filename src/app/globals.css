@@ -18,11 +18,11 @@ footer {
   @apply flex justify-center pt-[20px] pb-[30px] text-primary;
 }
 
-.main-container {
+.main_container {
   @apply flex flex-col justify-between min-h-screen h-full;
 }
 
-.video-loop {
+.video_loop {
   @apply fixed object-cover w-screen h-screen z-[-20];
 }
 
@@ -47,143 +47,136 @@ footer {
 }
 
 /* NavBar */
-.nav-bar {
+.navBar {
   @apply sticky top-0 z-50 flex items-center justify-between px-[20px] md:px-[70px] lg:px-[100px] py-[20px] transition-all ease-in-out duration-500;
 }
 
-.nav-bar.active {
+.navBar.active {
   @apply shadow-[0px_1px_0px_0.5px_rgba(31,218,83,0.25)] bg-background-(alt);
 }
 
-/* NavBarLinks */
-.nav-bar-links {
+.navBar .navLink_container {
   @apply hidden lg:flex gap-[30px];
 }
 
-.nav-text-container {
+.navLink {
   @apply flex flex-col items-center relative px-[16px] py-[8px];
 }
 
-.nav-text {
+.navLink .text {
   @apply transition-all ease-in duration-500;
 }
 
-.nav-text-container:hover .nav-text {
+.navLink:hover .text {
   @apply drop-shadow-[-2px_0_4px_#1FDA53] transition-all ease-out duration-500;
 }
 
-.nav-text.active {
+.navLink .text.active {
   @apply drop-shadow-[-2px_0_4px_#1FDA53];
 }
 
-.nav-text-line {
+.navLink .line {
   @apply absolute bottom-0 bg-primary w-[0px] h-[2px] transition-all ease-in duration-500;
 }
 
-.nav-text-line.active {
+.navLink .line.active {
   @apply absolute bottom-0 bg-primary w-[45%] h-[2px] transition-all ease-out duration-500;
 }
 
-/* Logo */
+.logo g path {
+  @apply transition-all ease-in duration-1000;
+}
+
 .logo g :not(#foreground) {
-  @apply invisible opacity-0 transition-all ease-in duration-500;
+  @apply invisible opacity-0;
 }
 
 .logo:hover g :not(#foreground) {
-  @apply visible opacity-100 transition-all ease-out duration-500;
+  @apply visible opacity-100;
 }
 
-/* NavBarSocials */
-.nav-bar-socials {
+.navBar .socials_container {
   @apply hidden lg:flex gap-[30px] pl-[130px];
 }
 
-.nav-bar-socials .github-info-container,
-.nav-bar-socials .linkedin-info-container {
+.github_info_container,
+.linkedin_info_container {
   @apply relative flex flex-col items-center;
 }
 
-.nav-bar-socials .github-info-container:hover .info,
-.nav-bar-socials .linkedin-info-container:hover .info {
+.github_info_container:hover .info,
+.linkedin_info_container:hover .info,
+.adobexd_info_container:hover .info,
+.figma_info_container:hover .info {
   @apply flex;
 }
 
-.linkedin-icon #foreground {
-  @apply fill-secondary transition-all ease-in duration-500;
-}
-
-.linkedin-icon {
+.linkedin_icon {
   @apply hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
 }
 
-.linkedin-icon:hover #foreground {
-  @apply fill-primary transition-all ease-out duration-500;
-}
-
-.github-icon #foreground {
+.linkedin_icon #foreground {
   @apply fill-secondary transition-all ease-in duration-500;
 }
 
-.github-icon {
-  @apply hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
-}
-
-.github-icon:hover #foreground {
+.linkedin_icon:hover #foreground {
   @apply fill-primary transition-all ease-out duration-500;
 }
 
-/* Nav Menu */
-.nav-menu-container {
-  @apply invisible opacity-0 flex justify-end lg:hidden fixed w-screen h-screen bg-background-(main) bg-opacity-25 z-[100] transition-all ease-in duration-500;
+.github_icon {
+  @apply hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
 }
 
-.nav-menu-container.active {
-  @apply visible opacity-100 transition-all ease-out duration-500;
+.github_icon #foreground {
+  @apply fill-secondary transition-all ease-in duration-500;
 }
 
-.nav-menu {
-  @apply translate-x-[414px] flex flex-col gap-[20px] w-screen sm:w-[414px] h-full px-[20px] md:px-[70px] pt-[20px] pb-[50px] bg-background-(alt) transition-all ease-out duration-500;
+.github_icon:hover #foreground {
+  @apply fill-primary transition-all ease-out duration-500;
 }
 
-.nav-menu.active {
-  @apply translate-x-0 transition-all ease-out duration-500;
-}
-
-.nav-menu-top {
-  @apply flex justify-end;
-}
-
-.nav-menu-links {
-  @apply flex flex-col items-center gap-[30px] py-[20px];
-}
-
-.nav-menu-socials {
-  @apply flex justify-center gap-[30px] mt-auto;
-}
-
-.nav-menu-socials .github-info-container,
-.nav-menu-socials .linkedin-info-container {
-  @apply relative flex flex-col items-center;
-}
-
-.nav-menu-socials .github-info-container:hover .info,
-.nav-menu-socials .linkedin-info-container:hover .info {
-  @apply flex;
-}
-
-.menu-icon {
+.menu_icon {
   @apply flex lg:hidden cursor-pointer;
 }
 
-.menu-icon:hover path {
+.menu_icon:hover path {
   @apply fill-primary-(light) transition-all ease-out duration-500;
 }
 
-.close-icon {
+/* Nav Menu */
+.navMenu_container {
+  @apply invisible opacity-0 flex justify-end lg:hidden fixed w-screen h-screen bg-background-(main) bg-opacity-25 z-[100] transition-all ease-in duration-500;
+}
+
+.navMenu_container.active {
+  @apply visible opacity-100 transition-all ease-out duration-500;
+}
+
+.navMenu {
+  @apply translate-x-[414px] flex flex-col gap-[20px] w-screen sm:w-[414px] h-full px-[20px] md:px-[70px] pt-[20px] pb-[50px] bg-background-(alt) transition-all ease-out duration-500;
+}
+
+.navMenu.active {
+  @apply translate-x-0 transition-all ease-out duration-500;
+}
+
+.navMenu .top_container {
+  @apply flex justify-end;
+}
+
+.navMenu .navLink_container {
+  @apply flex flex-col items-center gap-[30px] py-[20px];
+}
+
+.navMenu .socials_container {
+  @apply flex justify-center gap-[30px] mt-auto;
+}
+
+.close_icon {
   @apply cursor-pointer;
 }
 
-.close-icon:hover path {
+.close_icon:hover path {
   @apply fill-primary-(light) transition-all ease-out duration-500;
 }
 
@@ -193,7 +186,7 @@ footer {
 }
 
 /* Intro */
-.intro-container {
+.intro_container {
   @apply px-[30px] md:px-[70px] py-[30px] md:py-[50px] w-[390px] md:w-[646px] rounded-[15px] md:rounded-[25px] bg-background-(alt) shadow-[0px_0px_40px_0_rgba(31,218,83,0.25)] md:shadow-[-30px_-30px_30px_0_rgba(31,218,83,0.25)];
 }
 
@@ -205,62 +198,66 @@ footer {
   @apply visible static opacity-100 transition-all ease-out duration-1000;
 }
 
-.name-title-cta-container {
+.intro .details_container {
   @apply flex flex-col gap-[30px];
 }
 
-.name-title-container {
+.intro .details_container .heading_container {
   @apply flex flex-col gap-[7px];
 }
 
-.title-card-container {
+.titleCard_container {
   @apply flex flex-col min-[406px]:flex-row gap-[10px] items-start min-[406px]:items-center;
 }
 
-.title-card {
+.titleCard {
   @apply px-[12px] py-[6px] bg-primary-(light) rounded-[7px] text-background-(main) text-[13px] tracking-[0.6px];
 }
 
-.main-btn {
-  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] bg-primary text-background-(main) hover:bg-primary-(light) transition-all ease-out duration-500;
+.intro .details_container .desc {
+  @apply text-balance;
 }
 
-.alt-btn {
-  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] border-primary border-[1px] text-primary hover:bg-background-(main) transition-all ease-out duration-500;
-}
-
-#view-btn,
-#contact-btn,
-#back-btn {
-  @apply w-full min-[406px]:w-fit justify-center;
-}
-
-#view-btn img {
-  @apply transition-all ease-out duration-500;
-}
-
-#view-btn:hover img {
-  @apply translate-x-[2px] translate-y-[-2px] transition-all ease-in duration-300;
-}
-
-#contact-btn img {
-  @apply transition-all ease-out duration-500;
-}
-
-#contact-btn:hover img {
-  @apply translate-x-[3px] transition-all ease-in duration-300;
-}
-
-.intro-container .cta-container {
+.intro_container .cta_container {
   @apply flex gap-[24px] flex-col min-[406px]:flex-row;
 }
 
+.main_btn {
+  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] bg-primary text-background-(main) hover:bg-primary-(light) transition-all ease-out duration-500;
+}
+
+.alt_btn {
+  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] border-primary border-[1px] text-primary hover:bg-background-(main) transition-all ease-out duration-500;
+}
+
+#view_btn,
+#contact_btn,
+#back_btn {
+  @apply w-full min-[406px]:w-fit justify-center;
+}
+
+#view_btn img {
+  @apply transition-all ease-out duration-500;
+}
+
+#view_btn:hover img {
+  @apply translate-x-[2px] translate-y-[-2px] transition-all ease-in duration-300;
+}
+
+#contact_btn img {
+  @apply transition-all ease-out duration-500;
+}
+
+#contact_btn:hover img {
+  @apply translate-x-[3px] transition-all ease-in duration-300;
+}
+
 /* Contact Me */
-.get-in-touch {
+.getInTouch {
   @apply invisible fixed opacity-0 flex flex-col items-start gap-[30px];
 }
 
-.get-in-touch.active {
+.getInTouch.active {
   @apply visible static opacity-100 transition-all ease-out duration-1000;
 }
 
@@ -268,15 +265,15 @@ form {
   @apply flex flex-col gap-[13px] w-full;
 }
 
-.get-in-touch .cta-container {
+.getInTouch .cta_container {
   @apply mt-[17px];
 }
 
-.input-container {
+.input_container {
   @apply flex gap-[13px] transition-all ease-in duration-300;
 }
 
-.input-field {
+.input_field {
   @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-gray-300 focus:border-[1px] focus:bg-background-(main);
 }
 
@@ -284,19 +281,19 @@ textarea {
   @apply h-[80px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-gray-300 resize-none;
 }
 
-#send-btn {
+#send_btn {
   @apply justify-center gap-[7px] w-full min-[406px]:w-[120px] md:w-[170px];
 }
 
-#back-btn img {
+#back_btn img {
   @apply transition-all ease-out duration-500;
 }
 
-#back-btn:hover img {
+#back_btn:hover img {
   @apply translate-x-[-3px] transition-all ease-in duration-300;
 }
 
-.loading-circle-icon {
+.loadingCircle_icon {
   @apply h-[17px] w-[17px] md:h-[20px] md:w-[20px] animate-spin text-background-(main);
 }
 
@@ -305,171 +302,172 @@ textarea {
   @apply px-[20px] md:px-[50px] py-[70px] gap-y-[50px] grid grid-cols-1 min-[900px]:grid-cols-2 min-[1300px]:grid-cols-3 place-items-center;
 }
 
-.portfolio-container {
+.portfolio_container {
   @apply relative w-[334px] sm:w-[368px] h-[200px] sm:h-[221px] rounded-[25px] overflow-hidden text-[14px] tracking-[0.7px] bg-background-(main) hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
 }
 
-.portfolio-container.active {
+.portfolio_container.active {
   @apply shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
 }
 
-.portfolio-container .image {
+.portfolio_container .image {
   @apply absolute object-cover transition-all ease-out duration-500;
 }
 
-.portfolio-container:hover .image {
+.portfolio_container:hover .image {
   @apply opacity-50 transition-all ease-out duration-500;
 }
 
-.portfolio-container.active .image {
+.portfolio_container.active .image {
   @apply opacity-50 transition-all ease-out duration-500;
 }
 
-.portfolio-container .chevron-triple-right-icon {
+.portfolio_container .chevronTripleRight_icon {
   @apply invisible opacity-0 absolute translate-x-[-70px] transition-all ease-in duration-500;
 }
 
-.portfolio-container:hover .chevron-triple-right-icon {
+.portfolio_container:hover .chevronTripleRight_icon {
   @apply visible opacity-100 translate-x-[190px] transition-transform ease-out duration-500 delay-1000;
 }
 
-.portfolio-container.active .chevron-triple-right-icon {
+.portfolio_container.active .chevronTripleRight_icon {
   @apply visible opacity-100 translate-x-[190px] transition-transform ease-out duration-500 delay-1000;
 }
 
-.portfolio-details {
+.portfolio_details {
   @apply absolute bottom-0 flex flex-col gap-[12px] px-[20px] sm:px-[30px] py-[10px] w-full h-full bg-[rgba(15,15,15,0.7)] translate-y-[160px] sm:translate-y-[180px] transition-all ease-in duration-500;
 }
 
-.portfolio-details.active {
+.portfolio_details.active {
   @apply py-[20px] sm:py-[30px] translate-y-0 transition-all ease-out duration-500;
 }
 
-.portfolio-details .heading {
+.portfolio_details .heading_container {
   @apply flex items-center gap-[7px] pb-[12px] border-b-[1px] border-primary cursor-pointer;
 }
 
-.portfolio-details .heading .loop-title-container {
+.portfolio_details .heading_container .title_container {
   @apply flex items-center gap-[7px];
 }
 
-.portfolio-details .heading .loop-title-container .loop-icon-container {
+.portfolio_details .heading_container .title_container .loopVid_container {
   @apply relative size-[14px] flex items-center justify-center rounded-full overflow-hidden;
 }
 
-.portfolio-details .heading .loop-title-container .loop-icon-container .circle {
+.portfolio_details
+  .heading_container
+  .title_container
+  .loopVid_container
+  .circle {
   @apply absolute size-[4.5px] rounded-full bg-primary;
 }
 
-.portfolio_title {
-  @apply whitespace-nowrap;
-}
-
-.portfolio-details
-  .heading
-  .loop-title-container
-  .loop-icon-container
-  .vid-loop {
+.portfolio_details
+  .heading_container
+  .title_container
+  .loopVid_container
+  .vidLoop {
   @apply object-cover w-full h-full;
 }
 
-.portfolio-container .cta-container {
+.portfolio_details .heading_container .title_container .title {
+  @apply whitespace-nowrap;
+}
+
+.portfolio_container .cta_container {
   @apply visible opacity-100 absolute bottom-[24px] right-[30px] z-[10] transition-all ease-in duration-500;
 }
 
-.portfolio-container .cta-container.inactive {
+.portfolio_container .cta_container.inactive {
   @apply invisible opacity-0 transition-all ease-out duration-500;
 }
 
-.portfolio-container .cta-container .ctas {
+.portfolio_container .cta_container .cta_btns {
   @apply relative flex justify-end items-center pr-[40px] w-[146px] h-[35px];
 }
 
-.portfolio-container .cta-container .ctas .github-info-container {
-  @apply relative flex flex-col items-center;
-}
-
-.portfolio-container .cta-container .ctas .adobexd-info-container,
-.portfolio-container .cta-container .ctas .figma-info-container {
+.portfolio_container .cta_container .cta_btns .adobexd_info_container,
+.portfolio_container .cta_container .cta_btns .figma_info_container {
   @apply relative flex flex-col items-center mr-[7px];
 }
 
-.portfolio-container .cta-container .ctas .github-info-container:hover .info,
-.portfolio-container .cta-container .ctas .adobexd-info-container:hover .info,
-.portfolio-container .cta-container .ctas .figma-info-container:hover .info {
-  @apply flex;
-}
-
-.portfolio-container .cta-container .ctas .figma-icon,
-.portfolio-container .cta-container .ctas .adobe-xd-icon {
+.portfolio_container .cta_container .cta_btns .figma_icon,
+.portfolio_container .cta_container .cta_btns .adobexd_icon {
   @apply hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
 }
 
-.figma-icon:hover g path {
+.figma_icon:hover g path {
   @apply stroke-primary transition-all ease-out duration-500;
 }
 
-.adobe-xd-icon:hover #foreground {
+.adobexd_icon:hover #foreground {
   @apply fill-primary transition-all ease-out duration-500;
 }
 
-.portfolio-btn {
+.portfolio_btn {
   @apply absolute right-0;
 }
 
-.portfolio-btn button {
+.portfolio_btn button {
   @apply relative flex items-center;
 }
 
-.portfolio-btn button .right-arrow-icon {
+.portfolio_btn button .right_arrow_icon {
   @apply z-[2];
 }
 
-.portfolio-btn button .pop-side {
+.portfolio_btn button .pop_side {
   @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center whitespace-nowrap h-[35px] pl-[13px] pr-[25px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-(light) text-background-(main) transition-all ease-in duration-500;
 }
 
-.portfolio-btn:hover .pop-side {
+.portfolio_btn:hover .pop_side {
   @apply visible opacity-100 transition-all ease-out duration-500;
 }
 
-.portfolio-details .heading .chevron-icon-container {
+.portfolio_details .heading_container .chevronIcon_container {
   @apply relative w-full;
 }
 
-.portfolio-details .heading .chevron-icon-container .chevron-icon-wrapper {
+.portfolio_details
+  .heading_container
+  .chevronIcon_container
+  .chevronIcon_wrapper {
   @apply absolute w-full flex items-center transition-all ease-in duration-500;
 }
 
-.portfolio-details.active
-  .heading
-  .chevron-icon-container
-  .chevron-icon-wrapper {
+.portfolio_details.active
+  .heading_container
+  .chevronIcon_container
+  .chevronIcon_wrapper {
   @apply translate-x-full transition-all ease-out duration-500;
 }
 
-.portfolio-details
-  .heading
-  .chevron-icon-container
-  .chevron-icon-wrapper
-  .chevron-up-icon {
+.portfolio_details
+  .heading_container
+  .chevronIcon_container
+  .chevronIcon_wrapper
+  .chevronUp_icon {
   @apply absolute transition-all ease-in duration-500;
 }
 
-.portfolio-details.active .heading .chevron-icon-container .chevron-up-icon {
+.portfolio_details.active
+  .heading_container
+  .chevronIcon_container
+  .chevronIcon_wrapper
+  .chevronUp_icon {
   @apply -translate-x-full -rotate-180 transition-all ease-out duration-500;
 }
 
-.portfolio-details .desc-container {
+.portfolio_details .desc_container {
   @apply flex flex-col gap-[10px];
 }
 
-.portfolio-details .desc-container .desc-title {
-  @apply text-primary;
+.portfolio_details .desc_container .item {
+  @apply flex gap-[7px];
 }
 
-.portfolio-details .desc-container .desc-text {
-  @apply flex gap-[7px];
+.portfolio_details .desc_container .item .title {
+  @apply text-primary;
 }
 
 /* About Page */
@@ -513,19 +511,19 @@ textarea {
   @apply flex gap-[12px];
 }
 
-.side_intro .details .language_container .language_card {
+.language_card {
   @apply relative flex rounded-[7px] pb-[2px] overflow-hidden z-[1];
 }
 
-.side_intro .details .language_container .language_card .language_text {
+.language_card .language_text {
   @apply px-[7px] py-[3px] rounded-[7px] bg-[#212121];
 }
 
-.side_intro .details .language_container .language_card .progress_bg {
+.language_card .progress_bg {
   @apply absolute -bottom-[5px] w-full h-[15px] bg-[#4D4D4D] -z-[2];
 }
 
-.side_intro .details .language_container .language_card .progress {
+.language_card .progress {
   @apply absolute -bottom-[5px] h-[15px] bg-primary -z-[1];
 }
 
@@ -634,19 +632,19 @@ textarea {
   @apply flex flex-col;
 }
 
-.sub_nav {
+.sideNav_link {
   @apply flex items-center gap-[4px] py-[3px] pl-[15px] text-[14px];
 }
 
-.sub_nav.active {
+.sideNav_link.active {
   @apply bg-primary-(light) text-background-(main);
 }
 
-.sub_nav .arrow_left_icon {
+.sideNav_link .arrow_left_icon {
   @apply -rotate-180;
 }
 
-.sub_nav .arrow_left_icon.active path g {
+.sideNav_link .arrow_left_icon.active path g {
   @apply fill-background-(main);
 }
 

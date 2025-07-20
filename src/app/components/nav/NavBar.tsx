@@ -2,10 +2,10 @@
 
 import GithubIcon from "@app/components/icons/GithubIcon";
 import LinkedinIcon from "@app/components/icons/LinkedinIcon";
-import Logo from "@app/components/Logo";
-import NavTextLink from "@app/components/NavTextLink";
-import { useEffect, useState } from "react";
 import MenuIcon from "@app/components/icons/MenuIcon";
+import Logo from "@app/components/nav/Logo";
+import NavLink from "@app/components/nav/NavLink";
+import { useEffect, useState } from "react";
 
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false);
@@ -22,13 +22,13 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav className={`nav-bar ${isActive ? "active" : ""}`}>
-      <div className="nav-bar-links">
-        <NavTextLink text="PORTFOLIO" to="/portfolio" />
-        <NavTextLink text="ABOUT" to="/about" />
+    <nav className={`navBar ${isActive ? "active" : ""}`}>
+      <div className="navLink_container">
+        <NavLink text="PORTFOLIO" to="/portfolio" />
+        <NavLink text="ABOUT" to="/about" />
       </div>
       <Logo />
-      <div className="nav-bar-socials">
+      <div className="socials_container">
         <LinkedinIcon />
         <GithubIcon />
       </div>
