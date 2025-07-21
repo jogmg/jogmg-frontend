@@ -76,6 +76,8 @@ export default function Intro() {
     mutate(userData);
   };
 
+  const introText = `I help businesses realize high-quality software solutions that meet user needs through design, development, and execution, all from my little room. \n\nLet's collaborate to bring your ideas to life.`;
+
   return (
     <section className="intro_container">
       <article className={`intro ${toggled ? "" : "active"}`}>
@@ -84,16 +86,12 @@ export default function Intro() {
           <div className="heading_container">
             <h1 className={`h1 ${lexend.className}`}>I&apos;m Joshua Attah</h1>
             <div className="titleCard_container">
-              <TitleCard text="SOFTWARE DEVELOPER" />
+              <TitleCard text="FRONTEND DEVELOPER" />
+              <TitleCard text="BACKEND DEVELOPER" />
               <TitleCard text="UI/UX DESIGNER" />
             </div>
           </div>
-          <p className="desc">
-            I&apos;m a Software Developer and UI/UX Designer from Nigeria,
-            dedicated to delivering high-quality software solutions that meet
-            user needs. I design, build, and burnout. Let&apos;s collaborate to
-            bring your ideas to life.
-          </p>
+          <p className="desc">{introText}</p>
           <div className="cta_container">
             <Button
               id="view_btn"

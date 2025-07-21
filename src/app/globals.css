@@ -207,7 +207,7 @@ footer {
 }
 
 .titleCard_container {
-  @apply flex flex-col min-[406px]:flex-row gap-[10px] items-start min-[406px]:items-center;
+  @apply flex flex-wrap gap-[10px];
 }
 
 .titleCard {
@@ -215,7 +215,7 @@ footer {
 }
 
 .intro .details_container .desc {
-  @apply text-balance;
+  @apply text-pretty whitespace-pre-wrap;
 }
 
 .intro_container .cta_container {

@@ -11,17 +11,17 @@ import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: {
-    default: "JoGMG - Joshua Attah's Website",
-    template: "%s | JoGMG",
+    default: "Joshua Attah | Software Developer",
+    template: "%s | Joshua Attah | Software Developer",
   },
   description:
-    "Welcome to the website of Joshua Attah (JoGMG). A software developer who designs and builds business solutions.",
+    "I help businesses realize high-quality software solutions that meet user needs through design, development, and execution, all from my little room.",
   authors: { name: "Joshua Attah" },
   openGraph: {
-    siteName: "JoGMG - Joshua Attah's Website",
-    title: "JoGMG - Joshua Attah's Website",
+    siteName: "Joshua Attah | Software Developer",
+    title: "Joshua Attah | Software Developer",
     description:
-      "Welcome to the website of Joshua Attah (JoGMG). A software developer who designs and builds business solutions.",
+      "I help businesses realize high-quality software solutions that meet user needs through design, development, and execution, all from my little room.",
     type: "website",
     url: "https://jogmg-frontend.vercel.app/",
     images: [
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JoGMG - Joshua Attah's Website",
+    title: "Joshua Attah | Software Developer",
     description:
-      "Welcome to the website of Joshua Attah (JoGMG). A software developer who designs and builds business solutions.",
+      "I help businesses realize high-quality software solutions that meet user needs through design, development, and execution, all from my little room.",
     images: [
       {
         url: "/images/og-image.png",
@@ -43,9 +43,14 @@ export const metadata: Metadata = {
       },
     ],
   },
-  applicationName: "JoGMG - Joshua Attah's Website",
+  applicationName: "Joshua Attah | Software Developer",
   appleWebApp: {
-    title: "JoGMG - Joshua Attah's Website",
+    title: "Joshua Attah | Software Developer",
+  },
+  other: {
+    msapplicationTileColor: "#1FDA53",
+    msapplicationTileImage: "https://jogmg-frontend.vercel.app/apple-icon.png",
+    "mobile-web-app-capable": "yes",
   },
 };
 
