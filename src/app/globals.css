@@ -211,7 +211,7 @@ footer {
 }
 
 .titleCard {
-  @apply px-[12px] py-[6px] bg-primary-(light) rounded-[7px] text-background-(main) text-[13px] tracking-[0.6px];
+  @apply px-[12px] py-[6px] bg-primary-(light) rounded-[7px] text-background-(main) text-[13px] tracking-[0.65px];
 }
 
 .intro .details_container .desc {
@@ -270,7 +270,7 @@ form {
 }
 
 .input_container {
-  @apply flex gap-[13px] transition-all ease-in duration-300;
+  @apply flex flex-col md:flex-row gap-[13px] transition-all ease-in duration-300;
 }
 
 .input_field {
