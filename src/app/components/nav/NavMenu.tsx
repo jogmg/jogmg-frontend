@@ -24,8 +24,8 @@ export default function NavMenu() {
           <NavLink text="ABOUT" to="/about" action={closeNavMenu} />
         </nav>
         <div className="socials_container">
-          <LinkedinIcon infoPosY="-top-[35px]" />
-          <GithubIcon infoPosY="-top-[35px]" />
+          <LinkedinIcon infoPosY="-top-[40px]" />
+          <GithubIcon infoPosY="-top-[40px]" />
         </div>
       </div>
     </div>

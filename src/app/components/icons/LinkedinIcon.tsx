@@ -1,15 +1,30 @@
 import Info from "@app/components/Info";
 import Link from "next/link";
+import { useState } from "react";
 
 interface ILinkedinIcon {
   infoPosY?: string;
 }
 
 export default function LinkedinIcon({
-  infoPosY = "-bottom-[35px]",
+  infoPosY = "-bottom-[40px]",
 }: ILinkedinIcon) {
+  const [showInfo, setShowInfo] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowInfo(() => true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowInfo(() => false);
+  };
+
   return (
-    <div className="linkedin_info_container">
+    <div
+      className="linkedin_info_container"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Link
         href={"https://www.linkedin.com/in/joattah"}
         target="_blank"
@@ -43,7 +58,7 @@ export default function LinkedinIcon({
           </defs>
         </svg>
       </Link>
-      <Info text="Linkedin" posY={infoPosY} />
+      <Info text="Linkedin" posY={infoPosY} show={showInfo} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import Info from "@app/components/Info";
 import Link from "next/link";
+import { useState } from "react";
 
 interface IGithubIcon {
   width?: string;
@@ -12,10 +13,24 @@ export default function GithubIcon({
   width = "40",
   height = "41",
   url = "https://github.com/jogmg",
-  infoPosY = "-bottom-[35px]",
+  infoPosY = "-bottom-[40px]",
 }: IGithubIcon) {
+  const [showInfo, setShowInfo] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowInfo(() => true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowInfo(() => false);
+  };
+
   return (
-    <div className="github_info_container">
+    <div
+      className="github_info_container"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Link href={url} target="_blank" aria-label="View my Github">
         <svg
           className="github_icon"
@@ -36,7 +51,7 @@ export default function GithubIcon({
           />
         </svg>
       </Link>
-      <Info text="Github" posY={infoPosY} />
+      <Info text="Github" posY={infoPosY} show={showInfo} />
     </div>
   );
 }

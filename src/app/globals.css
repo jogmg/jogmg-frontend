@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  @apply text-[14px] md:text-[16px] tracking-[0.7px] md:tracking-[0.8px] text-secondary bg-background-(main);
+  @apply text-[14px] md:text-[16px] tracking-[0.7px] md:tracking-[0.8px] text-secondary bg-background-main;
 }
 
 footer {
@@ -52,7 +52,7 @@ footer {
 }
 
 .navBar.active {
-  @apply shadow-[0px_1px_0px_0.5px_rgba(31,218,83,0.25)] bg-background-(alt);
+  @apply shadow-[0px_1px_0px_0.5px_rgba(31,218,83,0.25)] bg-background-alt;
 }
 
 .navBar .navLink_container {
@@ -99,39 +99,32 @@ footer {
   @apply hidden lg:flex gap-[30px] pl-[130px];
 }
 
-.github_info_container,
-.linkedin_info_container {
+.linkedin_info_container,
+.github_info_container {
   @apply relative flex flex-col items-center;
 }
 
-.github_info_container:hover .info,
-.linkedin_info_container:hover .info,
-.adobexd_info_container:hover .info,
-.figma_info_container:hover .info {
-  @apply flex;
+.linkedin_info_container:hover .linkedin_icon {
+  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
 }
 
-.linkedin_icon {
-  @apply hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
-}
-
-.linkedin_icon #foreground {
+.linkedin_info_container .linkedin_icon #foreground {
   @apply fill-secondary transition-all ease-in duration-500;
 }
 
-.linkedin_icon:hover #foreground {
+.linkedin_info_container:hover .linkedin_icon #foreground {
   @apply fill-primary transition-all ease-out duration-500;
 }
 
-.github_icon {
-  @apply hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
+.github_info_container:hover .github_icon {
+  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
 }
 
-.github_icon #foreground {
+.github_info_container .github_icon #foreground {
   @apply fill-secondary transition-all ease-in duration-500;
 }
 
-.github_icon:hover #foreground {
+.github_info_container:hover .github_icon #foreground {
   @apply fill-primary transition-all ease-out duration-500;
 }
 
@@ -140,12 +133,12 @@ footer {
 }
 
 .menu_icon:hover path {
-  @apply fill-primary-(light) transition-all ease-out duration-500;
+  @apply fill-primary-light transition-all ease-out duration-500;
 }
 
 /* Nav Menu */
 .navMenu_container {
-  @apply invisible opacity-0 flex justify-end lg:hidden fixed w-screen h-screen bg-background-(main) bg-opacity-25 z-[100] transition-all ease-in duration-500;
+  @apply invisible opacity-0 flex justify-end lg:hidden fixed w-screen h-screen bg-background-main bg-opacity-25 z-[100] transition-all ease-in duration-500;
 }
 
 .navMenu_container.active {
@@ -153,7 +146,7 @@ footer {
 }
 
 .navMenu {
-  @apply translate-x-[414px] flex flex-col gap-[20px] w-screen sm:w-[414px] h-full px-[20px] md:px-[70px] pt-[20px] pb-[50px] bg-background-(alt) transition-all ease-out duration-500;
+  @apply translate-x-[414px] flex flex-col gap-[20px] w-screen sm:w-[414px] h-full px-[20px] md:px-[70px] pt-[20px] pb-[50px] bg-background-alt transition-all ease-out duration-500;
 }
 
 .navMenu.active {
@@ -177,7 +170,7 @@ footer {
 }
 
 .close_icon:hover path {
-  @apply fill-primary-(light) transition-all ease-out duration-500;
+  @apply fill-primary-light transition-all ease-out duration-500;
 }
 
 /* Home Page */
@@ -187,7 +180,7 @@ footer {
 
 /* Intro */
 .intro_container {
-  @apply px-[30px] md:px-[70px] py-[30px] md:py-[50px] w-[390px] md:w-[646px] rounded-[15px] md:rounded-[25px] bg-background-(alt) shadow-[0px_0px_40px_0_rgba(31,218,83,0.25)] md:shadow-[-30px_-30px_30px_0_rgba(31,218,83,0.25)];
+  @apply px-[30px] md:px-[70px] py-[30px] md:py-[50px] w-[390px] md:w-[646px] rounded-[15px] md:rounded-[25px] bg-background-alt shadow-[0px_0px_40px_0_rgba(31,218,83,0.25)] md:shadow-[-30px_-30px_30px_0_rgba(31,218,83,0.25)];
 }
 
 .intro {
@@ -211,7 +204,7 @@ footer {
 }
 
 .titleCard {
-  @apply px-[12px] py-[6px] bg-primary-(light) rounded-[7px] text-background-(main) text-[13px] tracking-[0.65px];
+  @apply px-[12px] py-[6px] bg-primary-light rounded-[7px] text-background-main text-[13px] tracking-[0.65px];
 }
 
 .intro .details_container .desc {
@@ -223,11 +216,11 @@ footer {
 }
 
 .main_btn {
-  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] bg-primary text-background-(main) hover:bg-primary-(light) transition-all ease-out duration-500;
+  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] bg-primary text-background-main hover:bg-primary-light transition-all ease-out duration-500;
 }
 
 .alt_btn {
-  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] border-primary border-[1px] text-primary hover:bg-background-(main) transition-all ease-out duration-500;
+  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] border-primary border-[1px] text-primary hover:bg-background-main transition-all ease-out duration-500;
 }
 
 #view_btn,
@@ -274,11 +267,11 @@ form {
 }
 
 .input_field {
-  @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-gray-300 focus:border-[1px] focus:bg-background-(main);
+  @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-main placeholder:text-gray-300 focus:border-[1px] focus:bg-background-main;
 }
 
 textarea {
-  @apply h-[80px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-(main) placeholder:text-gray-300 resize-none;
+  @apply h-[80px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-main placeholder:text-gray-300 resize-none;
 }
 
 #send_btn {
@@ -294,7 +287,7 @@ textarea {
 }
 
 .loadingCircle_icon {
-  @apply h-[17px] w-[17px] md:h-[20px] md:w-[20px] animate-spin text-background-(main);
+  @apply h-[17px] w-[17px] md:h-[20px] md:w-[20px] animate-spin text-background-main;
 }
 
 /* Portfolio Page */
@@ -303,7 +296,7 @@ textarea {
 }
 
 .portfolio_container {
-  @apply relative w-[334px] sm:w-[368px] h-[200px] sm:h-[221px] rounded-[25px] overflow-hidden text-[14px] tracking-[0.7px] bg-background-(main) hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
+  @apply relative w-[334px] sm:w-[368px] h-[200px] sm:h-[221px] rounded-[25px] overflow-hidden text-[14px] tracking-[0.7px] bg-background-main hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
 }
 
 .portfolio_container.active {
@@ -391,16 +384,16 @@ textarea {
   @apply relative flex flex-col items-center mr-[7px];
 }
 
-.portfolio_container .cta_container .cta_btns .figma_icon,
-.portfolio_container .cta_container .cta_btns .adobexd_icon {
-  @apply hover:drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
+.figma_info_container:hover .figma_icon,
+.adobexd_info_container:hover .adobexd_icon {
+  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
 }
 
-.figma_icon:hover g path {
+.figma_info_container:hover .figma_icon g path {
   @apply stroke-primary transition-all ease-out duration-500;
 }
 
-.adobexd_icon:hover #foreground {
+.adobexd_info_container:hover .adobexd_icon #foreground {
   @apply fill-primary transition-all ease-out duration-500;
 }
 
@@ -417,7 +410,7 @@ textarea {
 }
 
 .portfolio_btn button .pop_side {
-  @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center whitespace-nowrap h-[35px] pl-[13px] pr-[25px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-(light) text-background-(main) transition-all ease-in duration-500;
+  @apply invisible opacity-0 z-[1] absolute right-[17.5px] flex items-center whitespace-nowrap h-[35px] pl-[13px] pr-[25px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-light text-background-main transition-all ease-in duration-500;
 }
 
 .portfolio_btn:hover .pop_side {
@@ -463,11 +456,15 @@ textarea {
 }
 
 .portfolio_details .desc_container .item {
-  @apply flex gap-[7px];
+  @apply relative flex gap-[7px];
 }
 
 .portfolio_details .desc_container .item .title {
   @apply text-primary;
+}
+
+.portfolio_details .desc_container .item .text {
+  @apply line-clamp-1;
 }
 
 /* About Page */
@@ -480,7 +477,7 @@ textarea {
 }
 
 .side_intro {
-  @apply flex flex-col min-[483px]:max-[823px]:flex-row justify-center items-center gap-[30px] p-[30px] rounded-[10px] h-fit bg-background-(alt);
+  @apply flex flex-col min-[483px]:max-[823px]:flex-row justify-center items-center gap-[30px] p-[30px] rounded-[10px] h-fit bg-background-alt;
 }
 
 .side_intro .image_container {
@@ -572,7 +569,7 @@ textarea {
 }
 
 .side_nav_container {
-  @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-(alt);
+  @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-alt;
 }
 
 .side_nav {
@@ -594,7 +591,7 @@ textarea {
 
 .workexp_section_container .line_bar,
 .education_section_container .line_bar {
-  @apply hidden absolute h-full w-[3px] rounded-[5px] bg-primary-(light);
+  @apply hidden absolute h-full w-[3px] rounded-[5px] bg-primary-light;
 }
 
 .workexp_section_container .line_bar.active,
@@ -637,7 +634,7 @@ textarea {
 }
 
 .sideNav_link.active {
-  @apply bg-primary-(light) text-background-(main);
+  @apply bg-primary-light text-background-main;
 }
 
 .sideNav_link .arrow_left_icon {
@@ -645,11 +642,11 @@ textarea {
 }
 
 .sideNav_link .arrow_left_icon.active path g {
-  @apply fill-background-(main);
+  @apply fill-background-main;
 }
 
 .skill_container {
-  @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-(alt);
+  @apply flex flex-col gap-[12px] h-fit p-[30px] rounded-[10px] bg-background-alt;
 }
 
 .skill_container.left {
@@ -672,8 +669,16 @@ textarea {
   @apply absolute object-scale-down;
 }
 
-.info {
-  @apply z-[1] hidden absolute py-[3px] px-[7px] text-[14px] text-nowrap bg-background-(main) border-[1px] border-primary-(light) rounded-[4px];
+.info_container {
+  @apply z-[1] absolute;
+}
+
+.info_container .info {
+  @apply relative flex justify-center py-[3px] px-[7px] text-[14px] rounded-[4px] border-[1px] border-primary-light bg-background-main;
+}
+
+.info_container .info img {
+  @apply absolute size-[18px] pointer-events-none;
 }
 
 /* Portfolio Loading Skeletons */

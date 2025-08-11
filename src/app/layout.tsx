@@ -62,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${quantico.className}`}>
+        <Analytics />
         <SharedContextProvider>
           <VideoLoop />
           <ToastContainer />
@@ -72,7 +73,6 @@ export default function RootLayout({
             <Footer />
           </div>
         </SharedContextProvider>
-        <Analytics />
       </body>
     </html>
   );

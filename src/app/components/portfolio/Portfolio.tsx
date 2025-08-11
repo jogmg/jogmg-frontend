@@ -8,6 +8,7 @@ import ChevronTripleRightIcon from "@public/icons/chevron-triple-right.svg";
 import ChevronUpIcon from "@public/icons/chevron-up.svg";
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
+import Info from "../Info";
 
 interface IPortfolio {
   title: string;
@@ -27,9 +28,26 @@ export default function Portfolio({
   descs,
 }: IPortfolio) {
   const [active, setIsActive] = useState(false);
+  const [showInfo, setShowInfo] = useState<
+    Record<string, boolean> | undefined
+  >();
 
   const handleHeadingClick = () => {
     setIsActive(!active);
+  };
+
+  const handleMouseEnter = (index: number) => {
+    setShowInfo((prev) => ({
+      ...prev,
+      [index]: true,
+    }));
+  };
+
+  const handleMouseLeave = (index: number) => {
+    setShowInfo((prev) => ({
+      ...prev,
+      [index]: false,
+    }));
   };
 
   return (
@@ -47,7 +65,7 @@ export default function Portfolio({
               url={ctaUrl}
               width="50"
               height="50"
-              infoPosY="-top-[30px]"
+              infoPosY="-top-[40px]"
             />
           )}
           {ctaType === "adobexd" && <AdobeXDIcon url={ctaUrl} />}
@@ -76,7 +94,20 @@ export default function Portfolio({
                 Your browser does not support the video tag.
               </video>
             </div>
-            <p className="title">{title}</p>
+            <p
+              className="title"
+              onMouseEnter={() => handleMouseEnter(20)}
+              onMouseLeave={() => handleMouseLeave(20)}
+            >
+              {title.length < 23 ? title : `${title.slice(0, 23)}...`}
+            </p>
+            {title.length > 23 ? (
+              <Info
+                text={title}
+                posY={active ? "top-[60px]" : "-top-[35px]"}
+                show={showInfo?.[20]}
+              />
+            ) : null}
           </div>
           <div className="chevronIcon_container">
             <div className="chevronIcon_wrapper">
@@ -90,12 +121,30 @@ export default function Portfolio({
         </div>
         <ul className="desc_container">
           {descs.map((desc, index) => (
-            <li className="item" key={index}>
+            <li
+              className="item"
+              key={index}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
+            >
               <Image src={desc.iconUrl} alt={desc.title + " Icon"} />
-              <p>
-                <span className="title">{desc.title}: </span>
-                {desc.text}
+              <span className="title">{desc.title}:</span>
+              <p className="text">
+                {desc.text.length < 30
+                  ? desc.text
+                  : `${desc.text.slice(0, 30)}...`}
               </p>
+              {desc.text.length > 30 ? (
+                <Info
+                  text={desc.text}
+                  posY={
+                    title === "Digital Certificate Generator"
+                      ? "-top-[60px]"
+                      : "-top-[40px]"
+                  }
+                  show={showInfo?.[index]}
+                />
+              ) : null}
             </li>
           ))}
         </ul>

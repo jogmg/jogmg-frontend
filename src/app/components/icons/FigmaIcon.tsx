@@ -1,5 +1,6 @@
 import Info from "@app/components/Info";
 import Link from "next/link";
+import { useState } from "react";
 
 interface IFigmaIcon {
   url: string;
@@ -8,10 +9,24 @@ interface IFigmaIcon {
 
 export default function FigmaIcon({
   url,
-  infoPosY = "-top-[37px]",
+  infoPosY = "-top-[40px]",
 }: IFigmaIcon) {
+  const [showInfo, setShowInfo] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowInfo(() => true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowInfo(() => false);
+  };
+
   return (
-    <div className="figma_info_container">
+    <div
+      className="figma_info_container"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Link href={url} target="_blank" aria-label="View Portfolio Prototype">
         <svg
           className="figma_icon"
@@ -55,7 +70,7 @@ export default function FigmaIcon({
           </defs>
         </svg>
       </Link>
-      <Info text="Figma" posY={infoPosY} />
+      <Info text="Figma" posY={infoPosY} show={showInfo} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import Info from "@app/components/Info";
 import Link from "next/link";
+import { useState } from "react";
 
 interface IAdobeXDIcon {
   url: string;
@@ -8,10 +9,24 @@ interface IAdobeXDIcon {
 
 export default function AdobeXDIcon({
   url,
-  infoPosY = "-top-[37px]",
+  infoPosY = "-top-[40px]",
 }: IAdobeXDIcon) {
+  const [showInfo, setShowInfo] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowInfo(() => true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowInfo(() => false);
+  };
+
   return (
-    <div className="adobexd_info_container">
+    <div
+      className="adobexd_info_container"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Link href={url} target="_blank" aria-label="View Portfolio Prototype">
         <svg
           className="adobexd_icon"
@@ -44,7 +59,7 @@ export default function AdobeXDIcon({
           </defs>
         </svg>
       </Link>
-      <Info text="Adobe XD" posY={infoPosY} />
+      <Info text="Adobe XD" posY={infoPosY} show={showInfo} textWrap={true} />
     </div>
   );
 }

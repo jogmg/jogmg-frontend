@@ -9,11 +9,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        "primary": "#1FDA53",
-        "primary-(light)": "#59ED82",
-        "secondary": "#FFFFFF",
-        "background-(main)": "#000000",
-        "background-(alt)": "#0F0F0F",
+        primary: "#1FDA53",
+        "primary-light": "#59ED82",
+        secondary: "#FFFFFF",
+        "background-main": "#000000",
+        "background-alt": "#0F0F0F",
         "skeleton-primary": "#1f1f1f",
         "skeleton-secondary": "#2c2c2c",
         "skeleton-bg": "#0a0a0a",
