@@ -7,7 +7,7 @@ import personIcon from "@public/icons/person-bounding-box.svg";
 import stackIcon from "@public/icons/stack.svg";
 import LoadingSkeleton from "@app/components/LoadingSkeleton";
 import Portfolio from "@app/components/portfolio/Portfolio";
-import { getPortfolios } from "@app/query";
+import { getPortfolios } from "@app/util/query";
 
 const PortfolioContent = () => {
   const { data, isSuccess } = useQuery({

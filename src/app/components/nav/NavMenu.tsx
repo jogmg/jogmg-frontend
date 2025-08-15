@@ -4,7 +4,7 @@ import CloseIcon from "@app/components/icons/CloseIcon";
 import GithubIcon from "@app/components/icons/GithubIcon";
 import LinkedinIcon from "@app/components/icons/LinkedinIcon";
 import NavLink from "@app/components/nav/NavLink";
-import useSharedContext from "@app/SharedContext";
+import useSharedContext from "@app/util/SharedContext";
 
 export default function NavMenu() {
   const { isNavMenuOpen, setIsNavMenuOpen } = useSharedContext();

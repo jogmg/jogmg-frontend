@@ -59,7 +59,9 @@ export default function AdobeXDIcon({
           </defs>
         </svg>
       </Link>
-      <Info text="Adobe XD" posY={infoPosY} show={showInfo} textWrap={true} />
+      {showInfo ? (
+        <Info text="Adobe XD" posY={infoPosY} textWrap={true} />
+      ) : undefined}
     </div>
   );
 }

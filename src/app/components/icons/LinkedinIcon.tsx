@@ -58,7 +58,7 @@ export default function LinkedinIcon({
           </defs>
         </svg>
       </Link>
-      <Info text="Linkedin" posY={infoPosY} show={showInfo} />
+      {showInfo ? <Info text="Linkedin" posY={infoPosY} /> : undefined}
     </div>
   );
 }

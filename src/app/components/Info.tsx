@@ -1,33 +1,33 @@
-import Image from "next/image";
-import arrowUp from "@public/icons/arrow-up-info.svg";
+import InfoArrowIcon from "./icons/InfoArrowIcon";
 
 interface IInfo {
   text: string;
   posY?: string;
-  show?: boolean;
   textWrap?: boolean;
+  icon?: boolean;
 }
 
 export default function Info({
   text,
   posY,
-  show = false,
   textWrap = false,
+  icon = false,
 }: IInfo) {
   const posType = posY?.split("-")[1];
 
   return (
-    <div className={`info_container ${posY} ${show ? "flex" : "hidden"}`}>
+    <div className={`info_container ${posY}`}>
       <div className="info">
-        <Image
+        <InfoArrowIcon
           className={`${
             posType?.includes("top")
               ? "rotate-180 -bottom-[13px]"
               : "-top-[13px]"
           }`}
-          src={arrowUp}
-          alt="Arrow Up Icon"
         />
+        {icon ? (
+          <i className="bi bi-exclamation-triangle-fill text-red-500"></i>
+        ) : undefined}
         <p className={textWrap ? "whitespace-nowrap" : undefined}>{text}</p>
       </div>
     </div>

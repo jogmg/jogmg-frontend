@@ -101,12 +101,8 @@ export default function Portfolio({
             >
               {title.length < 23 ? title : `${title.slice(0, 23)}...`}
             </p>
-            {title.length > 23 ? (
-              <Info
-                text={title}
-                posY={active ? "top-[60px]" : "-top-[35px]"}
-                show={showInfo?.[20]}
-              />
+            {title.length > 23 && showInfo?.[20] ? (
+              <Info text={title} posY={active ? "top-[60px]" : "-top-[35px]"} />
             ) : null}
           </div>
           <div className="chevronIcon_container">
@@ -134,7 +130,7 @@ export default function Portfolio({
                   ? desc.text
                   : `${desc.text.slice(0, 30)}...`}
               </p>
-              {desc.text.length > 30 ? (
+              {desc.text.length > 30 && showInfo?.[index] ? (
                 <Info
                   text={desc.text}
                   posY={
@@ -142,7 +138,6 @@ export default function Portfolio({
                       ? "-top-[60px]"
                       : "-top-[40px]"
                   }
-                  show={showInfo?.[index]}
                 />
               ) : null}
             </li>

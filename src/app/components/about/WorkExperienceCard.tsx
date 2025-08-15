@@ -1,6 +1,6 @@
 "use client";
 
-import { IWorkExperienceData } from "@app/query";
+import { IWorkExperienceData } from "@app/util/query";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 

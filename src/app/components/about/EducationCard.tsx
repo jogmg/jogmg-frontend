@@ -1,6 +1,6 @@
 "use client";
 
-import { IEducationData } from "@app/query";
+import { IEducationData } from "@app/util/query";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
@@ -9,7 +9,10 @@ interface IEducationCard {
   toggleInViews: (id: string, inView: boolean) => void;
 }
 
-export default function EducationCard({ education, toggleInViews }: IEducationCard) {
+export default function EducationCard({
+  education,
+  toggleInViews,
+}: IEducationCard) {
   const { _id, title, field, date, imgSrc } = education;
 
   const { ref } = useInView({

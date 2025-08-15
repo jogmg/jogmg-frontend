@@ -51,7 +51,7 @@ export default function GithubIcon({
           />
         </svg>
       </Link>
-      <Info text="Github" posY={infoPosY} show={showInfo} />
+      {showInfo ? <Info text="Github" posY={infoPosY} /> : undefined}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import LoadingCircleIcon from "@app/components/icons/LoadingCirlceIcon";
-import { lexend } from "@app/fonts";
+import { lexend } from "@app/util/fonts";
 import arrowLeftIcon from "@public/icons/arrow-left-short.svg";
 import arrowRightCircleIcon from "@public/icons/arrow-right-circle-fill.svg";
 import arrowUpRightIcon from "@public/icons/arrow-up-right.svg";

@@ -70,7 +70,7 @@ export default function FigmaIcon({
           </defs>
         </svg>
       </Link>
-      <Info text="Figma" posY={infoPosY} show={showInfo} />
+      {showInfo ? <Info text="Figma" posY={infoPosY} /> : undefined}
     </div>
   );
 }

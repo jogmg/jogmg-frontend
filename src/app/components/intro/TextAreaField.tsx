@@ -1,28 +1,26 @@
 import { normalizeText } from "@app/util/helpers";
-import { InputHTMLAttributes, Ref } from "react";
-import Info from "../Info";
+import { Ref, TextareaHTMLAttributes } from "react";
 import { FieldError } from "react-hook-form";
+import Info from "../Info";
 
-interface IInputField extends InputHTMLAttributes<HTMLInputElement> {
+interface ITextAreaField extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
   error?: FieldError;
-  ref?: Ref<HTMLInputElement>;
+  ref?: Ref<HTMLTextAreaElement>;
 }
 
-export default function InputField({
+const TextAreaField = ({
   name,
-  type = "text",
   value,
   onChange,
   onBlur,
   ref,
   error,
-}: IInputField) {
+}: ITextAreaField) => {
   return (
     <div className="field_container">
-      <input
-        className="input_field"
-        type={type}
+      <textarea
+        className="textarea_field"
         name={name}
         placeholder={normalizeText(name)}
         title={`Enter your ${name}`}
@@ -32,8 +30,10 @@ export default function InputField({
         ref={ref}
       />
       {error ? (
-        <Info text={error.message!} posY={"-bottom-[45px]"} icon={true} />
+        <Info text={error.message!} posY={"-bottom-[40px]"} icon={true} />
       ) : null}
     </div>
   );
-}
+};
+
+export default TextAreaField;

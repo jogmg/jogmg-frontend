@@ -7,7 +7,7 @@ export const quantico = Quantico({
 });
 
 export const consolas = localFont({
-  src: "../../public/fonts/consolas.ttf",
+  src: "../../../public/fonts/consolas.ttf",
 });
 
 export const lexend = Lexend({

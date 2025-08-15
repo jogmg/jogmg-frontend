@@ -3,11 +3,15 @@
 import Button from "@app/components/Button";
 import InputField from "@app/components/intro/InputField";
 import TitleCard from "@app/components/intro/TitleCard";
-import { lexend } from "@app/fonts";
-import { sendUser } from "@app/query";
+import { lexend } from "@app/util/fonts";
+import { sendUser } from "@app/util/query";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { FormEvent, useReducer, useState } from "react";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import z from "zod";
+import TextAreaField from "./TextAreaField";
 
 export interface IUserData {
   name: string;
@@ -16,8 +20,25 @@ export interface IUserData {
   message: string;
 }
 
+const UserFormSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.email("Invalid email address").min(1, "Email is required"),
+  subject: z.string().optional(),
+  message: z.string().min(1, "Message is required"),
+});
+
+type UserForm = z.infer<typeof UserFormSchema>;
+
 export default function Intro() {
   const [toggled, setIsToggled] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<UserForm>({
+    resolver: zodResolver(UserFormSchema),
+  });
 
   const handleGoBack = () => {
     setIsToggled(false);
@@ -27,42 +48,11 @@ export default function Intro() {
     setIsToggled(true);
   };
 
-  const initialUserData: IUserData = {
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  };
-
-  const userDataReducer = (
-    state: IUserData,
-    action: {
-      type?: keyof IUserData | string;
-      value?: string;
-      empty?: boolean;
-    }
-  ) => {
-    if (action.empty) {
-      return initialUserData;
-    }
-
-    return { ...state, [action.type!]: action.value };
-  };
-
-  const [userData, userDataDispatch] = useReducer(
-    userDataReducer,
-    initialUserData
-  );
-
-  const setUserData = (type: keyof IUserData | string, value: string) => {
-    userDataDispatch({ type, value });
-  };
-
   const { mutate, isPending } = useMutation({
-    mutationFn: (userData: IUserData) => sendUser(userData),
+    mutationFn: (data: IUserData) => sendUser(data),
     onSuccess: () => {
       toast.success("Message sent successfully", { theme: "dark" });
-      userDataDispatch({ empty: true });
+      reset();
     },
     onError: (error) => {
       toast.error("Error: " + error.message, {
@@ -71,9 +61,8 @@ export default function Intro() {
     },
   });
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    mutate(userData);
+  const onSubmit: SubmitHandler<IUserData> = (data) => {
+    mutate(data);
   };
 
   const introText = `I help businesses realize high-quality software solutions that meet user needs through design, development, and execution, all from my little room. \n\nLet's collaborate to bring your ideas to life.`;
@@ -111,36 +100,13 @@ export default function Intro() {
       </article>
       <article className={`getInTouch ${toggled ? "active" : ""}`}>
         <h2 className={`h2 ${lexend.className}`}>Contact Me</h2>
-        <form method="post" action="submit" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="input_container">
-            <InputField
-              name="name"
-              value={userData.name}
-              action={setUserData}
-            />
-            <InputField
-              type="email"
-              name="email"
-              value={userData.email}
-              action={setUserData}
-            />
+            <InputField {...register("name")} error={errors.name} />
+            <InputField {...register("email")} error={errors.email} />
           </div>
-          <InputField
-            name="subject"
-            value={userData.subject}
-            action={setUserData}
-            required={false}
-          />
-          <textarea
-            name="message"
-            placeholder="Message"
-            title="Enter your message"
-            value={userData.message}
-            onChange={(e) => {
-              setUserData("message", e.target.value);
-            }}
-            required
-          />
+          <InputField {...register("subject")} error={errors.subject} />
+          <TextAreaField {...register("message")} error={errors.message} />
           <div className="cta_container">
             <Button
               id="send_btn"

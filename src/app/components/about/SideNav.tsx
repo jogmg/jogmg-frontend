@@ -1,8 +1,8 @@
 "use client";
 
-import useSharedContext from "@/app/SharedContext";
+import useSharedContext from "@app/util/SharedContext";
 import SideNavLink from "@app/components/about/SideNavLink";
-import { IEducationData, IWorkExperienceData } from "@app/query";
+import { IEducationData, IWorkExperienceData } from "@app/util/query";
 import ChevronUpIcon from "@public/icons/chevron-up.svg";
 import Image from "next/image";
 import { useState } from "react";
