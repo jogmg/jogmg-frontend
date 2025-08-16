@@ -268,7 +268,7 @@ form {
 }
 
 .field_container {
-  @apply relative;
+  @apply relative w-full;
 }
 
 .input_field {
@@ -679,7 +679,7 @@ form {
 }
 
 .info_container .info {
-  @apply relative flex justify-center gap-[7px] py-[3px] px-[7px] text-[14px] rounded-[4px] border-[1px] border-primary-light bg-background-main;
+  @apply relative flex items-center justify-center gap-[7px] py-[3px] px-[7px] text-[14px] rounded-[4px] border-[1px] border-primary-light bg-background-main;
 }
 
 .info_container .info svg {
