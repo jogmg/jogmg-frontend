@@ -1,6 +1,7 @@
 "use client";
 
 import { IEducationData } from "@app/util/query";
+import placeHolderImg from "@public/images/image-placeholder.png";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
@@ -23,7 +24,7 @@ export default function EducationCard({
   return (
     <div id={title.toLowerCase()} ref={ref} className="education_card">
       <div className="image_container">
-        <Image src={imgSrc} alt={`${title} Image`} fill />
+        <Image src={imgSrc || placeHolderImg} alt={`${title} Image`} fill />
       </div>
       <div className="education_container">
         <h5>{title}</h5>
