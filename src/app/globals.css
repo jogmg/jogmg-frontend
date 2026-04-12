@@ -270,12 +270,15 @@ footer .last_updated {
 .getInTouch .heading_container {
   @apply flex items-center gap-5;
 }
+
 .getInTouch .heading_container .mail_icon_container {
   @apply flex justify-center items-center px-2 py-1 rounded-full bg-background-alt;
 }
+
 .getInTouch .heading_container .mail_icon_container:hover {
   @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
 }
+
 .getInTouch .heading_container .mail_icon_container:hover i {
   @apply text-primary transition-all ease-in duration-500;
 }
