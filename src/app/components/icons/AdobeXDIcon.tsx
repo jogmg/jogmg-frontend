@@ -29,7 +29,7 @@ export default function AdobeXDIcon({
     >
       <Link href={url} target="_blank" aria-label="View Portfolio Prototype">
         <svg
-          className="adobexd_icon"
+          className="adobexd_icon glob_icons"
           width="35"
           height="35"
           viewBox="0 0 39 38"
@@ -60,7 +60,7 @@ export default function AdobeXDIcon({
         </svg>
       </Link>
       {showInfo ? (
-        <Info text="Adobe XD" posY={infoPosY} textWrap={true} />
+        <Info text="Adobe XD" posY={infoPosY} textWrap={false} />
       ) : undefined}
     </div>
   );

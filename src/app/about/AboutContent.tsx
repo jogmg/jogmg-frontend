@@ -3,19 +3,22 @@
 import EducationCard from "@app/components/about/EducationCard";
 import LanguageCard from "@app/components/about/LanguageCard";
 import SideNav from "@app/components/about/SideNav";
-import SkillCard from "@app/components/about/SkillCard";
+import SkillMarquee from "@app/components/about/SkillMarquee";
 import WorkExperienceCard from "@app/components/about/WorkExperienceCard";
 import LoadingSkeleton from "@app/components/LoadingSkeleton";
 import { lexend } from "@app/util/fonts";
+import { formatToWAT } from "@app/util/helpers";
 import { getEducation, getSkills, getWorkExperiences } from "@app/util/query";
 import useSharedContext from "@app/util/SharedContext";
 import worldIcon from "@public/icons/world-svgrepo-com.svg";
 import OfficialImage from "@public/images/official-image.webp";
 import { useQueries } from "@tanstack/react-query";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const AboutContent = () => {
   const { setExpInViews, setEduInViews } = useSharedContext();
+  const [time, setTime] = useState<Date>();
 
   const toggleExpInViews = (id: string, inView: boolean) => {
     setExpInViews((prev) => ({
@@ -55,6 +58,16 @@ const AboutContent = () => {
     ],
   });
 
+  useEffect(() => {
+    setTime(new Date());
+
+    const timerId = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timerId);
+  }, []);
+
   return (
     <main className="about">
       <div className="left_section_container">
@@ -69,7 +82,10 @@ const AboutContent = () => {
             </div>
             <div className="location_container">
               <Image src={worldIcon} alt="World Icon" />
-              <p>Kaduna, Nigeria</p>
+              <div className="location_details">
+                <p className="location">Kaduna, Nigeria</p>
+                <p className="time">{time ? formatToWAT(time) : null}</p>
+              </div>
             </div>
             <div className="language_container">
               <LanguageCard text="English" level="100%" />
@@ -77,27 +93,16 @@ const AboutContent = () => {
             </div>
           </div>
         </aside>
-        <aside className="skill_container left">
-          <h4 className={`h4 ${lexend.className}`}>Skills</h4>
-          <div className="skills">
-            {isSkillsSuccessful
-              ? skills.map((skill) => (
-                  <SkillCard
-                    key={skill._id}
-                    title={skill.title}
-                    imgSrc={skill.imgSrc}
-                  />
-                ))
-              : Array.from({ length: 3 }).map((_, idx) => (
-                  <LoadingSkeleton key={idx} skill />
-                ))}
-          </div>
-        </aside>
+        <SkillMarquee
+          skills={skills}
+          isSkillsSuccessful={isSkillsSuccessful}
+          className="left"
+        />
       </div>
       <section className="workexp_education">
         <h1 className={`h3 ${lexend.className}`}>Work Experience</h1>
-        {isWESuccessful
-          ? workExperiences?.map((exp) => (
+        {isWESuccessful && workExperiences
+          ? workExperiences.map((exp) => (
               <WorkExperienceCard
                 key={exp._id}
                 workExp={exp}
@@ -108,8 +113,8 @@ const AboutContent = () => {
               <LoadingSkeleton key={idx} workExp />
             ))}
         <h2 className={`h3 ${lexend.className}`}>Education</h2>
-        {isEduSuccessful
-          ? education?.map((edu) => (
+        {isEduSuccessful && education
+          ? education.map((edu) => (
               <EducationCard
                 key={edu._id}
                 education={edu}
@@ -125,22 +130,7 @@ const AboutContent = () => {
           <h4 className={`h4 ${lexend.className}`}>Sections</h4>
           <SideNav workExp={workExperiences} education={education} />
         </aside>
-        <aside className="skill_container">
-          <h4 className={`h4 ${lexend.className}`}>Skills</h4>
-          <div className="skills">
-            {isSkillsSuccessful
-              ? skills.map((skill) => (
-                  <SkillCard
-                    key={skill._id}
-                    title={skill.title}
-                    imgSrc={skill.imgSrc}
-                  />
-                ))
-              : Array.from({ length: 3 }).map((_, idx) => (
-                  <LoadingSkeleton key={idx} skill />
-                ))}
-          </div>
-        </aside>
+        <SkillMarquee skills={skills} isSkillsSuccessful={isSkillsSuccessful} />
       </div>
     </main>
   );

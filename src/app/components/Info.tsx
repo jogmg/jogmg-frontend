@@ -10,7 +10,7 @@ interface IInfo {
 export default function Info({
   text,
   posY,
-  textWrap = false,
+  textWrap = true,
   icon = false,
 }: IInfo) {
   const posType = posY?.split("-")[1];
@@ -28,7 +28,9 @@ export default function Info({
         {icon ? (
           <i className="bi bi-exclamation-triangle-fill text-red-500"></i>
         ) : undefined}
-        <p className={textWrap ? "whitespace-nowrap" : undefined}>{text}</p>
+        <p className={textWrap ? "whitespace-pre-wrap" : "whitespace-nowrap"}>
+          {text}
+        </p>
       </div>
     </div>
   );

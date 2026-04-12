@@ -16,7 +16,15 @@ body {
 }
 
 footer {
-  @apply flex justify-center pt-[20px] pb-[30px] text-primary;
+  @apply flex flex-col items-center min-[400px]:flex-row min-[400px]:justify-between gap-3 pt-[20px] pb-[30px] px-[20px] md:px-[70px] lg:px-[100px];
+}
+
+footer .copyright {
+  @apply text-primary;
+}
+
+footer .last_updated {
+  @apply text-sm text-[#b2b2b2];
 }
 
 .main_container {
@@ -47,13 +55,17 @@ footer {
   @apply text-[17px] md:text-[19px] font-semibold tracking-[0.85px] md:tracking-[0.95px];
 }
 
+.glob_icons {
+  @apply shrink-0;
+}
+
 /* NavBar */
 .navBar {
   @apply sticky top-0 z-50 flex items-center justify-between px-[20px] md:px-[70px] lg:px-[100px] py-[20px] transition-all ease-in-out duration-500;
 }
 
 .navBar.active {
-  @apply shadow-[0px_1px_0px_0.5px_rgba(31,218,83,0.25)] bg-background-alt;
+  @apply shadow-[0px_1px_0px_0.5px_rgba(31,218,83,0.25)] backdrop-blur-md;
 }
 
 .navBar .navLink_container {
@@ -102,7 +114,7 @@ footer {
 
 .linkedin_info_container,
 .github_info_container {
-  @apply relative flex flex-col items-center;
+  @apply relative flex flex-col;
 }
 
 .linkedin_info_container:hover .linkedin_icon {
@@ -139,7 +151,7 @@ footer {
 
 /* Nav Menu */
 .navMenu_container {
-  @apply invisible opacity-0 flex justify-end lg:hidden fixed w-screen h-screen bg-background-main bg-opacity-25 z-[100] transition-all ease-in duration-500;
+  @apply invisible opacity-0 flex justify-end lg:hidden fixed w-screen h-screen backdrop-blur-md z-[100] transition-all ease-in duration-500;
 }
 
 .navMenu_container.active {
@@ -255,6 +267,19 @@ footer {
   @apply visible static opacity-100 transition-all ease-out duration-1000;
 }
 
+.getInTouch .heading_container {
+  @apply flex items-center gap-5;
+}
+.getInTouch .heading_container .mail_icon_container {
+  @apply flex justify-center items-center px-2 py-1 rounded-full bg-background-alt;
+}
+.getInTouch .heading_container .mail_icon_container:hover {
+  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
+}
+.getInTouch .heading_container .mail_icon_container:hover i {
+  @apply text-primary transition-all ease-in duration-500;
+}
+
 form {
   @apply flex flex-col gap-[13px] w-full;
 }
@@ -272,11 +297,11 @@ form {
 }
 
 .input_field {
-  @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-main placeholder:text-gray-300 focus:border-[1px] focus:bg-background-main;
+  @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:bg-background-main placeholder:text-gray-300 focus:bg-background-main transition-all ease-out duration-500;
 }
 
 .textarea_field {
-  @apply w-full h-[80px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:border-[1px] hover:bg-background-main placeholder:text-gray-300 resize-none;
+  @apply w-full h-[80px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:bg-background-main placeholder:text-gray-300 focus:bg-background-main resize-none transition-all ease-out duration-500;
 }
 
 #send_btn {
@@ -506,7 +531,15 @@ form {
 }
 
 .side_intro .details .location_container {
-  @apply flex items-center gap-[7px];
+  @apply flex items-start gap-2;
+}
+
+.side_intro .details .location_container .location_details {
+  @apply flex flex-col;
+}
+
+.side_intro .details .location_container .location_details .time {
+  @apply text-sm text-[#b2b2b2];
 }
 
 .side_intro .details .language_container {
@@ -535,12 +568,12 @@ form {
 
 .workexp_card,
 .education_card {
-  @apply grid grid-cols-[26px_1fr] gap-[10px] scroll-mt-[115px];
+  @apply grid grid-cols-[2.25rem_1fr] gap-[10px] scroll-mt-[115px];
 }
 
 .workexp_card .image_container,
 .education_card .image_container {
-  @apply relative size-[26px] rounded-[50%] overflow-hidden;
+  @apply relative size-9 rounded-full overflow-hidden;
 }
 .workexp_card .image_container img,
 .education_card .image_container img {
@@ -634,6 +667,10 @@ form {
   @apply flex flex-col;
 }
 
+.sideNav_link_container {
+  @apply relative flex flex-col;
+}
+
 .sideNav_link {
   @apply flex items-center gap-[4px] py-[3px] pl-[15px] text-[14px];
 }
@@ -644,6 +681,10 @@ form {
 
 .sideNav_link .arrow_left_icon {
   @apply -rotate-180;
+}
+
+.sideNav_link p {
+  @apply line-clamp-1;
 }
 
 .sideNav_link .arrow_left_icon.active path g {
@@ -658,16 +699,24 @@ form {
   @apply min-[1152px]:hidden;
 }
 
+.skill_container .skills_wrapper {
+  @apply relative w-full overflow-hidden;
+}
+
+.skill_container .skills_wrapper .skills_track {
+  @apply flex gap-3;
+}
+
 .skill_container .skills {
   @apply flex flex-wrap gap-[7px];
 }
 
 .skill_card {
-  @apply flex items-center gap-[5px] py-[3px] px-[5px] rounded-[7px] bg-[#212121];
+  @apply flex items-center gap-2 py-2 px-3 rounded-[7px] bg-[#212121];
 }
 
 .skill_card .skill_image {
-  @apply relative size-[16px] rounded-full overflow-hidden;
+  @apply relative size-8 rounded-full overflow-hidden;
 }
 
 .skill_card .skill_image img {
@@ -675,7 +724,7 @@ form {
 }
 
 .info_container {
-  @apply z-[1] absolute;
+  @apply z-20 absolute self-center max-w-[20rem];
 }
 
 .info_container .info {

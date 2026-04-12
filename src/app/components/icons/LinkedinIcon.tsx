@@ -31,7 +31,7 @@ export default function LinkedinIcon({
         aria-label="Connect with me on Linkedin"
       >
         <svg
-          className="linkedin_icon"
+          className="linkedin_icon glob_icons"
           width="40"
           height="40"
           viewBox="0 0 40 40"

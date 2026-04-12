@@ -29,7 +29,7 @@ export default function FigmaIcon({
     >
       <Link href={url} target="_blank" aria-label="View Portfolio Prototype">
         <svg
-          className="figma_icon"
+          className="figma_icon glob_icons"
           width="23"
           height="35"
           viewBox="0 0 26 38"

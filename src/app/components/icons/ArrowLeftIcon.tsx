@@ -1,8 +1,8 @@
 interface IArrowLeftIcon {
-    color?: string;
+  color?: string;
 }
 
-export default function ArrowLeftIcon({color = "#333333"}: IArrowLeftIcon) {
+export default function ArrowLeftIcon({ color = "#333333" }: IArrowLeftIcon) {
   return (
     <svg
       width="20"
@@ -10,7 +10,7 @@ export default function ArrowLeftIcon({color = "#333333"}: IArrowLeftIcon) {
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="arrow_left_icon"
+      className="arrow_left_icon glob_icons"
     >
       <g id="ArrowLeftShort">
         <path

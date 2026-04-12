@@ -10,7 +10,7 @@ const InfoArrowIcon = ({ className }: InfoArrowIconProps) => {
       viewBox="0 0 20 11"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`${className} glob_icons`}
     >
       <path
         d="M18.793 9.5H1.20703L10 0.707031L18.793 9.5Z"

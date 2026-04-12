@@ -33,7 +33,7 @@ export default function GithubIcon({
     >
       <Link href={url} target="_blank" aria-label="View my Github">
         <svg
-          className="github_icon"
+          className="github_icon glob_icons"
           width={width}
           height={height}
           viewBox="0 0 40 41"

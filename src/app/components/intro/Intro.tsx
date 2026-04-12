@@ -7,6 +7,7 @@ import { lexend } from "@app/util/fonts";
 import { sendUser } from "@app/util/query";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
+import Link from "next/link";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -65,7 +66,7 @@ export default function Intro() {
     mutate(data);
   };
 
-  const introText = `I help businesses realize high-quality software solutions that meet user needs through design, development, and execution, all from my little room. \n\nLet's collaborate to bring your ideas to life.`;
+  const introText = `I help businesses realize high-quality software solutions that meet user needs through design and development, all from my little room. \n\nLet's collaborate to bring your ideas to life.`;
 
   return (
     <section className="intro_container">
@@ -75,8 +76,8 @@ export default function Intro() {
           <div className="heading_container">
             <h1 className={`h1 ${lexend.className}`}>I&apos;m Joshua Attah</h1>
             <div className="titleCard_container">
-              <TitleCard text="FRONTEND DEVELOPER" />
               <TitleCard text="BACKEND DEVELOPER" />
+              <TitleCard text="FRONTEND DEVELOPER" />
               <TitleCard text="UI/UX DESIGNER" />
             </div>
           </div>
@@ -99,7 +100,16 @@ export default function Intro() {
         </div>
       </article>
       <article className={`getInTouch ${toggled ? "active" : ""}`}>
-        <h2 className={`h2 ${lexend.className}`}>Contact Me</h2>
+        <div className="heading_container">
+          <h2 className={`h2 ${lexend.className}`}>Fill Form</h2>
+          <p>OR</p>
+          <Link
+            href="mailto:joattah3@gmail.com"
+            className="mail_icon_container"
+          >
+            <i className="bi bi-envelope text-2xl text-secondary transition-all ease-out duration-500"></i>
+          </Link>
+        </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="input_container">
             <InputField {...register("name")} error={errors.name} />

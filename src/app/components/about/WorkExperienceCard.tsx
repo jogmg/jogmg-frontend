@@ -31,13 +31,28 @@ export default function WorkExperienceCard({
         <div>
           <p className="role">{role}</p>
           <p className="date">
-            {date.split("(")[0]}
-            {date.includes("(") && (
-              <span className="duration">
-                ({date.split("(")[1].split(")")[0]})
-              </span>
+            {date.includes("Present") ? (
+              <>
+                {date.split("Present")[0]}
+                <span className="duration">
+                  {date.slice(
+                    date.indexOf("Present"),
+                    date.indexOf("Present") + 7
+                  )}
+                </span>
+                {date.split("Present")[1]}
+              </>
+            ) : (
+              <>
+                {date.split("(")[0]}
+                {date.includes("(") && (
+                  <span className="duration">
+                    ({date.split("(")[1].split(")")[0]})
+                  </span>
+                )}
+                {date.split(")")[1]}
+              </>
             )}
-            {date.split(")")[1]}
           </p>
         </div>
         <ol className="desc">
