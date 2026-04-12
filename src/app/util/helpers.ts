@@ -28,7 +28,7 @@ export function horizontalLoop(
   items = gsap.utils.toArray(items) as HTMLElement[];
   config = config || {};
 
-  let tl = gsap.timeline({
+  const tl = gsap.timeline({
       repeat: config.repeat,
       paused: config.paused,
       defaults: { ease: "none" },
@@ -47,17 +47,17 @@ export function horizontalLoop(
         ? gsap.utils.snap(config.snap)
         : typeof config.snap === "function"
         ? config.snap
-        : (v: number) => v,
-    totalWidth: number,
-    curX: number,
-    distanceToStart: number,
+        : (v: number) => v;
+
+  let curX: number,
+    distanceToStart = 0,
     distanceToLoop: number,
     item: HTMLElement,
     i: number;
 
   gsap.set(items, {
     xPercent: (i, target) => {
-      let w = (widths[i] = parseFloat(
+      const w = (widths[i] = parseFloat(
         gsap.getProperty(target, "width", "px") as string
       ));
       xPercents[i] = snap(
@@ -69,7 +69,7 @@ export function horizontalLoop(
   });
 
   gsap.set(items, { x: 0 });
-  totalWidth =
+  const totalWidth =
     items[length - 1].offsetLeft +
     (xPercents[length - 1] / 100) * widths[length - 1] -
     startX +

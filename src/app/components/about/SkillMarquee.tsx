@@ -3,7 +3,7 @@ import { horizontalLoop } from "@app/util/helpers";
 import { ISkillData } from "@app/util/query";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Draggable } from "gsap/Draggable";
+import { Draggable } from "gsap/all";
 import { useRef } from "react";
 import LoadingSkeleton from "../LoadingSkeleton";
 import SkillCard from "./SkillCard";
