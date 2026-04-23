@@ -12,18 +12,36 @@ export default function LinkedinIcon({
   const [showInfo, setShowInfo] = useState(false);
 
   const handleMouseEnter = () => {
-    setShowInfo(() => true);
+    if (window.innerWidth > 768) {
+      setShowInfo(() => true);
+    }
   };
 
   const handleMouseLeave = () => {
-    setShowInfo(() => false);
+    if (window.innerWidth > 768) {
+      setShowInfo(() => false);
+    }
+  };
+
+  const handleTouchStart = () => {
+    if (window.innerWidth <= 768) {
+      setShowInfo(() => true);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (window.innerWidth <= 768) {
+      setShowInfo(() => false);
+    }
   };
 
   return (
     <div
-      className="linkedin_info_container"
+      className={`linkedin_info_container ${showInfo ? "active" : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <Link
         href={"https://www.linkedin.com/in/joattah"}

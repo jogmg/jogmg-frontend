@@ -81,7 +81,7 @@ footer .last_updated {
 }
 
 .navLink:hover .text {
-  @apply drop-shadow-[-2px_0_4px_#1FDA53] transition-all ease-out duration-500;
+  @apply drop-shadow-[-2px_0_4px_#1FDA53] transition-all ease-in duration-500;
 }
 
 .navLink .text.active {
@@ -93,19 +93,15 @@ footer .last_updated {
 }
 
 .navLink .line.active {
-  @apply absolute bottom-0 bg-primary w-[45%] h-[2px] transition-all ease-out duration-500;
-}
-
-.logo g path {
-  @apply transition-all ease-in duration-1000;
+  @apply absolute bottom-0 bg-primary w-[45%] h-[2px] transition-all ease-in duration-500;
 }
 
 .logo g :not(#foreground) {
-  @apply invisible opacity-0;
+  @apply invisible opacity-0 transition-all ease-in duration-1000;
 }
 
-.logo:hover g :not(#foreground) {
-  @apply visible opacity-100;
+.logo.active g :not(#foreground) {
+  @apply visible opacity-100 transition-all ease-in duration-1000;
 }
 
 .navBar .socials_container {
@@ -117,28 +113,36 @@ footer .last_updated {
   @apply relative flex flex-col;
 }
 
-.linkedin_info_container:hover .linkedin_icon {
-  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
+.linkedin_info_container .linkedin_icon {
+  @apply transition-all ease-in duration-500;
+}
+
+.linkedin_info_container.active .linkedin_icon {
+  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-in duration-500;
 }
 
 .linkedin_info_container .linkedin_icon #foreground {
   @apply fill-secondary transition-all ease-in duration-500;
 }
 
-.linkedin_info_container:hover .linkedin_icon #foreground {
-  @apply fill-primary transition-all ease-out duration-500;
+.linkedin_info_container.active .linkedin_icon #foreground {
+  @apply fill-primary transition-all ease-in duration-500;
 }
 
-.github_info_container:hover .github_icon {
-  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
+.github_info_container .github_icon {
+  @apply transition-all ease-in duration-500;
+}
+
+.github_info_container.active .github_icon {
+  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-in duration-500;
 }
 
 .github_info_container .github_icon #foreground {
   @apply fill-secondary transition-all ease-in duration-500;
 }
 
-.github_info_container:hover .github_icon #foreground {
-  @apply fill-primary transition-all ease-out duration-500;
+.github_info_container.active .github_icon #foreground {
+  @apply fill-primary transition-all ease-in duration-500;
 }
 
 .menu_icon {
@@ -146,7 +150,7 @@ footer .last_updated {
 }
 
 .menu_icon:hover path {
-  @apply fill-primary-light transition-all ease-out duration-500;
+  @apply fill-primary-light transition-all ease-in duration-500;
 }
 
 /* Nav Menu */
@@ -155,15 +159,15 @@ footer .last_updated {
 }
 
 .navMenu_container.active {
-  @apply visible opacity-100 transition-all ease-out duration-500;
+  @apply visible opacity-100 transition-all ease-in duration-500;
 }
 
 .navMenu {
-  @apply translate-x-[414px] flex flex-col gap-[20px] w-screen sm:w-[414px] h-full px-[20px] md:px-[70px] pt-[20px] pb-[50px] bg-background-alt transition-all ease-out duration-500;
+  @apply translate-x-[414px] flex flex-col gap-[20px] w-screen sm:w-[414px] h-full px-[20px] md:px-[70px] pt-[20px] pb-[50px] bg-background-alt transition-all ease-in duration-500;
 }
 
 .navMenu.active {
-  @apply translate-x-0 transition-all ease-out duration-500;
+  @apply translate-x-0 transition-all ease-in duration-500;
 }
 
 .navMenu .top_container {
@@ -183,7 +187,7 @@ footer .last_updated {
 }
 
 .close_icon:hover path {
-  @apply fill-primary-light transition-all ease-out duration-500;
+  @apply fill-primary-light transition-all ease-in duration-500;
 }
 
 /* Home Page */
@@ -201,7 +205,7 @@ footer .last_updated {
 }
 
 .intro.active {
-  @apply visible static opacity-100 transition-all ease-out duration-1000;
+  @apply visible static opacity-100 transition-all ease-in duration-1000;
 }
 
 .intro .details_container {
@@ -229,11 +233,11 @@ footer .last_updated {
 }
 
 .main_btn {
-  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] bg-primary text-background-main hover:bg-primary-light transition-all ease-out duration-500;
+  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] bg-primary text-background-main hover:bg-primary-light transition-all ease-in duration-500;
 }
 
 .alt_btn {
-  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] border-primary border-[1px] text-primary hover:bg-background-main transition-all ease-out duration-500;
+  @apply flex items-center gap-[5px] px-[16px] py-[7px] rounded-[10px] border-primary border-[1px] text-primary hover:bg-background-main transition-all ease-in duration-500;
 }
 
 #view_btn,
@@ -243,7 +247,7 @@ footer .last_updated {
 }
 
 #view_btn img {
-  @apply transition-all ease-out duration-500;
+  @apply transition-all ease-in duration-500;
 }
 
 #view_btn:hover img {
@@ -251,7 +255,7 @@ footer .last_updated {
 }
 
 #contact_btn img {
-  @apply transition-all ease-out duration-500;
+  @apply transition-all ease-in duration-500;
 }
 
 #contact_btn:hover img {
@@ -264,22 +268,22 @@ footer .last_updated {
 }
 
 .getInTouch.active {
-  @apply visible static opacity-100 transition-all ease-out duration-1000;
+  @apply visible static opacity-100 transition-all ease-in duration-1000;
 }
 
 .getInTouch .heading_container {
-  @apply flex items-center gap-5;
+  @apply flex items-center gap-7;
 }
 
 .getInTouch .heading_container .mail_icon_container {
-  @apply flex justify-center items-center px-2 py-1 rounded-full bg-background-alt;
+  @apply flex justify-center items-center px-2 py-1 rounded-full bg-background-alt transition-all ease-in duration-500;
 }
 
-.getInTouch .heading_container .mail_icon_container:hover {
-  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
+.getInTouch .heading_container .mail_icon_container.active {
+  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-in duration-500;
 }
 
-.getInTouch .heading_container .mail_icon_container:hover i {
+.getInTouch .heading_container .mail_icon_container.active i {
   @apply text-primary transition-all ease-in duration-500;
 }
 
@@ -300,11 +304,11 @@ form {
 }
 
 .input_field {
-  @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:bg-background-main placeholder:text-gray-300 focus:bg-background-main transition-all ease-out duration-500;
+  @apply w-full h-[45px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:bg-background-main placeholder:text-gray-300 focus:bg-background-main transition-all ease-in duration-500;
 }
 
 .textarea_field {
-  @apply w-full h-[80px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:bg-background-main placeholder:text-gray-300 focus:bg-background-main resize-none transition-all ease-out duration-500;
+  @apply w-full h-[80px] px-[20px] py-[11px] rounded-[9px] border-primary border-b-[1px] outline-none bg-transparent hover:bg-background-main placeholder:text-gray-300 focus:bg-background-main resize-none transition-all ease-in duration-500;
 }
 
 #send_btn {
@@ -312,7 +316,7 @@ form {
 }
 
 #back_btn img {
-  @apply transition-all ease-out duration-500;
+  @apply transition-all ease-in duration-500;
 }
 
 #back_btn:hover img {
@@ -329,23 +333,23 @@ form {
 }
 
 .portfolio_container {
-  @apply relative w-[334px] sm:w-[368px] h-[200px] sm:h-[221px] rounded-[25px] overflow-hidden text-[14px] tracking-[0.7px] bg-background-main hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
+  @apply relative w-[334px] sm:w-[368px] h-[200px] sm:h-[221px] rounded-[25px] overflow-hidden text-[14px] tracking-[0.7px] bg-background-main hover:shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-in duration-500;
 }
 
 .portfolio_container.active {
-  @apply shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-out duration-500;
+  @apply shadow-[-8px_8px_10px_0_#1FDA53] transition-all ease-in duration-500;
 }
 
 .portfolio_container .image {
-  @apply absolute object-cover transition-all ease-out duration-500;
+  @apply absolute object-cover transition-all ease-in duration-500;
 }
 
 .portfolio_container:hover .image {
-  @apply opacity-50 transition-all ease-out duration-500;
+  @apply opacity-50 transition-all ease-in duration-500;
 }
 
 .portfolio_container.active .image {
-  @apply opacity-50 transition-all ease-out duration-500;
+  @apply opacity-50 transition-all ease-in duration-500;
 }
 
 .portfolio_container .chevronTripleRight_icon {
@@ -353,11 +357,11 @@ form {
 }
 
 .portfolio_container:hover .chevronTripleRight_icon {
-  @apply visible opacity-100 translate-x-[190px] transition-transform ease-out duration-500 delay-1000;
+  @apply visible opacity-100 translate-x-[190px] transition-transform ease-in duration-500 delay-1000;
 }
 
 .portfolio_container.active .chevronTripleRight_icon {
-  @apply visible opacity-100 translate-x-[190px] transition-transform ease-out duration-500 delay-1000;
+  @apply visible opacity-100 translate-x-[190px] transition-transform ease-in duration-500 delay-1000;
 }
 
 .portfolio_details {
@@ -365,7 +369,7 @@ form {
 }
 
 .portfolio_details.active {
-  @apply py-[20px] sm:py-[30px] translate-y-0 transition-all ease-out duration-500;
+  @apply py-[20px] sm:py-[30px] translate-y-0 transition-all ease-in duration-500;
 }
 
 .portfolio_details .heading_container {
@@ -405,7 +409,7 @@ form {
 }
 
 .portfolio_container .cta_container.inactive {
-  @apply invisible opacity-0 transition-all ease-out duration-500;
+  @apply invisible opacity-0 transition-all ease-in duration-500;
 }
 
 .portfolio_container .cta_container .cta_btns {
@@ -417,17 +421,30 @@ form {
   @apply relative flex flex-col items-center mr-[7px];
 }
 
-.figma_info_container:hover .figma_icon,
-.adobexd_info_container:hover .adobexd_icon {
-  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-out duration-500;
+.figma_info_container .figma_icon,
+.adobexd_info_container .adobexd_icon {
+  @apply transition-all ease-in duration-500;
 }
 
-.figma_info_container:hover .figma_icon g path {
-  @apply stroke-primary transition-all ease-out duration-500;
+.figma_info_container.active .figma_icon,
+.adobexd_info_container.active .adobexd_icon {
+  @apply drop-shadow-[0_0_6px_#59ED82] transition-all ease-in duration-500;
 }
 
-.adobexd_info_container:hover .adobexd_icon #foreground {
-  @apply fill-primary transition-all ease-out duration-500;
+.figma_info_container .figma_icon g path {
+  @apply transition-all ease-in duration-500;
+}
+
+.figma_info_container.active .figma_icon g path {
+  @apply stroke-primary transition-all ease-in duration-500;
+}
+
+.adobexd_info_container .adobexd_icon #foreground {
+  @apply transition-all ease-in duration-500;
+}
+
+.adobexd_info_container.active .adobexd_icon #foreground {
+  @apply fill-primary transition-all ease-in duration-500;
 }
 
 .portfolio_btn {
@@ -447,7 +464,7 @@ form {
 }
 
 .portfolio_btn:hover .pop_side {
-  @apply visible opacity-100 transition-all ease-out duration-500;
+  @apply visible opacity-100 transition-all ease-in duration-500;
 }
 
 .portfolio_details .heading_container .chevronIcon_container {
@@ -465,7 +482,7 @@ form {
   .heading_container
   .chevronIcon_container
   .chevronIcon_wrapper {
-  @apply translate-x-full transition-all ease-out duration-500;
+  @apply translate-x-full transition-all ease-in duration-500;
 }
 
 .portfolio_details
@@ -481,7 +498,7 @@ form {
   .chevronIcon_container
   .chevronIcon_wrapper
   .chevronUp_icon {
-  @apply -translate-x-full -rotate-180 transition-all ease-out duration-500;
+  @apply -translate-x-full -rotate-180 transition-all ease-in duration-500;
 }
 
 .portfolio_details .desc_container {
@@ -657,7 +674,7 @@ form {
 
 .workexp_section .main_section .chevron_up_icon.active,
 .education_section .main_section .chevron_up_icon.active {
-  @apply rotate-0 transition-all ease-out duration-300;
+  @apply rotate-0 transition-all ease-in duration-300;
 }
 
 .workexp_section .sub_section,

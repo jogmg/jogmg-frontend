@@ -37,17 +37,39 @@ export default function Portfolio({
   };
 
   const handleMouseEnter = (index: number) => {
-    setShowInfo((prev) => ({
-      ...prev,
-      [index]: true,
-    }));
+    if (window.innerWidth > 768) {
+      setShowInfo((prev) => ({
+        ...prev,
+        [index]: true,
+      }));
+    }
   };
 
   const handleMouseLeave = (index: number) => {
-    setShowInfo((prev) => ({
-      ...prev,
-      [index]: false,
-    }));
+    if (window.innerWidth > 768) {
+      setShowInfo((prev) => ({
+        ...prev,
+        [index]: false,
+      }));
+    }
+  };
+
+  const handleTouchStart = (index: number) => {
+    if (window.innerWidth <= 768) {
+      setShowInfo((prev) => ({
+        ...prev,
+        [index]: true,
+      }));
+    }
+  };
+
+  const handleTouchEnd = (index: number) => {
+    if (window.innerWidth <= 768) {
+      setShowInfo((prev) => ({
+        ...prev,
+        [index]: false,
+      }));
+    }
   };
 
   return (
@@ -98,6 +120,8 @@ export default function Portfolio({
               className="title"
               onMouseEnter={() => handleMouseEnter(20)}
               onMouseLeave={() => handleMouseLeave(20)}
+              onTouchStart={() => handleTouchStart(20)}
+              onTouchEnd={() => handleTouchEnd(20)}
             >
               {title.length < 23 ? title : `${title.slice(0, 23)}...`}
             </p>
@@ -122,6 +146,8 @@ export default function Portfolio({
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
+              onTouchStart={() => handleTouchStart(index)}
+              onTouchEnd={() => handleTouchEnd(index)}
             >
               <Image src={desc.iconUrl} alt={desc.title + " Icon"} />
               <span className="title">{desc.title}:</span>

@@ -7,11 +7,11 @@ import { lexend } from "@app/util/fonts";
 import { sendUser } from "@app/util/query";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import Link from "next/link";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import z from "zod";
+import Info from "../Info";
 import TextAreaField from "./TextAreaField";
 
 export interface IUserData {
@@ -32,6 +32,8 @@ type UserForm = z.infer<typeof UserFormSchema>;
 
 export default function Intro() {
   const [toggled, setIsToggled] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -40,14 +42,6 @@ export default function Intro() {
   } = useForm<UserForm>({
     resolver: zodResolver(UserFormSchema),
   });
-
-  const handleGoBack = () => {
-    setIsToggled(false);
-  };
-
-  const handleGetInTouch = () => {
-    setIsToggled(true);
-  };
 
   const { mutate, isPending } = useMutation({
     mutationFn: (data: IUserData) => sendUser(data),
@@ -64,6 +58,38 @@ export default function Intro() {
 
   const onSubmit: SubmitHandler<IUserData> = (data) => {
     mutate(data);
+  };
+
+  const handleGoBack = () => {
+    setIsToggled(false);
+  };
+
+  const handleGetInTouch = () => {
+    setIsToggled(true);
+  };
+
+  const handleMouseEnter = () => {
+    if (window.innerWidth > 768) {
+      setShowInfo(() => true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth > 768) {
+      setShowInfo(() => false);
+    }
+  };
+
+  const handleTouchStart = () => {
+    if (window.innerWidth <= 768) {
+      setShowInfo(() => true);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (window.innerWidth <= 768) {
+      setShowInfo(() => false);
+    }
   };
 
   const introText = `I help businesses realize high-quality software solutions that meet user needs through design and development, all from my little room. \n\nLet's collaborate to bring your ideas to life.`;
@@ -103,12 +129,27 @@ export default function Intro() {
         <div className="heading_container">
           <h2 className={`h2 ${lexend.className}`}>Fill Form</h2>
           <p>OR</p>
-          <Link
-            href="mailto:joattah3@gmail.com"
-            className="mail_icon_container"
+          <div
+            className="relative flex justify-center"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
-            <i className="bi bi-envelope text-2xl text-secondary transition-all ease-out duration-500"></i>
-          </Link>
+            <a
+              href="mailto:joattah3@gmail.com"
+              className={`mail_icon_container ${showInfo ? "active" : ""}`}
+            >
+              <i className="bi bi-envelope text-2xl text-secondary transition-all ease-out duration-500" />
+            </a>
+            {showInfo ? (
+              <Info
+                text="Email directly"
+                posY={"top-[55px]"}
+                textWrap={false}
+              />
+            ) : undefined}
+          </div>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="input_container">

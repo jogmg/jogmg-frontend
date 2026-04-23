@@ -12,11 +12,27 @@ export default function SideNavLink({ title, isInView }: ISideNavLink) {
   const [showInfo, setShowInfo] = useState(false);
 
   const handleMouseEnter = () => {
-    setShowInfo(() => true);
+    if (window.innerWidth > 768) {
+      setShowInfo(() => true);
+    }
   };
 
   const handleMouseLeave = () => {
-    setShowInfo(() => false);
+    if (window.innerWidth > 768) {
+      setShowInfo(() => false);
+    }
+  };
+
+  const handleTouchStart = () => {
+    if (window.innerWidth <= 768) {
+      setShowInfo(() => true);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (window.innerWidth <= 768) {
+      setShowInfo(() => false);
+    }
   };
 
   return (
@@ -24,6 +40,8 @@ export default function SideNavLink({ title, isInView }: ISideNavLink) {
       className="sideNav_link_container"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <Link
         href={`#${

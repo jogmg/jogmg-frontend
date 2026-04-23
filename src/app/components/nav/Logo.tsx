@@ -1,18 +1,52 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function Logo() {
   const pathname = usePathname();
+  const [showInfo, setShowInfo] = useState(false);
+
+  const handleMouseEnter = () => {
+    if (window.innerWidth > 768) {
+      setShowInfo(() => true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth > 768) {
+      setShowInfo(() => false);
+    }
+  };
+
+  const handleTouchStart = () => {
+    if (window.innerWidth <= 768) {
+      setShowInfo(() => true);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (window.innerWidth <= 768) {
+      setShowInfo(() => false);
+    }
+  };
 
   return (
-    <Link href={"/"} aria-current={pathname === "/" ? "page" : undefined} aria-label="Site homepage logo">
+    <Link
+      href={"/"}
+      aria-current={pathname === "/" ? "page" : undefined}
+      aria-label="Site homepage logo"
+    >
       <svg
-        className="logo"
+        className={`logo ${showInfo ? "active" : ""}`}
         width="177"
         height="44"
         viewBox="0 0 177 44"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         <g clipPath="url(#clip0_104_1873)">
           <path
