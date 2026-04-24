@@ -14,6 +14,8 @@ interface ISkillMarqueeProps {
   className?: string;
 }
 
+gsap.registerPlugin(useGSAP, Draggable);
+
 export default function SkillMarquee({
   skills,
   isSkillsSuccessful,
@@ -21,8 +23,6 @@ export default function SkillMarquee({
 }: ISkillMarqueeProps) {
   const containerRef = useRef(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
-
-  gsap.registerPlugin(useGSAP, Draggable);
 
   useGSAP(
     () => {
@@ -55,8 +55,16 @@ export default function SkillMarquee({
       // Initial creation
       createLoop();
 
-      // Re-run logic on window resize
-      window.addEventListener("resize", createLoop);
+      // Only re-run logic on window resize if width changes (prevents mobile address bar issues)
+      let lastWidth = window.innerWidth;
+      const handleResize = () => {
+        if (window.innerWidth !== lastWidth) {
+          lastWidth = window.innerWidth;
+          createLoop();
+        }
+      };
+
+      window.addEventListener("resize", handleResize);
 
       if (wrapper) {
         wrapper.addEventListener("mouseenter", stopLoop);
@@ -66,7 +74,7 @@ export default function SkillMarquee({
         wrapper.addEventListener("touchend", startLoop);
       }
 
-      Draggable.create(document.createElement("div"), {
+      const draggables = Draggable.create(document.createElement("div"), {
         trigger: wrapperRef.current,
         type: "x",
         onPress() {
@@ -85,7 +93,8 @@ export default function SkillMarquee({
 
       // Cleanup on unmount
       return () => {
-        window.removeEventListener("resize", createLoop);
+        window.removeEventListener("resize", handleResize);
+        draggables.forEach((d) => d.kill());
 
         if (wrapper) {
           wrapper.removeEventListener("mouseenter", stopLoop);
