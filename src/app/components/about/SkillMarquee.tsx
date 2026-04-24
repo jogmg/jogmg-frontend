@@ -114,15 +114,15 @@ export default function SkillMarquee({
         <div className="skills_track">
           {isSkillsSuccessful && skills
             ? skills.map((skill) => (
-                <SkillCard
-                  key={skill._id}
-                  title={skill.title}
-                  imgSrc={skill.imgSrc}
-                />
-              ))
+              <SkillCard
+                key={skill._id}
+                title={skill.title}
+                imgSrc={skill.imgSrc}
+              />
+            ))
             : Array.from({ length: 3 }).map((_, idx) => (
-                <LoadingSkeleton key={idx} skill />
-              ))}
+              <LoadingSkeleton key={idx} skill />
+            ))}
         </div>
       </div>
     </aside>
