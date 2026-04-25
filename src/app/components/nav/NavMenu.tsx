@@ -5,6 +5,8 @@ import GithubIcon from "@app/components/icons/GithubIcon";
 import LinkedinIcon from "@app/components/icons/LinkedinIcon";
 import NavLink from "@app/components/nav/NavLink";
 import useSharedContext from "@app/util/SharedContext";
+import XIcon from "../icons/XIcon";
+import YTIcon from "../icons/YTIcon";
 
 export default function NavMenu() {
   const { isNavMenuOpen, setIsNavMenuOpen } = useSharedContext();
@@ -26,6 +28,8 @@ export default function NavMenu() {
         <div className="socials_container">
           <LinkedinIcon infoPosY="-top-[40px]" />
           <GithubIcon infoPosY="-top-[40px]" />
+          <XIcon infoPosY="-top-[40px]" />
+          <YTIcon infoPosY="-top-[40px]" />
         </div>
       </div>
     </div>

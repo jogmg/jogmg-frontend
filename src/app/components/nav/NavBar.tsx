@@ -6,6 +6,8 @@ import MenuIcon from "@app/components/icons/MenuIcon";
 import Logo from "@app/components/nav/Logo";
 import NavLink from "@app/components/nav/NavLink";
 import { useEffect, useState } from "react";
+import XIcon from "../icons/XIcon";
+import YTIcon from "../icons/YTIcon";
 
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false);
@@ -31,6 +33,8 @@ export default function NavBar() {
       <div className="socials_container">
         <LinkedinIcon />
         <GithubIcon />
+        <XIcon />
+        <YTIcon />
       </div>
       <MenuIcon />
     </nav>

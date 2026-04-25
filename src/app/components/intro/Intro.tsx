@@ -140,7 +140,7 @@ export default function Intro() {
               href="mailto:joattah3@gmail.com"
               className={`mail_icon_container ${showInfo ? "active" : ""}`}
             >
-              <i className="bi bi-envelope text-2xl text-secondary transition-all ease-out duration-500" />
+              <i className="bi bi-envelope text-2xl text-secondary transition-all ease-in duration-500" />
             </a>
             {showInfo ? (
               <Info
