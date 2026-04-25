@@ -44,10 +44,15 @@ export default function XIcon({ infoPosY = "-bottom-[40px]" }: IXIconProps) {
       <Link
         href="https://x.com/jogmg"
         target="_blank"
+        aria-label="Visit my X page"
         className="flex justify-center items-center size-10"
       >
         <i
-          className={`${showInfo ? "text-primary drop-shadow-[0_0_6px_#59ED82] transition-all ease-in duration-500" : "text-secondary"} bi bi-twitter-x flex items-center justify-center text-[1rem] size-[1.75rem] rounded-full bg-background-main transition-all ease-in duration-500`}
+          className={`${
+            showInfo
+              ? "text-primary drop-shadow-[0_0_6px_#59ED82] transition-all ease-in duration-500"
+              : "text-secondary"
+          } bi bi-twitter-x flex items-center justify-center text-[1rem] size-[1.75rem] rounded-full bg-background-main transition-all ease-in duration-500`}
         />
       </Link>
       {showInfo ? (

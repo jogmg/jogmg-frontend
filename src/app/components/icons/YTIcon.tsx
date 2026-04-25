@@ -44,10 +44,15 @@ export default function YTIcon({ infoPosY = "-bottom-[40px]" }: IYTIconProps) {
       <Link
         href="https://www.youtube.com/@JoGamingContent"
         target="_blank"
+        aria-label="Subscribe to my youtube channel"
         className="flex justify-center items-center size-10"
       >
         <i
-          className={`${showInfo ? "text-primary drop-shadow-[0_0_6px_#59ED82] transition-all ease-in duration-500" : "text-secondary"} bi bi-youtube flex items-center justify-center text-[1.75rem] size-3 rounded-full bg-background-main transition-all ease-in duration-500`}
+          className={`${
+            showInfo
+              ? "text-primary drop-shadow-[0_0_6px_#59ED82] transition-all ease-in duration-500"
+              : "text-secondary"
+          } bi bi-youtube flex items-center justify-center text-[1.75rem] size-3 rounded-full bg-background-main transition-all ease-in duration-500`}
         />
       </Link>
       {showInfo ? (
