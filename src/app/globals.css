@@ -105,7 +105,7 @@ footer .last_updated {
 }
 
 .navBar .socials_container {
-  @apply hidden lg:flex gap-[30px] pl-[130px];
+  @apply hidden lg:flex gap-[30px];
 }
 
 .linkedin_info_container,
