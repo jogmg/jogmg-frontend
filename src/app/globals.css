@@ -341,7 +341,7 @@ form {
 }
 
 .portfolio_container .image {
-  @apply absolute object-cover transition-all ease-in duration-500;
+  @apply absolute object-cover transition-all ease-in duration-500 pointer-events-none;
 }
 
 .portfolio_container:hover .image {
@@ -353,7 +353,7 @@ form {
 }
 
 .portfolio_container .chevronTripleRight_icon {
-  @apply invisible opacity-0 absolute translate-x-[-70px] transition-all ease-in duration-500;
+  @apply invisible opacity-0 absolute translate-x-[-70px] transition-all ease-in duration-500 pointer-events-none;
 }
 
 .portfolio_container:hover .chevronTripleRight_icon {
