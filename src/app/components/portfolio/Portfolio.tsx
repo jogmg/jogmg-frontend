@@ -14,8 +14,8 @@ interface IPortfolio {
   title: string;
   bgUrl: string | StaticImageData;
   mainUrl: string;
-  ctaUrl: string;
-  ctaType: "github" | "figma" | "adobexd";
+  ctaUrl?: string;
+  ctaType?: "github" | "figma" | "adobexd";
   descs: { iconUrl: string | StaticImageData; title: string; text: string }[];
 }
 
@@ -82,7 +82,7 @@ export default function Portfolio({
       />
       <div className={`cta_container ${active ? "inactive" : ""}`}>
         <div className="cta_btns">
-          {ctaType === "github" && (
+          {ctaType === "github" && ctaUrl && (
             <GithubIcon
               url={ctaUrl}
               width="50"
@@ -90,8 +90,8 @@ export default function Portfolio({
               infoPosY="-top-[40px]"
             />
           )}
-          {ctaType === "adobexd" && <AdobeXDIcon url={ctaUrl} />}
-          {ctaType === "figma" && <FigmaIcon url={ctaUrl} />}
+          {ctaType === "adobexd" && ctaUrl && <AdobeXDIcon url={ctaUrl} />}
+          {ctaType === "figma" && ctaUrl && <FigmaIcon url={ctaUrl} />}
           <Button
             linkUrl={mainUrl}
             text={`${ctaType === "github" ? "View Project" : "View Case"}`}

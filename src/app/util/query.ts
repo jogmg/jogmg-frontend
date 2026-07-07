@@ -6,8 +6,8 @@ export interface IPortfolioData {
   title: string;
   bgUrl: string;
   mainUrl: string;
-  ctaUrl: string;
-  ctaType: "github" | "figma" | "adobexd";
+  ctaUrl?: string;
+  ctaType?: "github" | "figma" | "adobexd";
   descs: { title: string; text: string }[];
 }
 
