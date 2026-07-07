@@ -160,7 +160,8 @@ export default function Portfolio({
                 <Info
                   text={desc.text}
                   posY={
-                    title === "Digital Certificate Generator"
+                    title === "Digital Certificate Generator" ||
+                    title === "Synthesis Society"
                       ? "-top-[60px]"
                       : "-top-[40px]"
                   }
