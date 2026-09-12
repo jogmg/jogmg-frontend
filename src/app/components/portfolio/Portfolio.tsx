@@ -72,6 +72,12 @@ export default function Portfolio({
     }
   };
 
+  const portfolioTitles = [
+    "Digital Certificate Generator",
+    "Synthesis Society",
+    "Generation & Authentication of Certificates E-system (GACs)",
+  ];
+
   return (
     <div className={`portfolio_container ${active ? "active" : ""}`}>
       <Image src={bgUrl} alt={`${title} Image`} fill className="image" />
@@ -162,8 +168,7 @@ export default function Portfolio({
                 <Info
                   text={desc.text}
                   posY={
-                    title === "Digital Certificate Generator" ||
-                    title === "Synthesis Society"
+                    portfolioTitles.includes(title)
                       ? "-top-[60px]"
                       : "-top-[40px]"
                   }
