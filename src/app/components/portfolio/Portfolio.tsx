@@ -94,7 +94,9 @@ export default function Portfolio({
           {ctaType === "figma" && ctaUrl && <FigmaIcon url={ctaUrl} />}
           <Button
             linkUrl={mainUrl}
-            text={`${ctaType === "github" ? "View Project" : "View Case"}`}
+            text={`${
+              !!ctaType && ctaType !== "github" ? "View Case" : "View Project"
+            }`}
             btnType="portfolio"
           />
         </div>
